@@ -6,7 +6,7 @@ body {
 .container {
     width: 350px;
     margin: 80px auto;
-    background: rgb(140, 16, 16);
+    background: rgb(244, 234, 234);
     padding: 25px;
     border-radius: 10px;
     box-shadow: 0 0 10px #ccc;
@@ -74,4 +74,5 @@ button {
     border-radius: 8px;
     border: 1px solid #ddd;
     min-height: 80px;
+
 }
