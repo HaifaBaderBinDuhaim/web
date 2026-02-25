@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weekly Availability - Smart Study Planner</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Weekly Availability</h1>
+
+        <form id="availabilityForm" onsubmit="event.preventDefault(); saveAvailability();">
+
+            <label>Select Day</label>
+            <select id="day" required>
+                <option value="Saturday">Saturday</option>
+                <option value="Sunday">Sunday</option>
+                <option value="Monday">Monday</option>
+                <option value="Tuesday">Tuesday</option>
+                <option value="Wednesday">Wednesday</option>
+                <option value="Thursday">Thursday</option>
+                <option value="Friday">Friday</option>
+            </select>
+
+            <label>Start Time</label>
+            <input type="time" id="startTime" required>
+
+            <label>End Time</label>
+            <input type="time" id="endTime" required>
+
+            <button type="submit">Add Availability</button>
+        </form>
+
+        <h2>Your Weekly Availability</h2>
+        <ul id="availabilityList"></ul>
+
+        <button onclick="window.location.href='dashboard.html'" class="btn">Back to Dashboard</button>
+    </div>
+
+    <script src="../js/availability.js"></script>
+</body>
+</html>

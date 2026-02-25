@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - Smart Study Planner</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Welcome to Smart Study Planner</h1>
+
+        <p>You are logged in as: <span id="userEmail"></span></p>
+
+        <div class="menu">
+            <a href="courses.html" class="btn">Manage Courses</a>
+            <a href="tasks.html" class="btn">Assignments & Exams</a>
+            <a href="availability.html" class="btn">Weekly Availability</a>
+            <a href="planner.html" class="btn">Study Plan</a>
+            <a href="stats.html" class="btn">Statistics</a>
+        </div>
+
+        <button onclick="logoutUser()" class="logout-btn">Logout</button>
+    </div>
+
+    <script src="../js/auth.js"></script>
+
+    <script>
+        // عرض الإيميل في الداشبورد
+        const email = localStorage.getItem("loggedInUser");
+        if (!email) {
+            window.location.href = "login.html"; // لو ما فيه تسجيل دخول يرجع للوجن
+        }
+        document.getElementById("userEmail").textContent = email;
+    </script>
+
+</body>
+</html>
