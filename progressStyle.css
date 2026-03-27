@@ -1,0 +1,21 @@
+/* Additional styles for statistics page */
+.stats-section {
+    margin-top: 2rem;
+}
+
+.stats-table tr:hover {
+    background: #f8f9fa;
+}
+
+.btn-complete:hover {
+    background: #219653;
+}
+
+.btn-missed:hover {
+    background: #c0392b;
+}
+
+.card p {
+    margin: 0.5rem 0;
+    color: #666;
+}
