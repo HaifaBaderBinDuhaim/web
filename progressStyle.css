@@ -1,21 +1,447 @@
-/* Additional styles for statistics page */
-.stats-section {
-    margin-top: 2rem;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f5f7fb;
+    color: #1a1a2e;
+    padding: 2rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ============================================ */
+/* Header Styles */
+/* ============================================ */
+.header {
+    margin-bottom: 2rem;
+}
+
+.header h1 {
+    font-size: 1.8rem;
+    color: #1e293b;
+}
+
+.header p {
+    color: #64748b;
+    margin-top: 0.25rem;
+}
+
+/* ============================================ */
+/* Stats Grid - 4 Cards */
+/* ============================================ */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: white;
+    border-radius: 20px;
+    padding: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.stat-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 16px;
+    background: #eef2ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.stat-info h3 {
+    font-size: 0.75rem;
+    color: #94a3b8;
+    margin-bottom: 0.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.stat-value {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #1e293b;
+}
+
+.trend {
+    font-size: 0.7rem;
+    margin-top: 0.25rem;
+}
+
+.trend.up {
+    color: #10b981;
+}
+
+.stat-info p {
+    font-size: 0.7rem;
+    color: #94a3b8;
+}
+
+/* ============================================ */
+/* Progress Bar */
+/* ============================================ */
+.progress-bar {
+    background: #e2e8f0;
+    height: 6px;
+    border-radius: 3px;
+    margin-top: 0.5rem;
+    width: 100%;
+}
+
+.progress-fill {
+    background: #4f46e5;
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.3s;
+}
+
+/* ============================================ */
+/* Action Buttons */
+/* ============================================ */
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-success, .btn-danger, .btn-primary {
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-success {
+    background: #10b981;
+    color: white;
+}
+
+.btn-success:hover {
+    background: #059669;
+}
+
+.btn-danger {
+    background: #ef4444;
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #dc2626;
+}
+
+.btn-primary {
+    background: #4f46e5;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #4338ca;
+}
+
+/* Back to Dashboard Button */
+.btn {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    background: #42464a;  /* ← Change this color */
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    margin-top: 1rem;
+}
+
+.btn:hover {
+    background: #434648;  /* ← Darker shade on hover */
+    transform: translateY(-2px);
+}
+
+
+
+
+
+.btn-success:active, .btn-danger:active, .btn-primary:active {
+    transform: scale(0.98);
+}
+
+/* ============================================ */
+/* Chart Cards */
+/* ============================================ */
+.chart-card {
+    background: white;
+    border-radius: 20px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.chart-card h2 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: #1e293b;
+}
+
+.chart-container {
+    height: 250px;
+}
+
+.chart-container.small {
+    height: 220px;
+}
+
+/* ============================================ */
+/* Table Card */
+/* ============================================ */
+.table-card {
+    background: white;
+    border-radius: 20px;
+    padding: 1.5rem;
+}
+
+.table-card h2 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: #1e293b;
+}
+
+.stats-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.stats-table th,
+.stats-table td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.stats-table th {
+    color: #64748b;
+    font-weight: 500;
+    font-size: 0.85rem;
 }
 
 .stats-table tr:hover {
-    background: #f8f9fa;
+    background: #f8fafc;
 }
 
-.btn-complete:hover {
-    background: #219653;
+.mini-progress {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
-.btn-missed:hover {
-    background: #c0392b;
+.mini-fill {
+    background: #4f46e5;
+    height: 6px;
+    border-radius: 3px;
+    width: 60px;
+    transition: width 0.3s;
 }
 
-.card p {
-    margin: 0.5rem 0;
-    color: #666;
+.mini-progress span {
+    font-size: 0.75rem;
+    color: #64748b;
+}
+
+/* ============================================ */
+/* Sessions Section - Study Sessions List */
+/* ============================================ */
+.sessions-section {
+    background: white;
+    border-radius: 20px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.sessions-section h2 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: #1e293b;
+}
+
+.sessions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.session-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    background: #f8fafc;
+    border-radius: 12px;
+    border-left: 4px solid #4f46e5;
+    transition: all 0.2s;
+}
+
+/* Session Status Colors */
+.session-item.completed {
+    border-left-color: #10b981;
+    background: #f0fdf4;
+}
+
+.session-item.missed {
+    border-left-color: #ef4444;
+    background: #fef2f2;
+}
+
+.session-info {
+    flex: 1;
+}
+
+.session-course {
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 0.25rem;
+}
+
+.session-details {
+    font-size: 0.75rem;
+    color: #64748b;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.session-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+
+.session-actions button {
+    padding: 0.4rem 0.8rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.session-actions button:first-child {
+    background: #10b981;
+    color: white;
+}
+
+.session-actions button:first-child:hover {
+    background: #059669;
+}
+
+.session-actions button:last-child {
+    background: #ef4444;
+    color: white;
+}
+
+.session-actions button:last-child:hover {
+    background: #dc2626;
+}
+
+/* Session Status Badges */
+.session-status {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 20px;
+}
+
+.session-status.completed {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.session-status.missed {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.session-status.pending {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+/* ============================================ */
+/* Responsive Design */
+/* ============================================ */
+@media (max-width: 1024px) {
+    .stats-grid {
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .chart-container {
+        height: 200px;
+    }
+    
+    .session-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+    
+    .session-actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
+    
+    .session-details {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .action-buttons {
+        flex-wrap: wrap;
+    }
+    
+    .stats-table th,
+    .stats-table td {
+        padding: 0.5rem;
+        font-size: 0.75rem;
+    }
 }
