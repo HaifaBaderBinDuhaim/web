@@ -3,20 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Study Planner - Smart Study Planner</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/plannerstyle.css">
 </head>
 
-<body>
+<body class="body">
 
     <div class="container">
-        <h1>Weekly Study Planner</h1>
 
-        <button onclick="generatePlan()" class="btn">Generate Study Plan</button>
+        <h1 class="title">Weekly Study Planner</h1>
 
-        <h2>Your Weekly Plan</h2>
-        <div id="planContainer"></div>
+        <button onclick="generatePlan()" class="btn-primary">Generate Study Plan</button>
 
-        <button onclick="window.location.href='dashboard.html'" class="btn">Back to Dashboard</button>
+        <h2 class="subtitle">Your Weekly Plan</h2>
+
+        <div id="planContainer" class="plan-container"></div>
+
+        <button onclick="window.location.href='dashboard.html'" class="btn-secondary">Back to Dashboard</button>
+
     </div>
 
     <script src="../js/planner.js"></script>
