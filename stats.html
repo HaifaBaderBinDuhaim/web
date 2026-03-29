@@ -16,14 +16,14 @@
             <p>Track your study performance</p>
         </div>
 
-        <div class="stats-section">
+      <!-- <div class="stats-section">
             <p>Total Courses: <span id="totalCourses">0</span></p>
             <p>Total Tasks: <span id="totalTasks">0</span></p>
             <p>Assignments: <span id="assignmentsCount">0</span></p>
             <p>Exams: <span id="examsCount">0</span></p>
         </div>
 
-        <br>
+        <br> -->
     
 
 
@@ -71,14 +71,14 @@
          
             <div class="session-info">
         <div class="session-course">SWE 381</div>
-        <div class="session-details">📅 2026-03-27 | ⏰ 10:00 - 12:00 | ⏱️ 2 hours</div>
+        <div class="session-details">📅 2026-03-27 | ⏰ 10:00 - 12:00 AM</div>
     </div>
     <div class="session-actions">
-        <button onclick="markSession(1, 'completed')">✓ Complete</button>
-        <button onclick="markSession(1, 'missed')">✗ Missed</button>
-    </div>
+    <button class="btn-success mark-complete">✓ Complete</button>
+    <button class="btn-fail mark-missed">✗ Missed</button>
 </div>
-
+</div>
+<br>
  <!-- Stats Cards (FR8.1: Weekly Study Hours) -->
         <div class="stats-grid">
             <div class="stat-card">
@@ -102,7 +102,7 @@
                 <div class="stat-info">
                     <h3>Missed Sessions</h3>
                     <div class="stat-value" id="missedSessions">6</div>
-                    <p>↓ 2 from last week</p>
+                    <p>2 from last week</p>
                 </div>
             </div>
             <div class="stat-card">
@@ -180,10 +180,8 @@
                 </tbody>
             </table>
         </div>
-    </div>
-
-    
-
+    </div>  
+<br>
 <button onclick="window.location.href='dashboard.html'" class="btn">Back to Dashboard</button>
     <script src="../js/stats.js"></script>
 </body>
