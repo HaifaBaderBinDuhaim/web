@@ -1,42 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Tasks - Smart Study Planner</title>
-    <link rel="stylesheet" href="../css/style.css">
+  <meta charset="UTF-8">
+  <title>Tasks – Smart Study Planner</title>
+  <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
 
-    <div class="container">
-        <h1>Assignments & Exams</h1>
+  <div class="container">
+    <h1>Assignments & Exams</h1>
 
-        <form id="taskForm" onsubmit="event.preventDefault(); addTask();">
+    <form id="taskForm" onsubmit="event.preventDefault(); addTask();">
 
-            <label>Task Title</label>
-            <input type="text" id="taskTitle" required>
+      <label>Task Title</label>
+      <input type="text" id="taskTitle" required>
 
-            <label>Course</label>
-            <select id="taskCourse" required></select>
+      <label>Course</label>
+      <select id="taskCourse" required>
+        <option>Math</option>
+        <option>Computer Science</option>
+        <option>English</option>
+      </select>
 
-            <label>Type</label>
-            <select id="taskType" required>
-                <option value="assignment">Assignment</option>
-                <option value="exam">Exam</option>
-            </select>
+      <label>Type</label>
+      <select id="taskType" required>
+        <option value="assignment">Assignment</option>
+        <option value="exam">Exam</option>
+      </select>
 
-            <label>Due Date</label>
-            <input type="date" id="taskDate" required>
+      <label>Due Date</label>
+      <input type="date" id="taskDate" required>
 
-            <button type="submit">Add Task</button>
-        </form>
+      <button type="submit">Add Task</button>
+    </form>
 
-        <h2>Task List</h2>
-        <ul id="taskList"></ul>
+    <h2>Task List</h2>
+    <ul id="taskList"></ul>
 
-        <button onclick="window.location.href='dashboard.html'" class="btn">Back to Dashboard</button>
-    </div>
+    <button onclick="window.location.href='dashboard.html'" class="btn">
+      Back to Dashboard
+    </button>
 
-    <script src="../js/tasks.js"></script>
+  </div>
+
+  <script src="../js/tasks.js"></script>
+
 </body>
 </html>
