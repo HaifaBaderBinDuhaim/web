@@ -1,72 +1,41 @@
+let completed = 0;
+const total = 3;
 
 window.onload = function () {
-  const savedMode = localStorage.getItem("darkMode");
-
-  if (savedMode === "enabled") {
-    document.body.classList.add("dark");
-  }
-};
-let completedSessions = 0;
-const totalSessions = 3;
-
-window.onload = function () {
-  const savedName = localStorage.getItem("studentName");
-  const savedEmail = localStorage.getItem("loggedInUser");
-
-  if (savedName) {
-    document.getElementById("studentName").textContent = savedName;
-  } else if (savedEmail) {
-    document.getElementById("studentName").textContent = savedEmail;
-  }
+  updateRate();
 };
 
 function markCompleted(button) {
-  if (button.classList.contains("done-btn")) {
-    return;
-  }
+  if (button.disabled) return;
 
-  button.classList.add("done-btn");
+  const parent = button.closest(".session-actions");
+  const missedBtn = parent.querySelector(".missed-btn");
+
+  completed++;
+
+  button.disabled = true;
+  missedBtn.disabled = true;
+
   button.textContent = "Done";
 
-  completedSessions++;
-  updateCompletionRate();
+  updateRate();
 }
 
-function updateCompletionRate() {
-  const completionRate = Math.round((completedSessions / totalSessions) * 100);
-  document.getElementById("completionRate").textContent = completionRate + "%";
+function markMissed(button) {
+  if (button.disabled) return;
+
+  const parent = button.closest(".session-actions");
+  const completedBtn = parent.querySelector(".session-btn");
+
+  button.disabled = true;
+  completedBtn.disabled = true;
+
+  button.textContent = "Missed";
+
+  updateRate();
 }
 
-function logout() {
-  localStorage.removeItem("loggedInUser");
-  localStorage.removeItem("studentName");
-  window.location.href = "logIn.html";
+function updateRate() {
+  const rate = Math.round((completed / total) * 100);
+  document.getElementById("completionRate").textContent = rate + "%";
 }
-function toggleDarkMode() {
-  document.body.classList.toggle("dark");
-
-  // نحفظ الحالة
-  if (document.body.classList.contains("dark")) {
-    localStorage.setItem("darkMode", "enabled");
-  } else {
-    localStorage.setItem("darkMode", "disabled");
-  }
-}
-
-// لما الصفحة تفتح
-window.onload = function () {
-  const savedMode = localStorage.getItem("darkMode");
-
-  if (savedMode === "enabled") {
-    document.body.classList.add("dark");
-  }
-
-  const savedName = localStorage.getItem("studentName");
-  const savedEmail = localStorage.getItem("loggedInUser");
-
-  if (savedName) {
-    document.getElementById("studentName").textContent = savedName;
-  } else if (savedEmail) {
-    document.getElementById("studentName").textContent = savedEmail;
-  }
-};
