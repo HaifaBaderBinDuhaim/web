@@ -6,72 +6,74 @@
   <title>Dashboard - Smart Study Planner</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-  <div class="container dashboard-container">
-    <h1>Welcome to Smart Study Planner</h1>
-    <p class="subtitle">
-      Welcome back, <span id="studentName">Student</span> 👋
-    </p>
+<body class="dashboard-page">
+  <div class="dashboard-wrapper">
+    <div class="dashboard-container">
+      <h1>Welcome to Smart Study Planner</h1>
+      <p class="subtitle">
+        Welcome back, <span id="studentName">Student</span> 👋
+      </p>
 
-    <div class="stats-grid">
-      <div class="stats-card">
-        <h3>Total Courses</h3>
-        <p id="coursesCount">4</p>
+      <div class="stats-grid">
+        <div class="stats-card">
+          <h3>Total Courses</h3>
+          <p>4</p>
+        </div>
+
+        <div class="stats-card">
+          <h3>Today’s Sessions</h3>
+          <p id="sessionsCount">3</p>
+        </div>
+
+        <div class="stats-card">
+          <h3>Upcoming Deadline</h3>
+          <p>Physics Quiz</p>
+        </div>
+
+        <div class="stats-card">
+          <h3>Completion Rate</h3>
+          <p id="completionRate">0%</p>
+        </div>
       </div>
 
-      <div class="stats-card">
-        <h3>Today’s Sessions</h3>
-        <p id="sessionsCount">3</p>
+      <h2>Today’s Study Sessions</h2>
+
+      <div class="session-box">
+        <div class="session-info">
+          <strong>Math Revision</strong>
+          <p>5:00 PM - 6:00 PM</p>
+        </div>
+
+        <div class="session-actions">
+          <button class="session-btn" onclick="markCompleted(this)">Completed</button>
+          <button class="missed-btn" onclick="markMissed(this)">Missed</button>
+        </div>
       </div>
 
-      <div class="stats-card">
-        <h3>Upcoming Deadline</h3>
-        <p id="deadlineText">Physics Quiz</p>
+      <div class="session-box">
+        <div class="session-info">
+          <strong>Physics Chapter 3</strong>
+          <p>6:30 PM - 7:30 PM</p>
+        </div>
+
+        <div class="session-actions">
+          <button class="session-btn" onclick="markCompleted(this)">Completed</button>
+          <button class="missed-btn" onclick="markMissed(this)">Missed</button>
+        </div>
       </div>
 
-      <div class="stats-card">
-        <h3>Completion Rate</h3>
-        <p id="completionRate">0%</p>
+      <div class="session-box">
+        <div class="session-info">
+          <strong>Programming Practice</strong>
+          <p>8:00 PM - 9:00 PM</p>
+        </div>
+
+        <div class="session-actions">
+          <button class="session-btn" onclick="markCompleted(this)">Completed</button>
+          <button class="missed-btn" onclick="markMissed(this)">Missed</button>
+        </div>
       </div>
     </div>
-
-    <h2>Today’s Study Sessions</h2>
-
-    <div class="day-box session-box">
-      <div>
-        <strong>Math Revision</strong>
-        <p>5:00 PM - 6:00 PM</p>
-      </div>
-      <button class="session-btn" onclick="markCompleted(this)">Completed</button>
-    </div>
-
-    <div class="day-box session-box">
-      <div>
-        <strong>Physics Chapter 3</strong>
-        <p>6:30 PM - 7:30 PM</p>
-      </div>
-      <button class="session-btn" onclick="markCompleted(this)">Completed</button>
-    </div>
-
-    <div class="day-box session-box">
-      <div>
-        <strong>Programming Practice</strong>
-        <p>8:00 PM - 9:00 PM</p>
-      </div>
-      <button class="session-btn" onclick="markCompleted(this)">Completed</button>
-    </div>
-   
-
-    <div class="menu">
-      <a href="courses.html" class="btn">Manage Courses</a>
-      <a href="tasks.html" class="btn">Assignments & Exams</a>
-      <a href="availability.html" class="btn">Weekly Availability</a>
-      <a href="planner.html" class="btn">Study Plan</a>
-      <a href="stats.html" class="btn">Statistics</a>
-      <a href="ai-helper.html" class="btn">AI Study Helper</a>
-    </div>
-
-    <button class="logout-btn" onclick="logout()">Logout</button>
   </div>
 
   <script src="dashboard.js"></script>
