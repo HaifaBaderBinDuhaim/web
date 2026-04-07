@@ -351,17 +351,17 @@ body {
 
 
 /* Responsive Design */
-/* ============================================ */
+/* ============================================ 
 @media (max-width: 1024px) {
     .stats-grid {
         gap: 16px;
     }
-} /*tablet*/
+} /*tablet
 
 @media (max-width: 768px) {
     body {
         padding: 16px;
-    }  /*phone*/
+    }  /*phone
     
     .stats-grid {
         grid-template-columns: 1fr 1fr ; 
@@ -373,7 +373,7 @@ body {
     }
     
     .session-item {
-        flex-direction: column; /* info above buttons*/
+        flex-direction: column; /* info above buttons
         align-items: flex-start;
         gap: 12px;
     }
@@ -381,7 +381,7 @@ body {
     .session-actions {
         width: 100%;
         justify-content: flex-end;
-    } /* الأزرار تأخذ عرض كامل وتتحرك لليمين */
+    } /* الأزرار تأخذ عرض كامل وتتحرك لليمين 
     
     .session-details {
         flex-wrap: wrap;
@@ -393,7 +393,7 @@ body {
     .stats-grid {
         grid-template-columns: 1fr;
     }
-    /* smaller phone*/
+    /* smaller phone
     .action-buttons {
         flex-wrap: wrap;
     }
@@ -403,4 +403,4 @@ body {
         padding: 8px;
         font-size: 12px;
     }
-}
+} */
