@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Study Helper - Smart Study Planner</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>AI Study Helper</h1>
+    <p class="subtitle">Get a simple smart study tip based on your question.</p>
+
+    <label for="studentQuestion">Ask the helper anything:</label>
+    <textarea id="studentQuestion" rows="5" placeholder="Example: I have an exam in 2 days and I feel lost"></textarea>
+
+    <button onclick="generateResponse()">Ask</button>
+
+    <div class="ai-box" id="aiResponse">
+      Your study tip will appear here.
+    </div>
+
+    <button class="btn back-btn" onclick="goBack()">Back to Dashboard</button>
+  </div>
+
+  <script src="ai-helper.js"></script>
+</body>
+</html>
