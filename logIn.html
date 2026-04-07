@@ -1,45 +1,10 @@
 <!doctype html>
-<!-- <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Smart Study Planner - Login</title>
-    <link rel="stylesheet" href="../css/style.css" />
-  </head>
 
-  <body>
-    <div class="container">
-      <h1>Smart Study Planner</h1>
-
-      <form
-        id="loginForm"
-        onsubmit="
-          event.preventDefault();
-          loginUser();
-        "
-      >
-        <label>Email</label>
-        <input type="email" id="email" required />
-
-        <label>Password</label>
-        <input type="password" id="password" required />
-
-        <button type="submit">Login</button>
-
-        <p>
-          Don't have an account?
-          <a href="register.html">Create one</a>
-        </p>
-      </form>
-    </div>
-
-    <script src="../js/auth.js"></script>
-  </body>
-</html>-->
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <tilte>smart study planner</tilte>
+    <title>smart study planner</title>
     <link rel="stylesheet" href="styleLogin.css" />
   </head>
   <body class="body">
@@ -67,12 +32,21 @@
           /><br />
           <br />
           <input type="checkbox" id="reminder" />
-          <lable for="reminder">Remember me for 30 days</lable><br />
+          <lable for="reminder" class="check-row">Remember me for 30 days</lable
+          ><br />
           <br />
-          <button id="login" name="login" class="button">Login</button>
+          <button type="button" class="button" onclick="goToPage()">
+            Sign In
+          </button>
+
+          <script>
+            function goToPage() {
+              window.location.href = "courses2.html";
+            }
+          </script>
         </form>
 
-        <h5>
+        <h5 class="account-text">
           Don't have an account?
           <a href="register.html" alt="sign in" target="_blank" class="sign-up"
             >Sign Up</a
@@ -80,12 +54,12 @@
         </h5>
       </nav>
     </article>
-    <img
+    <!-- <img
       src="studying .png"
       alt="studying"
       height="700"
       width="700"
       class="image"
-    />
+    /> -->
   </body>
 </html>
