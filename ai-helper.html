@@ -1,29 +1,36 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>AI Helper - Smart Study Planner</title>
-    <link rel="stylesheet" href="../css/style.css">
-</head>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
 
-<body>
-
+  <body>
     <div class="container">
-        <h1>AI Study Helper</h1>
+      <h1>AI Study Helper</h1>
 
-        <form id="aiForm" onsubmit="event.preventDefault(); getAIResponse();">
-            <label>Ask the AI anything:</label>
-            <textarea id="userQuestion" rows="4" required></textarea>
+      <form
+        id="aiForm"
+        onsubmit="
+          event.preventDefault();
+          getAIResponse();
+        "
+      >
+        <label>Ask the AI anything:</label>
+        <textarea id="userQuestion" rows="4" required></textarea>
 
-            <button type="submit">Ask</button>
-        </form>
+        <button type="submit">Ask</button>
+      </form>
 
-        <h2>AI Response</h2>
-        <div id="aiResponse" class="ai-box"></div>
+      <h2>AI Response</h2>
+      <div id="aiResponse" class="ai-box"></div>
 
-        <button onclick="window.location.href='dashboard.html'" class="btn">Back to Dashboard</button>
+      <button onclick="window.location.href = 'dashboard.html'" class="btn">
+        Back to Dashboard
+      </button>
     </div>
 
     <script src="../js/ai-helper.js"></script>
-</body>
+  </body>
 </html>
