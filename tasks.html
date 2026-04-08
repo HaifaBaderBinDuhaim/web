@@ -1,50 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Tasks – Smart Study Planner</title>
-  <link rel="stylesheet" href=style.css">
+    <meta charset="UTF-8">
+    <title>Tasks</title>
+    <link rel="stylesheet" href="../css/tasksstyle.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
-<body>
+<body class="body-sidebare">
 
-  <div class="container">
-    <h1>Assignments & Exams</h1>
+<div class="layout">
 
-    <form id="taskForm" onsubmit="event.preventDefault(); addTask();">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo">
+            <i data-lucide="flower-2"></i>
+            <span>Study Planner</span>
+        </div>
 
-      <label>Task Title</label>
-      <input type="text" id="taskTitle" required>
+        <div class="menu">
+            <div class="item"><a href="index.html" class="link">Home</a></div>
+            <div class="item"><a href="courses.html" class="link">Courses</a></div>
+            <div class="item"><a href="availability.html" class="link">Availability</a></div>
+            <div class="item"><a href="study-plan.html" class="link">Study Plan</a></div>
+            <div class="item"><a href="statistics.html" class="link">Statistics</a></div>
+            <div class="item active-item"><a href="tasks.html" class="link">Tasks</a></div>
+            <div class="item"><a href="ai.html" class="link">AI Assistant</a></div>
+        </div>
+    </div>
 
-      <label>Course</label>
-      <select id="taskCourse" required>
-        <option>Math</option>
-        <option>Computer Science</option>
-        <option>English</option>
-      </select>
+    <!-- Main Content -->
+    <div class="page-container">
 
-      <label>Type</label>
-      <select id="taskType" required>
-        <option value="assignment">Assignment</option>
-        <option value="exam">Exam</option>
-      </select>
+        <div class="main-header">
+            <h1>Deadlines & Exams</h1>
+            <p>Manage your assignments and exams</p>
+        </div>
 
-      <label>Due Date</label>
-      <input type="date" id="taskDate" required>
+        <div class="form-section">
+            <h2>Add Task</h2>
 
-      <button type="submit">Add Task</button>
-    </form>
+            <form>
 
-    <h2>Task List</h2>
-    <ul id="taskList"></ul>
+                <div class="form-row">
+                    <label>Task Title</label>
+                    <input type="text">
+                </div>
 
-    <button onclick="window.location.href='dashboard.html'" class="btn">
-      Back to Dashboard
-    </button>
+                <div class="form-row">
+                    <label>Course</label>
+                    <select>
+                        <option>Math</option>
+                        <option>Computer Science</option>
+                        <option>English</option>
+                    </select>
+                </div>
 
-  </div>
+                <div class="form-row">
+                    <label>Type</label>
+                    <select>
+                        <option>Assignment</option>
+                        <option>Exam</option>
+                    </select>
+                </div>
 
-  <script src="../js/tasks.js"></script>
+                <div class="form-row">
+                    <label>Due Date</label>
+                    <input type="date">
+                </div>
+
+                <div class="form-row">
+                    <label>Priority</label>
+                    <select>
+                        <option>High</option>
+                        <option>Medium</option>
+                        <option>Low</option>
+                    </select>
+                </div>
+
+                <div class="button-row">
+                    <input type="submit" value="Add Task">
+                </div>
+
+            </form>
+        </div>
+
+        <div class="table-section">
+            <h2>Your Tasks</h2>
+
+            <table>
+                <tr>
+                    <th>Task</th>
+                    <th>Course</th>
+                    <th>Type</th>
+                    <th>Date</th>
+                    <th>Priority</th>
+                </tr>
+
+                <tr>
+                    <td>Math Homework</td>
+                    <td>Math</td>
+                    <td>Assignment</td>
+                    <td>20/5</td>
+                    <td>High</td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+    lucide.createIcons();
+</script>
 
 </body>
 </html>
