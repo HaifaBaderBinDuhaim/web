@@ -2,43 +2,221 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Weekly Availability - Smart Study Planner</title>
-<link rel="stylesheet" href="availabilitystyle.css"></head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Availability Schedule</title>
+    <link rel="stylesheet" href="availabilitystyle.css">
+</head>
+<!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <i data-lucide="flower-2"></i>
+                <span>Study Planner</span>
+            </div>
 
-<body>
+            <div class="menu">
+                <div class="item">
+                    <i data-lucide="home"></i>
+                    <a href="index.html" class="link">Home</a>
+                </div>
 
+                <div class="item active-item">
+                    <i data-lucide="book-open"></i>
+                    <a href="courses.html" class="link">Courses</a>
+                </div>
+
+                <div class="item">
+                    <i data-lucide="calendar-check"></i>
+                    <a href="availability.html" class="link">Availability</a>
+                </div>
+
+                <div class="item">
+                    <i data-lucide="layers-3"></i>
+                    <a href="study-plan.html" class="link">Study Plan</a>
+                </div>
+
+                <div class="item">
+                    <i data-lucide="bar-chart-3"></i>
+                    <a href="statistics.html" class="link">Statistics</a>
+                </div>
+
+                <div class="item">
+                    <i data-lucide="bell"></i>
+                    <a href="reminder.html" class="link">Reminder</a>
+                </div>
+
+                <div class="item">
+                    <i data-lucide="bot"></i>
+                    <a href="ai.html" class="link">AI Assistant</a>
+                </div>
+            </div>
+        </div>
+  
+<body class="body">
     <div class="container">
-        <h1>Weekly Availability</h1>
-
-        <form id="availabilityForm" onsubmit="event.preventDefault(); saveAvailability();">
-
-            <label>Select Day</label>
-            <select id="day" required>
-                <option value="Saturday">Saturday</option>
-                <option value="Sunday">Sunday</option>
-                <option value="Monday">Monday</option>
-                <option value="Tuesday">Tuesday</option>
-                <option value="Wednesday">Wednesday</option>
-                <option value="Thursday">Thursday</option>
-                <option value="Friday">Friday</option>
-            </select>
-
-            <label>Start Time</label>
-            <input type="time" id="startTime" required>
-
-            <label>End Time</label>
-            <input type="time" id="endTime" required>
-
-            <button type="submit">Add Availability</button>
+        <h1>Weekly Availability Schedule</h1>
+        
+        <form class="availability-form">
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Select Day</label>
+                    <select id="daySelect">
+                        <option>Monday</option>
+                        <option>Tuesday</option>
+                        <option>Wednesday</option>
+                        <option>Thursday</option>
+                        <option>Friday</option>
+                        <option>Saturday</option>
+                        <option>Sunday</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Start Time</label>
+                    <input type="time" id="startTime">
+                </div>
+                <div class="form-group">
+                    <label>End Time</label>
+                    <input type="time" id="endTime">
+                </div>
+            </div>
+            <button type="submit" class="btn-submit">Add to Schedule</button>
         </form>
 
-        <h2>Your Weekly Availability</h2>
-        <ul id="availabilityList"></ul>
+        <div class="schedule-chart-container">
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Mon</th>
+                        <th>Tue</th>
+                        <th>Wed</th>
+                        <th>Thu</th>
+                        <th>Fri</th>
+                        <th>Sat</th>
+                        <th>Sun</th>
+                    </tr>
+                </thead>
+               <tbody>
+    <tr>
+        <td class="time-col">08:00 AM</td>
+        <td class="slot available">Available</td>
+        <td class="slot"></td>
+        <td class="slot busy">Busy</td>
+        <td class="slot"></td>
+        <td class="slot"></td>
+        <td class="slot"></td>
+        <td class="slot"></td>
+    </tr>
+    <tr>
+        <td class="time-col">09:00 AM</td>
+        <td class="slot"></td>
+        <td class="slot available">Available</td>
+        <td class="slot"></td>
+        <td class="slot"></td>
+        <td class="slot"></td>
+        <td class="slot"></td>
+        <td class="slot"></td>
+    </tr>
+    <tr>
+        <td class="time-col">10:00 AM</td>
+        <td class="slot"></td>
+        <td class="slot"></td>
+        <td class="slot"></td>
+        <td class="slot"></td>
+        <td class="slot"></td>
+        <td class="slot"></td>
+        <td class="slot"></td>
+    </tr>
+    <tr>
+        <td class="time-col">11:00 AM</td>
+        <td class="slot"></td>
+        <td class="slot"></td>
+        <td class="slot"></td>
+        <td class="slot"></td>
+        <td class="slot"></td>
+        <td class="slot"></td>
+        <td class="slot"></td>
+    </tr>
+    <tr>
+        <td class="time-col">12:00 PM</td>
+        <td class="slot"></td>
+        <td class="slot"></td>
+        <td class="slot"></td>
+        <td class="slot"></td>
+        <td class="slot"></td>
+        <td class="slot"></td>
+        <td class="slot"></td>
+    </tr>
+    <tr>
+        <td class="time-col">01:00 PM</td>
+        <td class="slot"></td>
+        <td class="slot"></td>
+        <td class="slot"></td>
+        <td class="slot"></td>
+        <td class="slot"></td>
+        <td class="slot"></td>
+        <td class="slot"></td>
+    </tr>
+    <tr>
+        <td class="time-col">02:00 PM</td>
+        <td class="slot"></td>
+        <td class="slot"></td>
+        <td class="slot"></td>
+        <td class="slot"></td>
+        <td class="slot"></td>
+        <td class="slot"></td>
+        <td class="slot"></td>
+    </tr>
+    <tr>
+        <td class="time-col">03:00 PM</td>
+        <td class="slot"></td>
+        <td class="slot"></td>
+        <td class="slot"></td>
+        <td class="slot"></td>
+        <td class="slot"></td>
+        <td class="slot"></td>
+        <td class="slot"></td>
+    </tr>
+    <tr>
+        <td class="time-col">04:00 PM</td>
+        <td class="slot"></td>
+        <td class="slot"></td>
+        <td class="slot"></td>
+        <td class="slot"></td>
+        <td class="slot"></td>
+        <td class="slot"></td>
+        <td class="slot"></td>
+    </tr>
+    <tr>
+        <td class="time-col">05:00 PM</td>
+        <td class="slot"></td>
+        <td class="slot"></td>
+        <td class="slot"></td>
+        <td class="slot"></td>
+        <td class="slot"></td>
+        <td class="slot"></td>
+        <td class="slot"></td>
+    </tr>
+    <tr>
+        <td class="time-col">06:00 PM</td>
+        <td class="slot"></td>
+        <td class="slot"></td>
+        <td class="slot"></td>
+        <td class="slot"></td>
+        <td class="slot"></td>
+        <td class="slot"></td>
+        <td class="slot"></td>
+    </tr>
+    </tbody>
+            </table>
+        </div>
 
-        <button onclick="window.location.href='dashboard.html'" class="btn">Back to Dashboard</button>
+        <a href="dashboard.html" class="back-btn">Back to Dashboard</a>
     </div>
+    <script src="https://unpkg.com/lucide@latest"></script>
 
-    <script src="../js/availability.js"></script> <!--here javascript code -->
-    
+<script>
+  lucide.createIcons();
+</script>
 </body>
+
 </html>
