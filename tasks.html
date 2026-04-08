@@ -7,7 +7,7 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
-<body class="body-sidebar">
+<body class="body-sidebare">
 
 <div class="layout">
 
@@ -19,13 +19,13 @@
         </div>
 
         <div class="menu">
-            <div class="item"><a href="index.html" class="link">Home</a></div>
-            <div class="item"><a href="courses.html" class="link">Courses</a></div>
-            <div class="item"><a href="availability.html" class="link">Availability</a></div>
-            <div class="item"><a href="study-plan.html" class="link">Study Plan</a></div>
-            <div class="item"><a href="statistics.html" class="link">Statistics</a></div>
-            <div class="item active-item"><a href="tasks.html" class="link">Tasks</a></div>
-            <div class="item"><a href="ai.html" class="link">AI Assistant</a></div>
+            <div class="item"><i data-lucide="home"></i><a href="index.html" class="link">Home</a></div>
+            <div class="item"><i data-lucide="book-open"></i><a href="courses.html" class="link">Courses</a></div>
+            <div class="item"><i data-lucide="calendar-check"></i><a href="availability.html" class="link">Availability</a></div>
+            <div class="item"><i data-lucide="layers-3"></i><a href="study-plan.html" class="link">Study Plan</a></div>
+            <div class="item"><i data-lucide="bar-chart-3"></i><a href="statistics.html" class="link">Statistics</a></div>
+            <div class="item active-item"><i data-lucide="bell"></i><a href="tasks.html" class="link">Tasks</a></div>
+            <div class="item"><i data-lucide="bot"></i><a href="ai.html" class="link">AI Assistant</a></div>
         </div>
     </div>
 
@@ -37,7 +37,9 @@
             <p>Manage your assignments and exams</p>
         </div>
 
+        <!-- Form -->
         <div class="form-section">
+
             <h2>Add Task</h2>
 
             <form>
@@ -83,28 +85,39 @@
                 </div>
 
             </form>
+
         </div>
 
+        <!-- Table -->
         <div class="table-section">
+
             <h2>Your Tasks</h2>
 
             <table>
                 <tr>
+                    <th>Status</th>
                     <th>Task</th>
                     <th>Course</th>
                     <th>Type</th>
                     <th>Date</th>
                     <th>Priority</th>
+                    <th>Actions</th>
                 </tr>
 
                 <tr>
+                    <td><input type="checkbox"></td>
                     <td>Math Homework</td>
                     <td>Math</td>
                     <td>Assignment</td>
                     <td>20/5</td>
                     <td>High</td>
+                    <td>
+                        <button>Edit</button>
+                        <button>Delete</button>
+                    </td>
                 </tr>
             </table>
+
         </div>
 
     </div>
