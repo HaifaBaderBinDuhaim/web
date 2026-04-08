@@ -1,0 +1,341 @@
+/* =========================
+   DASHBOARD PAGE
+========================= */
+.dashboard-page {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #111111;
+  color: #f5f5f5;
+}
+
+.dashboard-page .dashboard-wrapper {
+  width: 100%;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+.dashboard-page .dashboard-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #1b1b1b;
+  border: 1px solid #2f2f2f;
+  border-radius: 16px;
+  padding: 35px;
+  box-sizing: border-box;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.dashboard-page h1 {
+  margin: 0 0 10px;
+  font-size: 2.2rem;
+  color: #ff8c42;
+}
+
+.dashboard-page .subtitle {
+  margin: 0 0 30px;
+  color: #d7d7d7;
+  font-size: 1rem;
+}
+
+.dashboard-page h2 {
+  margin: 10px 0 18px;
+  color: #ff8c42;
+  font-size: 1.5rem;
+}
+
+.dashboard-page .stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 35px;
+}
+
+.dashboard-page .stats-card {
+  background: #232323;
+  border: 1px solid #3a3a3a;
+  border-left: 4px solid #ff8c42;
+  border-radius: 12px;
+  padding: 22px 18px;
+  min-height: 120px;
+  box-sizing: border-box;
+}
+
+.dashboard-page .stats-card h3 {
+  margin: 0 0 14px;
+  font-size: 1rem;
+  color: #ebebeb;
+}
+
+.dashboard-page .stats-card p {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ffb070;
+}
+
+.dashboard-page .session-box {
+  background: #232323;
+  border: 1px solid #3a3a3a;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  box-sizing: border-box;
+}
+
+.dashboard-page .session-info strong {
+  display: block;
+  font-size: 1.15rem;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.dashboard-page .session-info p {
+  margin: 0;
+  color: #c9c9c9;
+  font-size: 0.96rem;
+}
+
+.dashboard-page .session-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.dashboard-page .session-btn,
+.dashboard-page .missed-btn {
+  border: none;
+  border-radius: 8px;
+  padding: 11px 18px;
+  font-size: 0.95rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+  min-width: 110px;
+}
+
+.dashboard-page .session-btn {
+  background-color: #ff8c42;
+  color: #111111;
+}
+
+.dashboard-page .session-btn:hover {
+  background-color: #ffa45f;
+}
+
+.dashboard-page .missed-btn {
+  background-color: #d94a3a;
+  color: #ffffff;
+}
+
+.dashboard-page .missed-btn:hover {
+  background-color: #ef5a48;
+}
+
+.dashboard-page .session-btn:disabled,
+.dashboard-page .missed-btn:disabled {
+  background-color: #555555;
+  color: #dddddd;
+  cursor: not-allowed;
+}
+
+/* =========================
+   AI HELPER PAGE
+========================= */
+.ai-page {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #111111;
+  color: #f5f5f5;
+}
+
+.ai-page .container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 40px auto;
+  background-color: #1b1b1b;
+  border: 1px solid #2f2f2f;
+  border-radius: 16px;
+  padding: 35px;
+  box-sizing: border-box;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.ai-page h1 {
+  margin: 0 0 10px;
+  font-size: 2.2rem;
+  color: #ff8c42;
+}
+
+.ai-page .subtitle {
+  margin: 0 0 25px;
+  color: #d7d7d7;
+  font-size: 1rem;
+}
+
+.ai-page label {
+  display: block;
+  margin-bottom: 10px;
+  color: #f5f5f5;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.ai-page textarea {
+  width: 100%;
+  min-height: 170px;
+  padding: 14px;
+  margin-bottom: 18px;
+  border: 1px solid #3a3a3a;
+  border-radius: 10px;
+  background-color: #232323;
+  color: #f5f5f5;
+  font-size: 1rem;
+  resize: vertical;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.ai-page textarea::placeholder {
+  color: #9e9e9e;
+}
+
+.ai-page textarea:focus {
+  border-color: #ff8c42;
+  box-shadow: 0 0 0 3px rgba(255, 140, 66, 0.15);
+}
+
+.ai-page button,
+.ai-page .btn {
+  display: inline-block;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+  text-align: center;
+}
+
+.ai-page button {
+  background-color: #ff8c42;
+  color: #111111;
+  padding: 12px 18px;
+  font-weight: bold;
+  min-width: 140px;
+}
+
+.ai-page button:hover {
+  background-color: #ffa45f;
+}
+
+.ai-page .ai-box {
+  margin-top: 22px;
+  background: #232323;
+  border: 1px solid #3a3a3a;
+  border-left: 4px solid #ff8c42;
+  border-radius: 12px;
+  padding: 20px;
+  min-height: 120px;
+  color: #f5f5f5;
+  line-height: 1.7;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.ai-page .back-btn {
+  margin-top: 20px;
+  background-color: #2a2a2a;
+  color: #f5f5f5;
+  border: 1px solid #3a3a3a;
+  padding: 12px 18px;
+  font-weight: 600;
+}
+
+.ai-page .back-btn:hover {
+  background-color: #ff8c42;
+  color: #111111;
+  border-color: #ff8c42;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 992px) {
+  .dashboard-page .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-page .dashboard-wrapper {
+    padding: 20px 12px;
+  }
+
+  .dashboard-page .dashboard-container,
+  .ai-page .container {
+    padding: 22px;
+    width: calc(100% - 24px);
+    margin: 20px auto;
+  }
+
+  .dashboard-page h1,
+  .ai-page h1 {
+    font-size: 1.7rem;
+  }
+
+  .dashboard-page h2 {
+    font-size: 1.25rem;
+  }
+
+  .dashboard-page .session-box {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .dashboard-page .session-actions {
+    width: 100%;
+  }
+
+  .dashboard-page .session-btn,
+  .dashboard-page .missed-btn {
+    flex: 1;
+  }
+
+  .ai-page button,
+  .ai-page .back-btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-page .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-page .stats-card p {
+    font-size: 1.5rem;
+  }
+
+  .dashboard-page .session-actions {
+    flex-direction: column;
+  }
+
+  .dashboard-page .session-btn,
+  .dashboard-page .missed-btn {
+    width: 100%;
+  }
+
+  .ai-page textarea {
+    min-height: 140px;
+  }
+
+  .dashboard-page .subtitle,
+  .ai-page .subtitle {
+    font-size: 0.95rem;
+  }
+}
