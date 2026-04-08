@@ -1,138 +1,258 @@
-
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-
 
 .body {
-  background-color: #1f1e1d;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  padding: 40px;
-  font-family: Arial, sans-serif;
+    background-color: #121212; /* الأسود الغامق من صورك */
+    color: #e0e0e0;
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
 }
-
 
 .container {
-  background-color: #303234;
-  padding: 30px;
-  border-radius: 14px;
-  width: 420px;
-  color: antiquewhite;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    background-color: #1e1e1e;
+    width: 100%;
+    max-width: 1200px;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
-
-.container h1 {
-  text-align: center;
-  margin-bottom: 20px;
-  font-size: 26px;
-  color: antiquewhite;
+h1 {
+    text-align: center;
+    color: #ec6f09; /* البرتقالي الخاص بك */
+    margin-bottom: 30px;
 }
 
-
+/* تنسيق النموذج العلوي */
 .availability-form {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
+    background: #252525;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
 }
 
+.form-row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
 
 .form-group {
-  display: flex;
-  flex-direction: column;
+    flex: 1;
+    min-width: 150px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
-.form-group label {
-  margin-bottom: 6px;
-  font-weight: bold;
-  color: antiquewhite;
+label {
+    color: #ec6f09;
+    font-weight: bold;
 }
 
-
-select,
-input[type="time"] {
-  padding: 10px;
-  border-radius: 6px;
-  border: none;
-  background-color: #f2f2f2;
-  color: #333;
-  font-size: 15px;
+select, input[type="time"] {
+    padding: 12px;
+    background: #333;
+    border: 1px solid #444;
+    color: white;
+    border-radius: 6px;
 }
 
-
-.btn,
-button[type="submit"] {
-  background-color: #ec6f09;
-  color: white;
-  padding: 12px;
-  border: none;
-  border-radius: 6px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: 0.2s;
-  margin-top: 10px;
+.btn-submit {
+    background-color: #ec6f09;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    margin-top: 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+    transition: 0.3s;
 }
 
-.btn:hover,
-button[type="submit"]:hover {
-  background-color: #d45f07;
+.btn-submit:hover {
+    background-color: #d45f07;
 }
 
-
-h2 {
-  margin-top: 25px;
-  margin-bottom: 12px;
-  color: antiquewhite;
+/* تنسيق الجدول (Chart) */
+.schedule-chart-container {
+    overflow-x: auto; /* للسماح بالتمرير في الشاشات الصغيرة */
+    margin-top: 20px;
 }
 
-
-#availabilityList {
-  list-style: none;
-  padding: 0;
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #252525;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
-#availabilityList li {
-  background-color: #1f1e1d;
-  padding: 12px 15px;
-  margin-bottom: 10px;
-  border-radius: 8px;
-  color: antiquewhite;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.schedule-table th {
+    background-color: #ec6f09;
+    color: white;
+    padding: 15px;
+    text-transform: uppercase;
+    font-size: 14px;
 }
 
-
-.delete-btn {
-  background-color: #ff4d4d;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 6px;
-  color: white;
-  cursor: pointer;
-  transition: 0.2s;
+.schedule-table td {
+    border: 1px solid #333;
+    padding: 10px;
+    text-align: center;
+    height: 60px; /* ليعطي مساحة كافية للمربعات */
 }
 
-.delete-btn:hover {
-  background-color: #d93636;
+.time-col {
+    background-color: #1e1e1e;
+    font-weight: bold;
+    color: #ec6f09;
+    width: 100px;
 }
 
+/* ستايل المربعات الملونة داخل الجدول */
+.slot {
+    min-width: 100px;
+}
+
+.slot.available {
+    background-color: rgba(236, 111, 9, 0.2); /* برتقالي شفاف */
+    border-left: 4px solid #ec6f09;
+    color: #ec6f09;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.slot.busy {
+    background-color: #333;
+    color: #777;
+    font-size: 12px;
+}
 
 .back-btn {
-  margin-top: 20px;
-  background-color: #ec6f09;
-  padding: 10px;
-  border-radius: 6px;
-  text-align: center;
-  display: block;
-  color: white;
-  text-decoration: none;
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #888;
+    text-decoration: none;
 }
 
 .back-btn:hover {
-  background-color: #d45f07;
+    color: #ec6f09;
+}
+/* تحديد ارتفاع أقصى للجدول مع إضافة سكرول */
+.schedule-chart-container {
+    max-height: 500px; /* طول الجدول قبل ظهور السكرول */
+    overflow-y: auto;  /* سكرول عمودي */
+    overflow-x: auto;  /* سكرول أفقي للشاشات الصغيرة */
+    border: 1px solid #444;
+    border-radius: 8px;
+}
+
+/* لجعل رأس الجدول (الأيام) ثابتاً عند التمرير لأسفل */
+.schedule-table thead th {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: #ec6f09;
+}
+
+/* جعل عمود الوقت ثابتاً عند التمرير يميناً ويساراً */
+.time-col {
+    position: sticky;
+    left: 0;
+    background-color: #1e1e1e;
+    z-index: 5;
+    border-right: 2px solid #ec6f09;
+}
+/*
+styling for sidebar
+======================================================================*/
+
+.body-sidebare {
+  background-color: #111111;
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  padding: 30px;
+}
+
+.sidebar {
+  width: 260px;
+  min-height: 100vh;
+  background-color: #1e1e1e;
+  color: white;
+  padding: 25px 18px;
+  border-radius: 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 35px;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.logo svg {
+  width: 22px;
+  height: 22px;
+  color: #b197fc;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+  color: #d1d1d1;
+}
+
+.item:hover {
+  background-color: #2a2a2a;
+  color: white;
+}
+
+.item svg {
+  width: 20px;
+  height: 20px;
+}
+.link {
+  text-decoration: none;
+  color: antiquewhite;
+}
+.link:hover {
+  text-decoration: underline;
+  font-size: 17px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .layout {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        min-height: auto;
+    }
+
+    .menu {
+        gap: 10px;
+    }
 }
