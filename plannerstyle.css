@@ -5,34 +5,37 @@
 }
 
 .body-layout {
-    background-color: #121212;
+    background-color: #000000; /* خلفية الشاشة سوداء تماماً لبروز المستطيلات */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 100vh;
     overflow: hidden;
 }
 
 .main-screen {
     display: flex;
-    flex-direction: row;
     height: 100vh;
     width: 100%;
-    direction: ltr;
+    padding: 20px; /* مسافة من حواف المتصفح */
+    gap: 20px;    /* المسافة بين السايد بار ومنطقة المحتوى */
 }
 
+/* السايد بار كمستطيل مستقل */
 .sidebar {
     width: 260px;
     background-color: #1e1e1e;
-    height: 100vh;
+    height: 100%; /* يأخذ طول المساحة المتاحة بعد الـ padding */
     padding: 25px 15px;
-    border-right: 1px solid #333;
+    border-radius: 20px; /* زوايا منحنية للمستطيل */
     display: flex;
     flex-direction: column;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
 .logo {
     display: flex;
     align-items: center;
     gap: 12px;
-    color: #cac3d0;
+    color: #ffffff;
     font-size: 22px;
     font-weight: bold;
     margin-bottom: 40px;
@@ -41,15 +44,13 @@
 
 .logo i {
     color: #a855f7 !important;
-    width: 28px;
-    height: 28px;
-    stroke-width: 2.5px;
 }
 
 .menu {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
+    flex: 1;
 }
 
 .item {
@@ -57,8 +58,15 @@
     align-items: center;
     gap: 15px;
     padding: 12px 15px;
-    border-radius: 10px;
-    transition: 0.3s;
+    border-radius: 12px;
+    transition: 0.3s ease;
+}
+
+.item a {
+    text-decoration: none;
+    color: #888;
+    font-size: 15px;
+    width: 100%;
 }
 
 .item i {
@@ -66,12 +74,7 @@
     width: 20px;
 }
 
-.item a {
-    text-decoration: none;
-    color: #888;
-    font-size: 16px;
-}
-
+/* التنسيق عند التنشيط (Active) */
 .item.active {
     background-color: #2a2a2a;
 }
@@ -89,89 +92,66 @@
     margin-top: auto;
 }
 
+/* منطقة المحتوى كمستطيل مستقل */
 .content-area {
     flex: 1;
+    background-color: #1e1e1e;
+    border-radius: 20px; /* زوايا منحنية للمستطيل */
     padding: 40px;
     overflow-y: auto;
-    background-color: #121212;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
-.container-full {
-    background-color: #1e1e1e;
+.container-inner {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
 .title {
     text-align: center;
     color: #ec6f09;
     font-size: 32px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
+/* الجدول وتنسيق الأزرار */
 .controls-row, .bottom-controls {
     display: flex;
     justify-content: center;
     margin: 20px 0;
 }
 
-.btn-primary {
+.btn-primary, .btn-secondary {
     background-color: #ec6f09;
     color: white;
     border: none;
-    padding: 14px 30px;
-    border-radius: 8px;
+    padding: 12px 28px;
+    border-radius: 10px;
     cursor: pointer;
-    font-size: 16px;
     font-weight: bold;
     transition: 0.3s;
-    box-shadow: 0 4px 10px rgba(236, 111, 9, 0.3);
 }
 
-.btn-primary:hover {
+.btn-primary:hover, .btn-secondary:hover {
     background-color: #d45f07;
-    transform: translateY(-2px);
-}
-
-.btn-secondary {
-    background-color: #ec6f09 !important;
-    color: white !important;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 15px;
-    font-weight: bold;
-    transition: 0.3s;
-    box-shadow: 0 4px 10px rgba(236, 111, 9, 0.3);
-}
-
-.btn-secondary:hover {
-    background-color: #d45f07 !important;
-    transform: translateY(-2px);
+    transform: scale(1.02);
 }
 
 .subtitle {
-    margin-top: 30px;
-    margin-bottom: 20px;
+    margin: 20px 0;
     font-size: 24px;
     color: #e0e0e0;
 }
 
 .schedule-chart-container {
     overflow-x: auto;
-    margin-top: 20px;
-    border: 1px solid #444;
-    border-radius: 10px;
+    border-radius: 12px;
+    border: 1px solid #333;
 }
 
 .schedule-table {
     width: 100%;
-    min-width: 800px;
     border-collapse: collapse;
     background-color: #252525;
 }
@@ -180,47 +160,25 @@
     background-color: #ec6f09;
     color: white;
     padding: 15px;
-    text-transform: uppercase;
-    font-size: 14px;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    border-bottom: 2px solid #d45f07;
+    border: 1px solid #d45f07;
 }
 
 .schedule-table td {
     border: 1px solid #333;
     padding: 15px;
+    height: 70px;
+    color: #ccc;
     text-align: center;
-    height: 80px;
-    font-size: 14px;
 }
 
 .time-col {
-    background-color: #1e1e1e;
-    font-weight: bold;
     color: #ec6f09;
-    width: 100px;
-    position: sticky;
-    left: 0;
-    z-index: 5;
-    border-right: 2px solid #ec6f09;
-}
-
-.slot {
-    min-width: 120px;
+    font-weight: bold;
+    background-color: #1e1e1e;
 }
 
 .slot.study-session {
-    background-color: rgba(236, 111, 9, 0.15);
+    background-color: rgba(236, 111, 9, 0.1);
     border-left: 4px solid #ec6f09;
     color: #ec6f09;
-    font-size: 13px;
-    font-weight: bold;
-    vertical-align: middle;
-}
-
-.slot.busy {
-    background-color: #2a2a2a;
-    color: #666;
 }
