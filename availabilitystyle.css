@@ -1,258 +1,74 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-.body {
-    background-color: #121212; /* الأسود الغامق من صورك */
-    color: #e0e0e0;
+.page-wrapper {
+    background-color: #0b0b0b;
     font-family: 'Segoe UI', sans-serif;
-    display: flex;
-    justify-content: center;
-    padding: 40px 20px;
-}
-
-.container {
-    background-color: #1e1e1e;
-    width: 100%;
-    max-width: 1200px;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-}
-
-h1 {
-    text-align: center;
-    color: #ec6f09; /* البرتقالي الخاص بك */
-    margin-bottom: 30px;
-}
-
-/* تنسيق النموذج العلوي */
-.availability-form {
-    background: #252525;
+    min-height: 100vh;
     padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 30px;
 }
 
-.form-row {
+.main-layout {
     display: flex;
     gap: 20px;
-    flex-wrap: wrap;
+    align-items: flex-start;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
-.form-group {
-    flex: 1;
-    min-width: 150px;
+/* Sidebar */
+.sidebar {
+    width: 260px;
+    background-color: #1e1e1e;
+    padding: 25px 18px;
+    border-radius: 20px;
+    min-height: 90vh;
     display: flex;
     flex-direction: column;
-    gap: 8px;
 }
 
-label {
-    color: #ec6f09;
-    font-weight: bold;
+.logo { display: flex; align-items: center; gap: 12px; margin-bottom: 35px; color: white; font-size: 22px; font-weight: bold; }
+.logo i { color: #a855f7; }
+
+.menu .item { display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: 12px; color: #888; transition: 0.3s; }
+.menu .item.active { background-color: #2a2a2a; color: #ec6f09; font-weight: bold; }
+.menu .link { text-decoration: none; color: inherit; font-size: 15px; }
+.logout-item { margin-top: auto; }
+
+/* Content Card */
+.content-container { flex: 1; }
+.content-card {
+    background-color: #1e1e1e;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
 }
 
-select, input[type="time"] {
-    padding: 12px;
-    background: #333;
-    border: 1px solid #444;
-    color: white;
-    border-radius: 6px;
-}
+h1 { text-align: center; color: #ec6f09; margin-bottom: 25px; }
 
-.btn-submit {
-    background-color: #ec6f09;
-    color: white;
-    border: none;
-    padding: 12px 25px;
-    margin-top: 15px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: bold;
-    width: 100%;
-    transition: 0.3s;
-}
+.availability-form { background: #252525; padding: 20px; border-radius: 12px; margin-bottom: 25px; }
+.form-row { display: flex; gap: 15px; margin-bottom: 15px; }
+.form-group { flex: 1; display: flex; flex-direction: column; gap: 5px; }
+label { color: #ec6f09; font-size: 14px; font-weight: bold; }
 
-.btn-submit:hover {
-    background-color: #d45f07;
-}
+select, input { padding: 10px; background: #333; border: 1px solid #444; color: white; border-radius: 8px; }
+.btn-submit { background: #ec6f09; color: white; border: none; padding: 12px; border-radius: 8px; cursor: pointer; font-weight: bold; width: 100%; }
 
-/* تنسيق الجدول (Chart) */
+/* Table Styling */
 .schedule-chart-container {
-    overflow-x: auto; /* للسماح بالتمرير في الشاشات الصغيرة */
-    margin-top: 20px;
-}
-
-.schedule-table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: #252525;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.schedule-table th {
-    background-color: #ec6f09;
-    color: white;
-    padding: 15px;
-    text-transform: uppercase;
-    font-size: 14px;
-}
-
-.schedule-table td {
     border: 1px solid #333;
-    padding: 10px;
-    text-align: center;
-    height: 60px; /* ليعطي مساحة كافية للمربعات */
+    border-radius: 12px;
+    overflow: hidden; 
 }
 
-.time-col {
-    background-color: #1e1e1e;
-    font-weight: bold;
-    color: #ec6f09;
-    width: 100px;
-}
+.schedule-table { width: 100%; border-collapse: collapse; background: #252525; }
+.schedule-table th { background: #ec6f09; color: white; padding: 15px; font-size: 14px; }
+.schedule-table td { border: 1px solid #333; padding: 10px; text-align: center; height: 55px; color: #ccc; }
 
-/* ستايل المربعات الملونة داخل الجدول */
-.slot {
-    min-width: 100px;
-}
+.time-col { background: #1e1e1e; color: #ec6f09; font-weight: bold; width: 110px; }
 
-.slot.available {
-    background-color: rgba(236, 111, 9, 0.2); /* برتقالي شفاف */
-    border-left: 4px solid #ec6f09;
-    color: #ec6f09;
-    font-size: 12px;
-    font-weight: bold;
-}
+.slot.available { background: rgba(236, 111, 9, 0.1); color: #ec6f09; font-weight: bold; border-left: 4px solid #ec6f09; }
+.slot.busy { background: #333; color: #666; font-size: 12px; }
 
-.slot.busy {
-    background-color: #333;
-    color: #777;
-    font-size: 12px;
-}
-
-.back-btn {
-    display: block;
-    text-align: center;
-    margin-top: 20px;
-    color: #888;
-    text-decoration: none;
-}
-
-.back-btn:hover {
-    color: #ec6f09;
-}
-/* تحديد ارتفاع أقصى للجدول مع إضافة سكرول */
-.schedule-chart-container {
-    max-height: 500px; /* طول الجدول قبل ظهور السكرول */
-    overflow-y: auto;  /* سكرول عمودي */
-    overflow-x: auto;  /* سكرول أفقي للشاشات الصغيرة */
-    border: 1px solid #444;
-    border-radius: 8px;
-}
-
-/* لجعل رأس الجدول (الأيام) ثابتاً عند التمرير لأسفل */
-.schedule-table thead th {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    background-color: #ec6f09;
-}
-
-/* جعل عمود الوقت ثابتاً عند التمرير يميناً ويساراً */
-.time-col {
-    position: sticky;
-    left: 0;
-    background-color: #1e1e1e;
-    z-index: 5;
-    border-right: 2px solid #ec6f09;
-}
-/*
-styling for sidebar
-======================================================================*/
-
-.body-sidebare {
-  background-color: #111111;
-  font-family: Arial, sans-serif;
-  min-height: 100vh;
-  padding: 30px;
-}
-
-.sidebar {
-  width: 260px;
-  min-height: 100vh;
-  background-color: #1e1e1e;
-  color: white;
-  padding: 25px 18px;
-  border-radius: 20px;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 35px;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.logo svg {
-  width: 22px;
-  height: 22px;
-  color: #b197fc;
-}
-
-.menu {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 12px 14px;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: 0.3s;
-  color: #d1d1d1;
-}
-
-.item:hover {
-  background-color: #2a2a2a;
-  color: white;
-}
-
-.item svg {
-  width: 20px;
-  height: 20px;
-}
-.link {
-  text-decoration: none;
-  color: antiquewhite;
-}
-.link:hover {
-  text-decoration: underline;
-  font-size: 17px;
-}
-
-/* Responsive */
-@media (max-width: 900px) {
-    .layout {
-        flex-direction: column;
-    }
-
-    .sidebar {
-        width: 100%;
-        min-height: auto;
-    }
-
-    .menu {
-        gap: 10px;
-    }
-}
+.bottom-actions { text-align: center; margin-top: 20px; }
+.back-btn { color: #888; text-decoration: none; font-size: 14px; }
+.back-btn:hover { color: #ec6f09; }
