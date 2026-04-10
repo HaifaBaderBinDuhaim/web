@@ -1,170 +1,272 @@
-/* =========================
-   RESET
-========================= */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* =========================
-   BASE
-========================= */
 .body-sidebare {
-  background: #0b0b0b;
-  font-family: Arial, sans-serif;
-  min-height: 100vh;
-  padding: 30px;
-  color: #f5f5f5;
+  margin: 0;
 }
 
 .dashboard-layout {
   display: flex;
-  gap: 28px;
   min-height: 100vh;
+  background-color: #0b0b0b;
+  gap: 28px;
+  padding: 30px;
+  box-sizing: border-box;
 }
 
-/* =========================
-   SIDEBAR (UNIFIED)
-========================= */
+/* ===== Sidebar ===== */
 .sidebar {
-  width: 260px;
-  background: linear-gradient(180deg, #1f1f1f, #181818);
+  width: 270px;
+  background: #171717;
   border-radius: 24px;
-  padding: 25px 18px;
-  border: 1px solid #2b2b2b;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  padding: 28px 20px;
+  box-sizing: border-box;
+  border: 1px solid #232323;
   flex-shrink: 0;
+  align-self: flex-start;
 }
 
-.logo {
+.sidebar .logo {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-bottom: 35px;
-  font-size: 24px;
-  font-weight: bold;
+  margin-bottom: 32px;
 }
 
-.logo svg {
+.sidebar .logo i {
+  color: #b48cff;
   width: 22px;
   height: 22px;
-  color: #b197fc;
 }
 
-.menu {
+.sidebar .logo span {
+  color: #f5f5f5;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.sidebar .menu {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
 
-.item {
+.sidebar .item {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 13px 14px;
+  padding: 14px 14px;
   border-radius: 14px;
   transition: 0.25s ease;
-  cursor: pointer;
-  color: #d1d1d1;
 }
 
-.item svg {
+.sidebar .item i {
   width: 18px;
   height: 18px;
+  color: #f2f2f2;
 }
 
-.item:hover {
-  background: #2a2a2a;
-  transform: translateX(3px);
-}
-
-.link {
+.sidebar .link {
+  color: #f2f2f2;
   text-decoration: none;
-  color: antiquewhite;
   font-size: 1rem;
-  width: 100%;
+  font-weight: 500;
 }
 
-.link:hover {
-  text-decoration: underline;
+/* hover */
+.sidebar .item:hover {
+  background-color: #242424;
 }
 
-.item.active {
-  background: #2a2a2a;
-  border: 1px solid #3a3a3a;
+/* active item */
+.sidebar .item.active {
+  background-color: #2a2a2a;
 }
 
-.item.active .link {
+.sidebar .item.active i,
+.sidebar .item.active .link {
   color: #ffffff;
-  font-weight: bold;
 }
 
-/* =========================
-   MAIN WRAPPER
-========================= */
+/* ===== Main Area ===== */
 .dashboard-wrapper {
   flex: 1;
+  min-width: 0;
 }
 
-/* =========================
-   TOP CARD
-========================= */
+/* top card / page container */
+.dashboard-page .dashboard-container,
+.ai-page .container {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+/* top title card */
 .page-top-card {
   background: #171717;
   border: 1px solid #232323;
   border-radius: 24px;
-  padding: 28px;
+  padding: 28px 28px;
   margin-bottom: 26px;
 }
 
 .page-top-card h1 {
+  margin: 0;
+  color: #f5f5f5;
   font-size: 2.2rem;
+  font-weight: 700;
 }
 
-/* =========================
-   CONTENT CARD
-========================= */
+/* content card */
 .page-content-card {
   background: #171717;
   border: 1px solid #232323;
   border-radius: 24px;
   padding: 28px;
+  box-sizing: border-box;
 }
 
 /* =========================
    DASHBOARD
 ========================= */
-.dashboard-page h2 {
-  color: #f28c32;
-  margin-bottom: 18px;
+.dashboard-page {
+  background: #0b0b0b;
+  color: #f5f5f5;
+  font-family: Arial, sans-serif;
 }
 
-.stats-grid {
+.dashboard-page .subtitle {
+  margin: 0 0 24px;
+  color: #e5e5e5;
+  font-size: 1rem;
+}
+
+.dashboard-page h2 {
+  margin: 0 0 18px;
+  color: #f28c32;
+  font-size: 1.9rem;
+  font-weight: 700;
+}
+
+.dashboard-page .stats-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 18px;
   margin-bottom: 28px;
 }
 
-.stats-card {
+.dashboard-page .stats-card {
   background: #232323;
+  border: 1px solid #3a3a3a;
   border-radius: 16px;
-  padding: 24px;
+  padding: 24px 18px;
+  min-height: 120px;
+  box-sizing: border-box;
   text-align: center;
 }
 
-.stats-card p {
+.dashboard-page .stats-card h3 {
+  margin: 0 0 14px;
+  color: #f0f0f0;
+  font-size: 1rem;
+}
+
+.dashboard-page .stats-card p {
+  margin: 0;
   font-size: 1.8rem;
+  font-weight: 700;
   color: #f2b35f;
 }
 
+.dashboard-page .session-box {
+  background: #232323;
+  border: 1px solid #343434;
+  border-radius: 16px;
+  padding: 18px 20px;
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+}
+
+.dashboard-page .session-info strong {
+  display: block;
+  color: #ffffff;
+  font-size: 1.1rem;
+  margin-bottom: 6px;
+}
+
+.dashboard-page .session-info p {
+  margin: 0;
+  color: #d0d0d0;
+  font-size: 0.96rem;
+}
+
+.dashboard-page .session-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.dashboard-page .session-btn,
+.dashboard-page .missed-btn {
+  border: none;
+  border-radius: 10px;
+  padding: 11px 18px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  min-width: 110px;
+  transition: 0.25s ease;
+}
+
+.dashboard-page .session-btn {
+  background: #f29a38;
+  color: #111111;
+}
+
+.dashboard-page .session-btn:hover {
+  background: #ffab52;
+}
+
+.dashboard-page .missed-btn {
+  background: #d9534f;
+  color: #ffffff;
+}
+
+.dashboard-page .missed-btn:hover {
+  background: #ee615c;
+}
+
+.dashboard-page .session-btn:disabled,
+.dashboard-page .missed-btn:disabled {
+  background: #5b5b5b;
+  color: #e0e0e0;
+  cursor: not-allowed;
+}
+
 /* =========================
-   AI PAGE
+   AI HELPER
 ========================= */
+.ai-page {
+  background: #0b0b0b;
+  color: #f5f5f5;
+  font-family: Arial, sans-serif;
+}
+
 .ai-page .subtitle {
-  margin-bottom: 20px;
-  color: #ddd;
+  margin: 0 0 22px;
+  color: #e0e0e0;
+}
+
+.ai-page label {
+  display: block;
+  margin-bottom: 10px;
+  color: #f2f2f2;
+  font-size: 1rem;
+  font-weight: 700;
 }
 
 .ai-page textarea {
@@ -173,70 +275,115 @@
   background: #232323;
   border: 1px solid #3a3a3a;
   border-radius: 14px;
-  color: white;
+  color: #ffffff;
   padding: 14px;
-  margin-bottom: 15px;
+  box-sizing: border-box;
+  font-size: 1rem;
+  outline: none;
+  resize: vertical;
+}
+
+.ai-page textarea::placeholder {
+  color: #9f9f9f;
 }
 
 .ai-page textarea:focus {
   border-color: #f28c32;
-  box-shadow: 0 0 0 3px rgba(242, 140, 50, 0.15);
+  box-shadow: 0 0 0 3px rgba(242, 140, 50, 0.14);
+}
+
+.ai-page button,
+.ai-page .btn {
+  border: none;
+  border-radius: 10px;
+  padding: 12px 18px;
+  font-size: 0.96rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.25s ease;
 }
 
 .ai-page button {
+  margin-top: 16px;
   background: #f29a38;
-  border: none;
-  padding: 12px 18px;
-  border-radius: 10px;
-  font-weight: bold;
-  cursor: pointer;
-  margin-top: 5px;
+  color: #111111;
 }
 
 .ai-page button:hover {
   background: #ffab52;
 }
 
-.ai-box {
-  margin-top: 20px;
+.ai-page .ai-box {
+  margin-top: 22px;
   background: #232323;
+  border: 1px solid #3a3a3a;
   border-radius: 16px;
   padding: 20px;
-  min-height: 100px;
+  min-height: 120px;
+  box-sizing: border-box;
+  color: #f2f2f2;
+  line-height: 1.7;
 }
 
-.back-btn {
-  margin-top: 15px;
+.ai-page .back-btn {
+  display: inline-block;
+  margin-top: 18px;
   background: #2c2c2c;
+  color: #ffffff;
 }
 
-.back-btn:hover {
+.ai-page .back-btn:hover {
   background: #3a3a3a;
 }
 
 /* =========================
    RESPONSIVE
 ========================= */
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
+  .dashboard-page .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 850px) {
   .dashboard-layout {
     flex-direction: column;
+    padding: 18px;
   }
 
   .sidebar {
     width: 100%;
   }
 
-  .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .dashboard-page .session-box {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .dashboard-page .session-actions {
+    width: 100%;
+    flex-wrap: wrap;
   }
 }
 
 @media (max-width: 560px) {
-  .stats-grid {
+  .dashboard-page .stats-grid {
     grid-template-columns: 1fr;
   }
 
-  button {
+  .dashboard-page .session-actions {
+    flex-direction: column;
     width: 100%;
+  }
+
+  .dashboard-page .session-btn,
+  .dashboard-page .missed-btn,
+  .ai-page button,
+  .ai-page .back-btn {
+    width: 100%;
+  }
+
+  .page-top-card h1 {
+    font-size: 1.7rem;
   }
 }
