@@ -6,16 +6,68 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="progressStyle.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+     <script src="https://unpkg.com/lucide@latest"></script>
+   
 </head>
 
 <body>
 
-    
+    <div class="sidebar">
+            <div class="logo">
+                <i data-lucide="flower-2"></i>
+                <span>Study Planner</span>
+            </div>
+
+            <div class="menu">
+                <div class="item">
+                    <i data-lucide="home"></i>
+                    <a href="dashboard.html" alt="home page" target="_blank" class="link">Home</a>
+                </div>
+
+                <div class="item">
+                    <i data-lucide="book-open"></i>
+                    <a href="courses2.html" alt="courses" target="_blank" class="link">Courses</a>
+                </div>
+
+                <div class="item">
+                    <i data-lucide="calendar-check"></i>
+                    <a href="availability.html" alt="availability times" target="_blank" class="link">Availability</a>
+                </div>
+
+                <div class="item">
+                    <i data-lucide="layers-3"></i>
+                    <a href="planner.html" alt="study plan" target="_blank" class="link">Study Plan</a>
+                </div>
+
+                <div class="item active-item">
+                    <i data-lucide="bar-chart-3"></i>
+                    <a href="stats.html" alt="Statistics" target="_blank" class="link">Statistics &amp;Progress</a>
+                </div>
+
+                <div class="item">
+                    <i data-lucide="bell"></i>
+                    <a href="#" alt="Reminder" target="_blank" class="link">Deadlines</a>
+                </div>
+
+                <div class="item">
+                    <i data-lucide="bot"></i>
+                    <a href="ai-helper.html" alt="AI" target="_blank" class="link">AI assistant</a>
+                </div>
+
+                <div class="item">
+                    <i data-lucide="log-out"></i>
+                    <a href="login.html" alt="Logout" target="_blank" class="link">Logout</a>
+                </div>
+            </div>
+        </div>
+
+
+          <div class="main-content">
          <div class="header">
             <h1>📊 Statistics & Progress</h1>
             <p>Track your study performance</p>
         </div>
-
+    <br>
       <!-- <div class="stats-section">
             <p>Total Courses: <span id="totalCourses">0</span></p>
             <p>Total Tasks: <span id="totalTasks">0</span></p>
@@ -66,17 +118,20 @@
             <button class="btn-danger" id="markMissedBtn">✗ Missed</button>
             <button class="btn-primary" id="refreshBtn">🔄 Refresh</button>
         </div> -->
-    <h2>📅 Study Sessions</h2> <br>
+    <h2>📅 Study Sessions</h2>
+<div class="sessions-list">
+    
     <div class="session-item">
-         
-            <div class="session-info">
-        <div class="session-course">SWE 381</div>
-        <div class="session-details">📅 2026-03-27 | ⏰ 10:00 - 12:00 AM</div>
+        <div class="session-info">
+            <div class="session-course">SWE 381</div>
+            <div class="session-details">📅 2026-03-27 | ⏰ 10:00 - 12:00 AM</div>
+        </div>
+        <div class="session-actions">
+            <button class="btn-success mark-complete">✓ Complete</button>
+            <button class="btn-fail mark-missed">✗ Missed</button>
+        </div>
     </div>
-    <div class="session-actions">
-    <button class="btn-success mark-complete">✓ Complete</button>
-    <button class="btn-fail mark-missed">✗ Missed</button>
-</div>
+    
 </div>
 <br>
  <!-- Stats Cards (FR8.1: Weekly Study Hours) -->
@@ -181,8 +236,65 @@
             </table>
         </div>
     </div>  
+</div>
 <br>
-<button onclick="window.location.href='dashboard.html'" class="btn">Back to Dashboard</button>
-    <script src="../js/stats.js"></script>
+<script>
+    // Dummy Data for Charts
+    // الرسم البياني الأسبوعي
+    const weeklyCtx = document.getElementById('weeklyChart').getContext('2d');
+    new Chart(weeklyCtx, {
+        type: 'bar',
+        data: {
+            labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            datasets: [{
+                label: 'Study Hours',
+                data: [4, 5, 3, 6, 7, 4, 2],
+                backgroundColor: '#ec6f09',
+                borderRadius: 8
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: { 
+                y: { 
+                    beginAtZero: true, 
+                    ticks: { color: '#fff' },
+                    grid: { color: '#333' }
+                }, 
+                x: { 
+                    ticks: { color: '#fff' },
+                    grid: { display: false }
+                } 
+            }
+        }
+    });
+
+    // الرسم البياني الدائري (توزيع المواد)
+    const distCtx = document.getElementById('distributionChart').getContext('2d');
+    new Chart(distCtx, {
+        type: 'doughnut',
+        data: {
+            labels: ['SWE 381', 'SWE 382', 'MATH 101', 'CS 201', 'PHYS 101'],
+            datasets: [{
+                data: [14, 10, 8, 5, 3],
+                backgroundColor: ['#ec6f09', '#10b981', '#f59e0b', '#8b5cf6', '#ef4444']
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { 
+                legend: { 
+                    position: 'bottom', 
+                    labels: { color: '#fff' } 
+                } 
+            }
+        }
+    });
+</script>
+  <script> lucide.createIcons(); </script>
+ <script src="../js/stats.js"></script>
 </body>
 </html>

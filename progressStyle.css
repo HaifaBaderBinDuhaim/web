@@ -5,18 +5,164 @@
 }
 
 body {
+     gap: 24px;
    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  /* font type in page */
-   
-    /*background: #f5f7fb;  /* !--background pagecolour */
-    color: #1a1a2e;  /* لون النص الاساسي */
+     display: flex;
+    background:#111111; /* !--background pagecolour */
+    color: white;  /* لون النص الاساسي */
     padding: 32px;  /* مسافة داخلية حول محتوى الصفحه */
+}
+
+
+/*
+styling for sidebar
+======================================================================*/
+.main-content {
+flex: 1; }
+
+
+/* Sidebar */
+.sidebar {
+    width: 260px;
+    min-height: 100vh;
+    background-color: #1e1e1e;
+    color: white;
+    padding: 25px 18px;
+    border-radius: 20px;
+    flex-shrink: 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 35px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.logo svg {
+    width: 22px;
+    height: 22px;
+    color: #b197fc;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+    color: #d1d1d1;
+}
+
+.item:hover {
+    background-color: #2a2a2a;
+    color: white;
+}
+
+.item svg {
+    width: 20px;
+    height: 20px;
+}
+
+.link {
+    text-decoration: none;
+    color: antiquewhite;
+    font-size: 16px;
+}
+
+.link:hover {
+    text-decoration: underline;
+    font-size: 17px;
+}
+
+.active-item {
+    background-color: #2a2a2a;
+}
+
+/*
+}
+.body-sidebare {
+  background-color: #111111;
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  padding: 30px;
+}
+
+.sidebar {
+  width: 260px;
+  min-height: 100vh;
+  background-color: #1e1e1e;
+  color: white;
+  padding: 25px 18px;
+  border-radius: 20px;
+   flex-shrink: 0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 35px;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.logo svg {
+  width: 22px;
+  height: 22px;
+  color: #b197fc;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+  color: #d1d1d1;
+}
+
+.item:hover {
+  background-color: #2a2a2a;
+  color: white;
+}
+
+.item svg {
+  width: 20px;
+  height: 20px;
+}
+.link {
+  text-decoration: none;
+  color: antiquewhite;
+}
+.link:hover {
+  text-decoration: underline;
+  font-size: 17px;
 }
 
 /*.container {
     max-width: 1200px; 
    /* margin: 0 auto;  /* لتوسيط في منتصف الصفحة }*/
 
-
+*/
 /* Header Styles */
 /* ============================================ */
 .header {
@@ -25,11 +171,11 @@ body {
 
 .header h1 {
     font-size: 28px;
-    color: #1e293b;
+    color:white;
 }
 
 .header p {
-    color: #64748b;
+    color: white;
     margin-top: 4px;
 }  /* تنسيق النص الوصفي اسفل العنوان */
 
@@ -44,7 +190,7 @@ body {
 }
 
 .stat-card {
-    background: white;
+    background: #1e1e1e;
     border-radius: 20px;
     padding: 20px;
     display: flex;
@@ -63,7 +209,7 @@ body {
     width: 45px;
     height: 45px;
     border-radius: 16px;
-    background: #eef2ff;
+    background: #424141;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -72,7 +218,7 @@ body {
 
 .stat-info h3 {
     font-size: 12px;
-    color: #94a3b8;
+    color: antiquewhite;
     margin-bottom: 4px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -81,7 +227,7 @@ body {
 .stat-value {
     font-size: 28px;
     font-weight: bold;
-    color: #1e293b;
+    color: #ec6f09;
 }
 
 .trend {
@@ -97,7 +243,7 @@ body {
 
 .stat-info p {
     font-size:11px;
-    color: #94a3b8;
+    color: white;
 }
 
 
@@ -112,7 +258,7 @@ body {
 }
 
 .progress-fill {
-    background: #4f46e5;
+    background: #8269cc;
     height: 100%;
     border-radius: 3px;
     transition: width 0.3s;
@@ -166,7 +312,7 @@ body {
 /* Chart Cards */
 /* ============================================ */
 .chart-card {
-    background: white;
+    background: #1e1e1e;
     border-radius: 20px;
     padding: 24px;
     margin-bottom: 24px;
@@ -175,7 +321,7 @@ body {
 .chart-card h2 {
     font-size: 17px;
     margin-bottom: 16px;
-    color: #1e293b;
+    color: #ec6f09;
 }
 
 .chart-container {
@@ -191,7 +337,7 @@ body {
 /* Table Card */
 /* ============================================ */
 .table-card {
-    background: white;
+    background: #1e1e1e;
     border-radius: 20px;
     padding: 24px;
 }
@@ -199,7 +345,7 @@ body {
 .table-card h2 {
     font-size: 17px;
     margin-bottom: 16px;
-    color: #1e293b;
+    color: #ec6f09;
 }
 
 .stats-table {
@@ -215,7 +361,7 @@ body {
 }
 
 .stats-table th {
-    color: #64748b;
+    color: white;
     font-weight: 500;
     font-size: 13.5px;
 }
@@ -226,7 +372,7 @@ body {
 }
 
 .mini-fill {
-    background: #4f46e5;
+    background: #8269cc;
     height: 6px;
     border-radius: 3px;
     width: 60px;
@@ -235,21 +381,21 @@ body {
 
 .mini-progress span {
     font-size: 12px;
-    color: #64748b;
+    color: #bdbfc1;
 }
 /* Sessions Section - Study Sessions List */
 /* ============================================ */
 .sessions-section {
-    background: white;
+    background: #1e1e1e;
     border-radius: 20px;
     padding: 24px;
     margin-bottom:24px;
 }
 
-.sessions-section h2 {
+ .sessions-section h2 {
     font-size: 17px;
     margin-bottom: 16px;
-    color: #1e293b;
+    color: #ec6f09;
 }
 
 .sessions-list {
@@ -263,9 +409,9 @@ body {
     align-items: center;
     justify-content: space-between; /* info at left side and buttons at right side*/
     padding: 16px;
-    background: #f8fafc;
+    background: #1e1e1e;
     border-radius: 12px;
-    border-left: 4px solid #4f46e5;
+    border-left: 4px solid #8269cc;
     transition: all 0.2s;
 }
 
@@ -286,13 +432,13 @@ body {
 
 .session-course {
     font-weight: 600;
-    color: #1e293b;
+    color: #e97f28;
     margin-bottom: 4px;
 }
 
 .session-details {
     font-size: 12px;
-    color: #64748b;
+    color: antiquewhite;
     display: flex;
     gap: 16px;
     flex-wrap: wrap;
@@ -351,17 +497,17 @@ body {
 
 
 /* Responsive Design */
-/* ============================================ 
+
 @media (max-width: 1024px) {
     .stats-grid {
         gap: 16px;
     }
-} /*tablet
+} /*tablet*/
 
 @media (max-width: 768px) {
     body {
         padding: 16px;
-    }  /*phone
+    }  /*phone*/
     
     .stats-grid {
         grid-template-columns: 1fr 1fr ; 
@@ -373,7 +519,7 @@ body {
     }
     
     .session-item {
-        flex-direction: column; /* info above buttons
+        flex-direction: column; /* info above buttons*/
         align-items: flex-start;
         gap: 12px;
     }
@@ -381,7 +527,7 @@ body {
     .session-actions {
         width: 100%;
         justify-content: flex-end;
-    } /* الأزرار تأخذ عرض كامل وتتحرك لليمين 
+    } /* الأزرار تأخذ عرض كامل وتتحرك لليمين */
     
     .session-details {
         flex-wrap: wrap;
@@ -393,7 +539,7 @@ body {
     .stats-grid {
         grid-template-columns: 1fr;
     }
-    /* smaller phone
+    /* smaller phone*/
     .action-buttons {
         flex-wrap: wrap;
     }
@@ -403,4 +549,4 @@ body {
         padding: 8px;
         font-size: 12px;
     }
-} */
+} 

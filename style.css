@@ -6,7 +6,7 @@ body {
 .container {
     width: 350px;
     margin: 80px auto;
-    background: rgb(244, 234, 234);
+    background: #f4eaea;
     padding: 25px;
     border-radius: 10px;
     box-shadow: 0 0 10px #ccc;
@@ -31,20 +31,6 @@ button {
     flex-direction: column;
     gap: 15px;
     margin: 20px 0;
-}
-
-.btn {
-    display: block;
-    padding: 12px;
-    background: #4CAF50;
-    color: white;
-    text-align: center;
-    border-radius: 5px;
-    text-decoration: none;
-}
-.btn:hover {
-    background: #434648;  /*  Darker shade on hover */
-    transform: translateY(-2px);
 }
 
 .logout-btn {
