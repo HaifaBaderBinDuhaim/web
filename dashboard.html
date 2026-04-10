@@ -4,90 +4,150 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard - Smart Study Planner</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style shams.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
   </head>
-  <body class="dashboard-page">
-    <div class="dashboard-wrapper">
-      <div class="dashboard-container">
-        <h1>Welcome to Smart Study Planner</h1>
-        <p class="subtitle">
-          Welcome back, <span id="studentName">Student</span> 👋
-        </p>
-
-        <div class="stats-grid">
-          <div class="stats-card">
-            <h3>Total Courses</h3>
-            <p>4</p>
-          </div>
-
-          <div class="stats-card">
-            <h3>Today’s Sessions</h3>
-            <p id="sessionsCount">3</p>
-          </div>
-
-          <div class="stats-card">
-            <h3>Upcoming Deadline</h3>
-            <p>Physics Quiz</p>
-          </div>
-
-          <div class="stats-card">
-            <h3>Completion Rate</h3>
-            <p id="completionRate">0%</p>
-          </div>
+  <body class="dashboard-page body-sidebare">
+    <div class="dashboard-layout">
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <div class="logo">
+          <i data-lucide="flower-2"></i>
+          <span>Study Planner</span>
         </div>
 
-        <h2>Today’s Study Sessions</h2>
-
-        <div class="session-box">
-          <div class="session-info">
-            <strong>Math Revision</strong>
-            <p>5:00 PM - 6:00 PM</p>
+        <div class="menu">
+          <div class="item active">
+            <i data-lucide="home"></i>
+            <a href="dashboard.html" class="link">Home</a>
           </div>
 
-          <div class="session-actions">
-            <button class="session-btn" onclick="markCompleted(this)">
-              Completed
-            </button>
-            <button class="missed-btn" onclick="markMissed(this)">
-              Missed
-            </button>
+          <div class="item">
+            <i data-lucide="book-open"></i>
+            <a href="courses2.html" class="link">Courses</a>
+          </div>
+
+          <div class="item">
+            <i data-lucide="calendar-check"></i>
+            <a href="availability.html" class="link">Availability</a>
+          </div>
+
+          <div class="item">
+            <i data-lucide="layers-3"></i>
+            <a href="planner.html" class="link">Study Plan</a>
+          </div>
+
+          <div class="item">
+            <i data-lucide="bar-chart-3"></i>
+            <a href="stats.html" class="link">Statistics</a>
+          </div>
+
+          <div class="item">
+            <i data-lucide="bell"></i>
+            <a href="tasks.html" class="link">Deadlines</a>
+          </div>
+
+          <div class="item">
+            <i data-lucide="bot"></i>
+            <a href="ai-helper.html" class="link">AI Assistant</a>
+          </div>
+
+          <div class="item">
+            <i data-lucide="log-out"></i>
+            <a href="register.html" class="link">Logout</a>
           </div>
         </div>
+      </div>
 
-        <div class="session-box">
-          <div class="session-info">
-            <strong>Physics Chapter 3</strong>
-            <p>6:30 PM - 7:30 PM</p>
-          </div>
-
-          <div class="session-actions">
-            <button class="session-btn" onclick="markCompleted(this)">
-              Completed
-            </button>
-            <button class="missed-btn" onclick="markMissed(this)">
-              Missed
-            </button>
-          </div>
+      <!-- Main Content -->
+      <div class="dashboard-wrapper">
+        <div class="page-top-card">
+          <h1>Dashboard</h1>
         </div>
 
-        <div class="session-box">
-          <div class="session-info">
-            <strong>Programming Practice</strong>
-            <p>8:00 PM - 9:00 PM</p>
+        <div class="page-content-card">
+          <p class="subtitle">
+            Welcome back, <span id="studentName">Student</span> 👋
+          </p>
+
+          <div class="stats-grid">
+            <div class="stats-card">
+              <h3>Total Courses</h3>
+              <p>4</p>
+            </div>
+
+            <div class="stats-card">
+              <h3>Today’s Sessions</h3>
+              <p id="sessionsCount">3</p>
+            </div>
+
+            <div class="stats-card">
+              <h3>Upcoming Deadline</h3>
+              <p>Physics Quiz</p>
+            </div>
+
+            <div class="stats-card">
+              <h3>Completion Rate</h3>
+              <p id="completionRate">0%</p>
+            </div>
           </div>
 
-          <div class="session-actions">
-            <button class="session-btn" onclick="markCompleted(this)">
-              Completed
-            </button>
-            <button class="missed-btn" onclick="markMissed(this)">
-              Missed
-            </button>
+          <h2>Today’s Study Sessions</h2>
+
+          <div class="session-box">
+            <div class="session-info">
+              <strong>Math Revision</strong>
+              <p>5:00 PM - 6:00 PM</p>
+            </div>
+
+            <div class="session-actions">
+              <button class="session-btn" onclick="markCompleted(this)">
+                Completed
+              </button>
+              <button class="missed-btn" onclick="markMissed(this)">
+                Missed
+              </button>
+            </div>
+          </div>
+
+          <div class="session-box">
+            <div class="session-info">
+              <strong>Physics Chapter 3</strong>
+              <p>6:30 PM - 7:30 PM</p>
+            </div>
+
+            <div class="session-actions">
+              <button class="session-btn" onclick="markCompleted(this)">
+                Completed
+              </button>
+              <button class="missed-btn" onclick="markMissed(this)">
+                Missed
+              </button>
+            </div>
+          </div>
+
+          <div class="session-box">
+            <div class="session-info">
+              <strong>Programming Practice</strong>
+              <p>8:00 PM - 9:00 PM</p>
+            </div>
+
+            <div class="session-actions">
+              <button class="session-btn" onclick="markCompleted(this)">
+                Completed
+              </button>
+              <button class="missed-btn" onclick="markMissed(this)">
+                Missed
+              </button>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
+    <script>
+      lucide.createIcons();
+    </script>
     <script src="dashboard.js"></script>
   </body>
 </html>

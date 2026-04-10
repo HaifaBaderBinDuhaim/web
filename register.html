@@ -3,42 +3,50 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Smart Study Planner</title>
+    <title>Smart Study Planner - Register</title>
     <link rel="stylesheet" href="styleLogin.css" />
   </head>
   <body class="body">
     <article class="register">
-      <h1 class="header1">Create your account!</h1>
-      <h3 class="quote">Start your journey to smarter planning today</h3>
+      <div class="heading">
+        <h1 class="header1">Create your account!</h1>
+        <h3 class="quote">Start your journey to smarter planning today</h3>
+      </div>
 
       <section class="background">
         <form class="form">
-          <label for="name" class="labels">Name</label>
-          <input
-            id="name"
-            name="name"
-            type="text"
-            class="whiteButton"
-            placeholder="Enter your name"
-          />
+          <div class="input-group">
+            <label for="name" class="labels">Name</label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              class="whiteButton"
+              placeholder="Enter your name"
+            />
+          </div>
 
-          <label for="email" class="labels">Email address</label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            placeholder="Enter your email"
-            class="whiteButton"
-          />
+          <div class="input-group">
+            <label for="email" class="labels">Email address</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="Enter your email"
+              class="whiteButton"
+            />
+          </div>
 
-          <label for="password" class="labels">Password</label>
-          <input
-            id="password"
-            name="password"
-            type="password"
-            placeholder="Enter password"
-            class="whiteButton"
-          />
+          <div class="input-group">
+            <label for="password" class="labels">Password</label>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              placeholder="Enter password"
+              class="whiteButton"
+            />
+          </div>
 
           <div class="check-row">
             <input type="checkbox" id="agreement" />
@@ -51,12 +59,6 @@
             Sign Up
           </button>
 
-          <script>
-            function goToPage() {
-              window.location.href = "courses2.html";
-            }
-          </script>
-
           <h5 class="account-text">
             Have an account?
             <a href="logIn.html" target="_blank" class="sign-up">Sign in</a>
@@ -64,5 +66,11 @@
         </form>
       </section>
     </article>
+
+    <script>
+      function goToPage() {
+        window.location.href = "courses2.html";
+      }
+    </script>
   </body>
 </html>
