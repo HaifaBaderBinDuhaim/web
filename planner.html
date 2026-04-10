@@ -10,24 +10,48 @@
 <body class="body-layout">
 
     <div class="main-screen">
-        <div class="sidebar">
+        <aside class="sidebar">
             <div class="logo">
                 <i data-lucide="flower-2"></i> <span>Study Planner</span>
             </div>
             <div class="menu">
-                <div class="item"><i data-lucide="home"></i><a href="dashboard.html" class="link">Home</a></div>
-                <div class="item"><i data-lucide="book-open"></i><a href="courses.html" class="link">Courses</a></div>
-                <div class="item"><i data-lucide="calendar-check"></i><a href="availability.html" class="link">Availability</a></div>
-                <div class="item active"><i data-lucide="layers-3"></i><a href="planner.html" class="link">Study Plan</a></div>
-                <div class="item"><i data-lucide="bar-chart-3"></i><a href="progress.html" class="link">Statistics</a></div>
-                <div class="item"><i data-lucide="bell"></i><a href="#" class="link">Reminder</a></div>
-                <div class="item"><i data-lucide="bot"></i><a href="ai-helper.html" class="link">AI assistant</a></div>
-                <div class="item logout-item"><i data-lucide="log-out"></i><a href="register.html" class="link">Logout</a></div>
+                <div class="item">
+                    <i data-lucide="home"></i>
+                    <a href="dashboard.html" class="link">Home</a>
+                </div>
+                <div class="item">
+                    <i data-lucide="book-open"></i>
+                    <a href="courses2.html" class="link">Courses</a>
+                </div>
+                <div class="item">
+                    <i data-lucide="calendar-check"></i>
+                    <a href="availability.html" class="link">Availability</a>
+                </div>
+                <div class="item active">
+                    <i data-lucide="layers-3"></i>
+                    <a href="planner.html" class="link">Study Plan</a>
+                </div>
+                <div class="item">
+                    <i data-lucide="bar-chart-3"></i>
+                    <a href="stats.html" class="link">Statistics</a>
+                </div>
+                <div class="item">
+                    <i data-lucide="bell"></i>
+                    <a href="tasks.html" class="link">Deadlines</a>
+                </div>
+                <div class="item">
+                    <i data-lucide="bot"></i>
+                    <a href="ai-helper.html" class="link">AI assistant</a>
+                </div>
+                <div class="item logout-item">
+                    <i data-lucide="log-out"></i>
+                    <a href="logIn.html" class="link">Logout</a>
+                </div>
             </div>
-        </div>
+        </aside>
 
-        <div class="content-area">
-            <div class="container-full">
+        <main class="content-area">
+            <div class="container-inner">
                 <h1 class="title">Weekly Study Planner</h1>
                 
                 <div class="controls-row">
@@ -47,10 +71,15 @@
                         <tbody id="planContainer">
                             <tr>
                                 <td class="time-col">08:00 AM</td>
-                                <td class="slot study-session">Math (Ch.1)</td> <td class="slot"></td><td class="slot busy"></td> <td colspan="4"></td> </tr>
+                                <td class="slot study-session">Math (Ch.1)</td> 
+                                <td class="slot"></td>
+                                <td class="slot busy"></td> 
+                                <td colspan="4"></td> 
+                            </tr>
                             <tr>
                                 <td class="time-col">09:00 AM</td>
-                                <td></td><td class="slot study-session">CS 101</td>
+                                <td></td>
+                                <td class="slot study-session">CS 101</td>
                                 <td colspan="5"></td>
                             </tr>
                             <tr><td class="time-col">10:00 AM</td><td colspan="7"></td></tr>
@@ -64,7 +93,7 @@
                     <button onclick="window.location.href='dashboard.html'" class="btn-secondary">Back to Dashboard</button>
                 </div>
             </div>
-        </div>
+        </main>
     </div>
 
     <script>
