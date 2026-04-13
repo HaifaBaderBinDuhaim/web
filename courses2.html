@@ -1,236 +1,219 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="description" content="Courses page for the Smart Study Planner project.">
-<meta name="keywords" content="Smart Study Planner, courses, study planner, student, schedule">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="description"
+      content="Courses page for the Smart Study Planner project."
+    />
+    <meta
+      name="keywords"
+      content="Smart Study Planner, courses, study planner, student, schedule"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>Smart Study Planner - Courses</title>
+    <title>Smart Study Planner - Courses</title>
 
-<link rel="stylesheet" href="coursesStyle2.css">
-<script src="https://unpkg.com/lucide@latest"></script>
-</head>
+    <link rel="stylesheet" href="coursesStyle2.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
 
-<body class="body-sidebare">
+  <body class="body-sidebare">
+    <div class="layout">
+      <!-- SIDEBAR -->
+      <div class="sidebar">
+        <div class="logo">
+          <i data-lucide="flower-2"></i>
+          <span>Study Planner</span>
+        </div>
 
-<div class="layout">
-
-<!-- SIDEBAR -->
-<div class="sidebar">
-
-    <div class="logo">
-        <i data-lucide="flower-2"></i>
-        <span>Study Planner</span>
-    </div>
-
-    <div class="menu">
-
-        <div class="item">
+        <div class="menu">
+          <div class="item">
             <i data-lucide="home"></i>
             <a href="dashboard.html" class="link">Home</a>
-        </div>
+          </div>
 
-        <div class="item active-item">
+          <div class="item active-item">
             <i data-lucide="book-open"></i>
             <a href="courses2.html" class="link">Courses</a>
-        </div>
+          </div>
 
-        <div class="item">
+          <div class="item">
             <i data-lucide="calendar-check"></i>
             <a href="availability.html" class="link">Availability</a>
-        </div>
+          </div>
 
-        <div class="item">
+          <div class="item">
             <i data-lucide="layers-3"></i>
             <a href="planner.html" class="link">Study Plan</a>
-        </div>
+          </div>
 
-        <div class="item">
+          <div class="item">
             <i data-lucide="bar-chart-3"></i>
-            <a href="stats.html" class="link">Statistics</a>
-        </div>
+            <a href="stats.html" class="link">Statistics & Progress</a>
+          </div>
 
-        <div class="item">
+          <div class="item">
             <i data-lucide="bell"></i>
             <a href="tasks.html" class="link">Deadlines</a>
-        </div>
+          </div>
 
-        <div class="item">
+          <div class="item">
             <i data-lucide="bot"></i>
             <a href="ai-helper.html" class="link">AI assistant</a>
-        </div>
+          </div>
 
-        <div class="item">
+          <div class="item">
             <i data-lucide="log-out"></i>
             <a href="logIn.html" class="link">Logout</a>
+          </div>
         </div>
+      </div>
 
+      <!-- MAIN CONTENT -->
+      <div class="page-container">
+        <header class="main-header">
+          <h1>Courses</h1>
+        </header>
+
+        <section class="form-section">
+          <h2>Add New Course</h2>
+
+          <form>
+            <div class="form-row">
+              <label for="courseName">Course Name:</label>
+              <input type="text" id="courseName" required />
+            </div>
+
+            <div class="form-row">
+              <label for="courseCode">Course Code:</label>
+              <input type="text" id="courseCode" required />
+            </div>
+
+            <div class="form-row">
+              <label for="instructor">Instructor Name:</label>
+              <input type="text" id="instructor" required />
+            </div>
+
+            <div class="form-row">
+              <label for="creditHours">Credit Hours:</label>
+              <select id="creditHours">
+                <option>1</option>
+                <option>2</option>
+                <option selected>3</option>
+                <option>4</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <label for="category">Course Category:</label>
+              <select id="category">
+                <option>Major</option>
+                <option>Elective</option>
+                <option>General</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <label>Study Priority:</label>
+
+              <div class="radio-group">
+                <input type="radio" id="high" name="priority" />
+                <label for="high">High</label>
+
+                <input type="radio" id="medium" name="priority" checked />
+                <label for="medium">Medium</label>
+
+                <input type="radio" id="low" name="priority" />
+                <label for="low">Low</label>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <label>Course Days:</label>
+
+              <div class="checkbox-group">
+                <input type="checkbox" /> Sun <input type="checkbox" /> Mon
+                <input type="checkbox" /> Tue <input type="checkbox" /> Wed
+                <input type="checkbox" /> Thu
+              </div>
+            </div>
+
+            <div class="form-row">
+              <label for="notes">Notes:</label>
+              <textarea id="notes"></textarea>
+            </div>
+
+            <div class="button-row">
+              <input type="submit" value="Add Course" />
+              <input type="reset" value="Clear" />
+            </div>
+          </form>
+        </section>
+
+        <section class="table-section">
+          <h2>My Courses</h2>
+
+          <table>
+            <caption>
+              Current Registered Courses
+            </caption>
+
+            <thead>
+              <tr>
+                <th>Course Code</th>
+                <th>Course Name</th>
+                <th>Instructor</th>
+                <th>Hours</th>
+                <th>Priority</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>SWE 381</td>
+                <td>Web Applications Development</td>
+                <td>Dr. Ohoud</td>
+                <td>3</td>
+                <td>High</td>
+                <td>
+                  <a href="#" class="table-btn edit-btn">Edit</a>
+                  <a href="#" class="table-btn delete-btn">Remove</a>
+                </td>
+              </tr>
+
+              <tr>
+                <td>SWE 333</td>
+                <td>Software Quality Assurance</td>
+                <td>Dr. Mariam</td>
+                <td>2</td>
+                <td>Medium</td>
+                <td>
+                  <a href="#" class="table-btn edit-btn">Edit</a>
+                  <a href="#" class="table-btn delete-btn">Remove</a>
+                </td>
+              </tr>
+
+              <tr>
+                <td>SWE 321</td>
+                <td>Software Design & Architecture</td>
+                <td>Dr. Ghadah</td>
+                <td>3</td>
+                <td>High</td>
+                <td>
+                  <a href="#" class="table-btn edit-btn">Edit</a>
+                  <a href="#" class="table-btn delete-btn">Remove</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </div>
     </div>
-</div>
 
-
-<!-- MAIN CONTENT -->
-<div class="page-container">
-
-<header class="main-header">
-<h1>Courses</h1>
-</header>
-
-
-<section class="form-section">
-
-<h2>Add New Course</h2>
-
-<form>
-
-<div class="form-row">
-<label for="courseName">Course Name:</label>
-<input type="text" id="courseName" required>
-</div>
-
-<div class="form-row">
-<label for="courseCode">Course Code:</label>
-<input type="text" id="courseCode" required>
-</div>
-
-<div class="form-row">
-<label for="instructor">Instructor Name:</label>
-<input type="text" id="instructor" required>
-</div>
-
-<div class="form-row">
-<label for="creditHours">Credit Hours:</label>
-<select id="creditHours">
-<option>1</option>
-<option>2</option>
-<option selected>3</option>
-<option>4</option>
-</select>
-</div>
-
-<div class="form-row">
-<label for="category">Course Category:</label>
-<select id="category">
-<option>Major</option>
-<option>Elective</option>
-<option>General</option>
-</select>
-</div>
-
-<div class="form-row">
-<label>Study Priority:</label>
-
-<div class="radio-group">
-<input type="radio" id="high" name="priority">
-<label for="high">High</label>
-
-<input type="radio" id="medium" name="priority" checked>
-<label for="medium">Medium</label>
-
-<input type="radio" id="low" name="priority">
-<label for="low">Low</label>
-</div>
-</div>
-
-
-<div class="form-row">
-<label>Course Days:</label>
-
-<div class="checkbox-group">
-<input type="checkbox"> Sun
-<input type="checkbox"> Mon
-<input type="checkbox"> Tue
-<input type="checkbox"> Wed
-<input type="checkbox"> Thu
-</div>
-</div>
-
-
-<div class="form-row">
-<label for="notes">Notes:</label>
-<textarea id="notes"></textarea>
-</div>
-
-
-<div class="button-row">
-<input type="submit" value="Add Course">
-<input type="reset" value="Clear">
-</div>
-
-</form>
-</section>
-
-
-<section class="table-section">
-
-<h2>My Courses</h2>
-
-<table>
-
-<caption>Current Registered Courses</caption>
-
-<thead>
-<tr>
-<th>Course Code</th>
-<th>Course Name</th>
-<th>Instructor</th>
-<th>Hours</th>
-<th>Priority</th>
-<th>Actions</th>
-</tr>
-</thead>
-
-<tbody>
-
-<tr>
-<td>SWE 381</td>
-<td>Web Applications Development</td>
-<td>Dr. Ohoud</td>
-<td>3</td>
-<td>High</td>
-<td>
-<a href="#" class="table-btn edit-btn">Edit</a>
-<a href="#" class="table-btn delete-btn">Remove</a>
-</td>
-</tr>
-
-<tr>
-<td>SWE 333</td>
-<td>Software Quality Assurance</td>
-<td>Dr. Mariam</td>
-<td>2</td>
-<td>Medium</td>
-<td>
-<a href="#" class="table-btn edit-btn">Edit</a>
-<a href="#" class="table-btn delete-btn">Remove</a>
-</td>
-</tr>
-
-<tr>
-<td>SWE 321</td>
-<td>Software Design & Architecture</td>
-<td>Dr. Ghadah</td>
-<td>3</td>
-<td>High</td>
-<td>
-<a href="#" class="table-btn edit-btn">Edit</a>
-<a href="#" class="table-btn delete-btn">Remove</a>
-</td>
-</tr>
-
-</tbody>
-
-</table>
-
-</section>
-
-</div>
-</div>
-
-<script>
-lucide.createIcons();
-</script>
-
-</body>
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
 </html>

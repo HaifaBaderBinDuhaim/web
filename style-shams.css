@@ -387,3 +387,85 @@
     font-size: 1.7rem;
   }
 }
+/* =========================
+   REMINDERS
+========================= */
+.dashboard-page .reminder-box {
+  background: #232323;
+  border: 1px solid #343434;
+  border-radius: 16px;
+  padding: 18px 20px;
+  margin-bottom: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dashboard-page .reminder-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.dashboard-page .reminder-info strong {
+  display: block;
+  color: #ffffff;
+  font-size: 1.02rem;
+}
+
+.dashboard-page .reminder-info p {
+  margin: 0;
+  color: #cfcfcf;
+}
+
+.dashboard-page .reminder-tag {
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: #111;
+}
+
+.dashboard-page .reminder-tag.quiz {
+  background: #f2b35f;
+}
+
+.dashboard-page .reminder-tag.task {
+  background: #8ecae6;
+}
+
+.dashboard-page .reminder-tag.deadline {
+  background: #ff8a80;
+}
+
+.dashboard-page .reminder-priority {
+  padding: 6px 12px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.dashboard-page .reminder-priority.high {
+  color: #ff7b76;
+}
+
+.dashboard-page .reminder-priority.medium {
+  color: #f2b35f;
+}
+
+.dashboard-page .reminder-priority.low {
+  color: #7bd88f;
+}
+
+/* Responsive */
+@media (max-width: 850px) {
+  .dashboard-page .reminder-box {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .dashboard-page .reminder-left {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
