@@ -1,0 +1,6 @@
+.body {
+  display: grid;
+}
+.register {
+  grid-template-columns: auto;
+}

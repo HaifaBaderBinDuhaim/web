@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weekly Availability Schedule</title>
+    <link rel="stylesheet" href="availabilitystyle.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body class="page-wrapper">
+    <div class="main-layout">
+      <aside class="sidebar">
+        <div class="logo">
+          <i data-lucide="flower-2"></i>
+          <span>Study Planner</span>
+        </div>
+        <div class="menu">
+          <div class="item">
+            <i data-lucide="home"></i
+            ><a href="dashboard.html" class="link">Home</a>
+          </div>
+          <div class="item">
+            <i data-lucide="book-open"></i
+            ><a href="courses2.html" class="link">Courses</a>
+          </div>
+          <div class="item active">
+            <i data-lucide="calendar-check"></i
+            ><a href="availability.html" class="link">Availability</a>
+          </div>
+          <div class="item">
+            <i data-lucide="layers-3"></i
+            ><a href="planner.html" class="link">Study Plan</a>
+          </div>
+          <div class="item">
+            <i data-lucide="bar-chart-3"></i
+            ><a href="stats.html" class="link">Statistics</a>
+          </div>
+          <div class="item">
+            <i data-lucide="bell"></i
+            ><a href="tasks.html" class="link">Deadline</a>
+          </div>
+          <div class="item">
+            <i data-lucide="bot"></i
+            ><a href="ai-helper.html" class="link">AI assistant</a>
+          </div>
+          <div class="item logout-item">
+            <i data-lucide="log-out"></i
+            ><a href="logIn.html" class="link">Logout</a>
+          </div>
+        </div>
+      </aside>
+
+      <main class="content-container">
+        <div class="content-card">
+          <h1>Weekly Availability Schedule</h1>
+
+          <form class="availability-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Select Day</label>
+                <select id="daySelect">
+                  <option>Monday</option>
+                  <option>Tuesday</option>
+                  <option>Wednesday</option>
+                  <option>Thursday</option>
+                  <option>Friday</option>
+                  <option>Saturday</option>
+                  <option>Sunday</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Start Time</label>
+                <input type="time" id="startTime" />
+              </div>
+              <div class="form-group">
+                <label>End Time</label>
+                <input type="time" id="endTime" />
+              </div>
+            </div>
+            <button type="submit" class="btn-submit">Add to Schedule</button>
+          </form>
+
+          <div class="schedule-chart-container">
+            <table class="schedule-table">
+              <thead>
+                <tr>
+                  <th class="time-col">Time</th>
+                  <th>Mon</th>
+                  <th>Tue</th>
+                  <th>Wed</th>
+                  <th>Thu</th>
+                  <th>Fri</th>
+                  <th>Sat</th>
+                  <th>Sun</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="time-col">08:00 AM</td>
+                  <td class="slot available">Available</td>
+                  <td></td>
+                  <td class="slot busy">Busy</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td class="time-col">09:00 AM</td>
+                  <td></td>
+                  <td class="slot available">Available</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td class="time-col">10:00 AM</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td class="time-col">11:00 AM</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td class="time-col">12:00 PM</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td class="time-col">01:00 PM</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td class="time-col">02:00 PM</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td class="time-col">03:00 PM</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td class="time-col">04:00 PM</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td class="time-col">05:00 PM</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td class="time-col">06:00 PM</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="bottom-actions">
+            <a href="dashboard.html" class="back-btn">Back to Dashboard</a>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+.body {
+  display: flex;
+  grid-template-columns: 1fr, 1042px;
+}
+.register {
+  justify-content: start;
+}
+.image {
+  align-items: stretch;
+}

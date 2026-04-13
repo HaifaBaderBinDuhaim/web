@@ -1,0 +1,94 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.body {
+  display: grid;
+  margin: 50px;
+  grid-template-columns: 1fr 1fr;
+  background-color: #1f1e1d;
+}
+.register {
+  padding: 20px;
+  margin-right: 40px;
+  align-self: center;
+  grid-row: 1/2;
+}
+.image {
+  align-items: stretch;
+  border-radius: 20px;
+  grid-row: 1/-1;
+}
+.button {
+  margin: 15px 0px;
+  /* width: 300px; */
+  background-color: #ec6f09;
+  padding: 5px 120px;
+  border: none;
+  border-radius: 6px;
+  color: rgb(242, 239, 235);
+  text-decoration: double;
+}
+.whiteButton {
+  width: 300px;
+  border-radius: 6px;
+  border: none;
+  height: 25px;
+  color: dimgrey;
+}
+.background {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: rgb(48, 50, 52);
+  border-radius: 12px;
+  height: 320px;
+  width: 350px;
+}
+.sign-up {
+  font-size: 17px;
+  text-decoration: none;
+  color: antiquewhite;
+}
+.sign-up:hover {
+  color: antiquewhite;
+  text-decoration: underline;
+  font-size: 20px;
+}
+
+.header1 {
+  margin-bottom: 10px;
+}
+.quote {
+  color: rgb(163, 159, 38);
+}
+.labels {
+  margin-bottom: 20px;
+}
+/*
+styling for sidebar*/
+.sidebar {
+  width: 250px;
+  background: #1e1e1e;
+  color: #fff;
+  padding: 20px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.item:hover {
+  background: #2a2a2a;
+  border-radius: 8px;
+}
+
+i {
+  width: 20px;
+  height: 20px;
+}

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Progress and Statistics  - Smart Study Planner</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="progressStyle.css"> -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+
+<body>
+
+    
+         <div class="header">
+            <h1>📊 Statistics & Progress</h1>
+            <p>Track your study performance</p>
+        </div>
+
+      <!-- <div class="stats-section">
+            <p>Total Courses: <span id="totalCourses">0</span></p>
+            <p>Total Tasks: <span id="totalTasks">0</span></p>
+            <p>Assignments: <span id="assignmentsCount">0</span></p>
+            <p>Exams: <span id="examsCount">0</span></p>
+        </div>
+
+        <br> -->
+    
+
+
+             <!-- FR8: Statistics & Analytics 
+            <div class="stats-section">
+                <h2>Study Hours</h2>
+                <div class="chart-container">
+                    <canvas id="weeklyChart"></canvas>
+                </div>
+                <div class="stats-info">
+                    <p>Weekly Hours: <span id="weeklyHours">0</span></p>
+                </div>
+
+                <h2>Course Distribution</h2>
+                <div class="chart-container">
+                    <canvas id="distributionChart"></canvas>
+                </div>
+
+                <h2>Course Details</h2>
+                <table class="stats-table">
+                    <thead>
+                        <tr><th>Course</th><th>Hours</th><th>Complete %</th></tr>
+                    </thead>
+                    <tbody id="courseTable">
+                        <tr><td colspan="3">No data</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div> -->
+ <!-- Action Buttons (FR6.1: Mark sessions) 
+  <div class="sessions-section">
+            <h2>📅 Study Sessions</h2>
+            <div class="sessions-list" id="sessionsList">
+                Sessions will be dynamically added here
+            </div>
+        </div>
+
+        <div class="action-buttons">
+            <button class="btn-success" id="markCompleteBtn">✓ Complete</button>
+            <button class="btn-danger" id="markMissedBtn">✗ Missed</button>
+            <button class="btn-primary" id="refreshBtn">🔄 Refresh</button>
+        </div> -->
+    <h2>📅 Study Sessions</h2> <br>
+    <div class="session-item">
+         
+            <div class="session-info">
+        <div class="session-course">SWE 381</div>
+        <div class="session-details">📅 2026-03-27 | ⏰ 10:00 - 12:00 AM</div>
+    </div>
+    <div class="session-actions">
+    <button class="btn-success mark-complete">✓ Complete</button>
+    <button class="btn-fail mark-missed">✗ Missed</button>
+</div>
+</div>
+<br>
+ <!-- Stats Cards (FR8.1: Weekly Study Hours) -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">⏱️</div>
+                <div class="stat-info">
+                    <h3>Total Study Hours</h3>
+                    <div class="stat-value" id="totalHours">24.9</div>
+                    <p class="trend up">↑ +5.2 this week</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">✅</div>
+                <div class="stat-info">
+                    <h3>Completed Sessions</h3>
+                    <div class="stat-value" id="completedSessions">12</div>
+                    <p>out of 18 total</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">❌</div>
+                <div class="stat-info">
+                    <h3>Missed Sessions</h3>
+                    <div class="stat-value" id="missedSessions">6</div>
+                    <p>2 from last week</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">📊</div>
+                <div class="stat-info">
+                    <h3>Completion Rate</h3>
+                    <div class="stat-value" id="completionRate">67%</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="completionFill" style="width: 67%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+
+        <!-- Weekly Chart (FR8.1: Display weekly study hours) -->
+        <div class="chart-card">
+            <h2>📈 Weekly Study Hours</h2>
+            <div class="chart-container">
+                <canvas id="weeklyChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Course Distribution (FR8.2: Show progress trends) -->
+        <div class="chart-card">
+            <h2>🎯 Study Time by Course</h2>
+            <div class="chart-container small">
+                <canvas id="distributionChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Course Details Table (FR8.2: Show progress trends) -->
+        <div class="table-card">
+            <h2>📋 Course Progress</h2>
+            <table class="stats-table">
+                <thead>
+                    <tr>
+                        <th>Course</th>
+                        <th>Hours</th>
+                        <th>Completion</th>
+                    </tr>
+                </thead>
+                <tbody id="courseTable">
+                    <tr>
+                        <td>SWE 381</td>
+                        <td>12</td>
+                        <td>
+                            <div class="mini-progress">
+                                <div class="mini-fill" style="width: 80%"></div>
+                                <span>80%</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>SWE 382</td>
+                        <td>9</td>
+                        <td>
+                            <div class="mini-progress">
+                                <div class="mini-fill" style="width: 67%"></div>
+                                <span>67%</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>MATH 101</td>
+                        <td>7.5</td>
+                        <td>
+                            <div class="mini-progress">
+                                <div class="mini-fill" style="width: 83%"></div>
+                                <span>83%</span>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>  
+<br>
+<button onclick="window.location.href='dashboard.html'" class="btn">Back to Dashboard</button>
+    <script src="../js/stats.js"></script>
+</body>
+</html>

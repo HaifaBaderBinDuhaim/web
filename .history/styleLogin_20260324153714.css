@@ -1,0 +1,21 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+.body {
+  display: flex;
+  /* grid-template-columns: 1fr, 1042px; */
+  margin: 100px;
+  align-items: center;
+}
+.register {
+  background-color: rgb(213, 231, 251);
+  padding: 20px;
+  align-items: center;
+  margin-right: 40px;
+}
+.image {
+  align-items: stretch;
+  border-radius: 20px;
+}

@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weekly Study Planner - Smart Planner</title>
+    <link rel="stylesheet" href="plannerstyle.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body class="body-layout">
+    <div class="main-screen">
+      <aside class="sidebar">
+        <div class="logo">
+          <i data-lucide="flower-2"></i> <span>Study Planner</span>
+        </div>
+        <div class="menu">
+          <div class="item">
+            <i data-lucide="home"></i>
+            <a href="dashboard.html" class="link">Home</a>
+          </div>
+          <div class="item">
+            <i data-lucide="book-open"></i>
+            <a href="courses2.html" class="link">Courses</a>
+          </div>
+          <div class="item">
+            <i data-lucide="calendar-check"></i>
+            <a href="availability.html" class="link">Availability</a>
+          </div>
+          <div class="item active">
+            <i data-lucide="layers-3"></i>
+            <a href="planner.html" class="link">Study Plan</a>
+          </div>
+          <div class="item">
+            <i data-lucide="bar-chart-3"></i>
+            <a href="stats.html" class="link">Statistics &amp;Progress</a>
+          </div>
+          <div class="item">
+            <i data-lucide="bell"></i>
+            <a href="tasks.html" class="link">Deadlines</a>
+          </div>
+          <div class="item">
+            <i data-lucide="bot"></i>
+            <a href="ai-helper.html" class="link">AI assistant</a>
+          </div>
+          <div class="item logout-item">
+            <i data-lucide="log-out"></i>
+            <a href="logIn.html" class="link">Logout</a>
+          </div>
+        </div>
+      </aside>
+
+      <main class="content-area">
+        <div class="container-inner">
+          <h1 class="title">Study Plan For The Week !</h1>
+
+          <div class="controls-row">
+            <button onclick="generatePlan()" class="btn-primary">
+              Generate Study Plan
+            </button>
+          </div>
+
+          <h2 class="subtitle">Your Weekly Plan</h2>
+
+          <div class="schedule-chart-container">
+            <table class="schedule-table">
+              <thead>
+                <tr>
+                  <th class="time-col">Time</th>
+                  <th>Sun</th>
+                  <th>Mon</th>
+                  <th>Tue</th>
+                  <th>Wed</th>
+                  <th>Thu</th>
+                  <th>Fri</th>
+                  <th>Sat</th>
+                </tr>
+              </thead>
+              <tbody id="planContainer">
+                <tr>
+                  <td class="time-col">08:00 AM</td>
+                  <td class="slot study-session">Math (Ch.1)</td>
+                  <td class="slot"></td>
+                  <td class="slot busy"></td>
+                  <td colspan="4"></td>
+                </tr>
+                <tr>
+                  <td class="time-col">09:00 AM</td>
+                  <td></td>
+                  <td class="slot study-session">CS 101</td>
+                  <td colspan="5"></td>
+                </tr>
+                <tr>
+                  <td class="time-col">10:00 AM</td>
+                  <td colspan="7"></td>
+                </tr>
+                <tr>
+                  <td class="time-col">11:00 AM</td>
+                  <td colspan="7"></td>
+                </tr>
+                <tr>
+                  <td class="time-col">12:00 PM</td>
+                  <td colspan="7"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="bottom-controls">
+            <button
+              onclick="window.location.href = 'dashboard.html'"
+              class="btn-secondary"
+            >
+              Back to Dashboard
+            </button>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      lucide.createIcons();
+    </script>
+    <script src="../js/planner.js"></script>
+  </body>
+</html>

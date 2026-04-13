@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tasks</title>
+    <link rel="stylesheet" href="tasksstyle.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="body-sidebare">
+
+<div class="layout">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo">
+            <i data-lucide="flower-2"></i>
+            <span>Study Planner</span>
+        </div>
+
+        <div class="menu">
+
+            <div class="item">
+                <i data-lucide="home"></i>
+                <a href="dashboard.html" class="link">Home</a>
+            </div>
+
+            <div class="item">
+                <i data-lucide="book-open"></i>
+                <a href="courses2.html" class="link">Courses</a>
+            </div>
+
+            <div class="item">
+                <i data-lucide="calendar-check"></i>
+                <a href="availability.html" class="link">Availability</a>
+            </div>
+
+            <div class="item">
+                <i data-lucide="layers-3"></i>
+                <a href="planner.html" class="link">Study Plan</a>
+            </div>
+
+            <div class="item">
+                <i data-lucide="bar-chart-3"></i>
+                <a href="stats.html" class="link">Statistics</a>
+            </div>
+
+            <div class="item active-item">
+                <i data-lucide="bell"></i>
+                <a href="tasks.html" class="link">Deadlines</a>
+            </div>
+
+            <div class="item">
+                <i data-lucide="bot"></i>
+                <a href="ai-helper.html" class="link">AI assistant</a>
+            </div>
+
+            <div class="item">
+                <i data-lucide="log-out"></i>
+                <a href="logIn.html" class="link">Logout</a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Main -->
+    <div class="page-container">
+
+        <div class="main-header">
+            <h1>Deadlines & Exams</h1>
+        </div>
+
+        <!-- Form -->
+        <div class="form-section">
+
+            <h2>Add Task</h2>
+
+            <form>
+
+                <div class="form-row">
+                    <label>Task Title:</label>
+                    <input type="text">
+                </div>
+
+                <div class="form-row">
+                    <label>Course:</label>
+                    <select>
+                        <option>Math</option>
+                        <option>Computer Science</option>
+                        <option>English</option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <label>Type:</label>
+                    <select>
+                        <option>Assignment</option>
+                        <option>Exam</option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <label>Due Date:</label>
+                    <input type="date">
+                </div>
+
+                <div class="form-row">
+                    <label>Priority:</label>
+                    <select>
+                        <option>High</option>
+                        <option>Medium</option>
+                        <option>Low</option>
+                    </select>
+                </div>
+
+                <div class="button-row">
+                    <input type="submit" value="Add Task">
+                </div>
+
+            </form>
+
+            <!-- زر الداشبورد -->
+            <a href="dashboard.html" class="back-btn">Go to Dashboard</a>
+
+        </div>
+
+        <!-- Table -->
+        <div class="table-section">
+
+            <h2>Your Tasks</h2>
+
+            <table>
+                <tr>
+                    <th>Status</th>
+                    <th>Task</th>
+                    <th>Course</th>
+                    <th>Type</th>
+                    <th>Date</th>
+                    <th>Priority</th>
+                    <th>Actions</th>
+                </tr>
+
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>Math Homework</td>
+                    <td>Math</td>
+                    <td>Assignment</td>
+                    <td>20/5</td>
+                    <td>High</td>
+                    <td>
+                        <button>Edit</button>
+                        <button>Delete</button>
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+    lucide.createIcons();
+</script>
+
+</body>
+</html>

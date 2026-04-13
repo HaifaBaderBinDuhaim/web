@@ -1,0 +1,99 @@
+<!doctype html>
+<!-- <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Smart Study Planner - Login</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Smart Study Planner</h1>
+
+      <form
+        id="loginForm"
+        onsubmit="
+          event.preventDefault();
+          loginUser();
+        "
+      >
+        <label>Email</label>
+        <input type="email" id="email" required />
+
+        <label>Password</label>
+        <input type="password" id="password" required />
+
+        <button type="submit">Login</button>
+
+        <p>
+          Don't have an account?
+          <a href="register.html">Create one</a>
+        </p>
+      </form>
+    </div>
+
+    <script src="../js/auth.js"></script>
+  </body>
+</html>-->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <tilte>smart study planner</tilte>
+    <link rel="stylesheet" href="styleLogin.css" />
+  </head>
+  <body class="body">
+    <article class="register">
+      <h1 class="header1">Welcome back!</h1>
+      <h3 class="quote">Plan your time, shape your future</h3>
+      <nav class="background">
+        <form>
+          <label for="email" class="labels">Email address</label><br />
+          <input
+            id="email"
+            name="email"
+            type="text"
+            placeholder="enter your name"
+            class="whiteButton"
+          /><br />
+          <br />
+          <label for="password" class="labels">Password</label><br />
+          <input
+            id="password"
+            name="password"
+            type="password"
+            placeholder="enter your password"
+            class="whiteButton"
+          /><br />
+          <br />
+          <input type="checkbox" id="reminder" />
+          <lable for="reminder">Remember me for 30 days</lable><br />
+          <br />
+          <button type="button" class="button" onclick="goToPage()">
+            Sign Up
+          </button>
+
+          <script>
+            function goToPage() {
+              window.location.href = "coursesStyle2.html";
+            }
+          </script>
+        </form>
+
+        <h5>
+          Don't have an account?
+          <a href="register.html" alt="sign in" target="_blank" class="sign-up"
+            >Sign Up</a
+          >
+        </h5>
+      </nav>
+    </article>
+    <!-- <img
+      src="studying .png"
+      alt="studying"
+      height="700"
+      width="700"
+      class="image"
+    /> -->
+  </body>
+</html>

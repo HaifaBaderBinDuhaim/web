@@ -1,0 +1,24 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+.body {
+  display: grid;
+  margin: 50px;
+  grid-template-columns: 1fr 1fr;
+}
+.register {
+  background-color: rgb(214, 231, 250);
+  padding: 20px;
+  margin-right: 40px;
+  grid-column: 1/2;
+  align-items: center;
+  grid-row: 1/2;
+  height: 300px;
+}
+.image {
+  align-items: stretch;
+  border-radius: 20px;
+  grid-row: 1/-1;
+}

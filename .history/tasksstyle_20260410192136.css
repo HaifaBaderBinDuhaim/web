@@ -1,0 +1,142 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.body-sidebare {
+    background-color: #111111;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    padding: 30px;
+    color: white;
+}
+
+.layout {
+    display: flex;
+    gap: 30px;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 260px;
+    min-height: 100vh;
+    background-color: #1e1e1e;
+    padding: 30px 20px;
+    border-radius: 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 35px;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.item:hover {
+    background-color: #2a2a2a;
+}
+
+.link {
+    text-decoration: none;
+    color: antiquewhite;
+    font-size: 16px;
+}
+
+.active-item {
+    background-color: #2a2a2a;
+}
+
+/* Main */
+.page-container {
+    flex: 1;
+}
+
+.main-header,
+.form-section,
+.table-section {
+    background-color: #1e1e1e;
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 25px;
+}
+
+.main-header h1 {
+    font-size: 32px;
+}
+
+/* Form */
+.form-section h2 {
+    color: #ec6f09;
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.form-row {
+    margin-bottom: 22px;
+}
+
+.form-row label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="date"],
+select {
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    border: none;
+    background-color: #3a3d3f;
+    color: white;
+}
+
+/* Button */
+input[type="submit"] {
+    background-color: #ec6f09;
+    padding: 12px;
+    width: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+}
+
+/* Dashboard button */
+.back-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 15px;
+    background-color: #ec6f09;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+}

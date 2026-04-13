@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Study Planner - Login</title>
+    <link rel="stylesheet" href="styleLogin.css" />
+  </head>
+  <body class="body">
+    <article class="register">
+      <div class="heading">
+        <h1 class="header1">Welcome back!</h1>
+        <h3 class="quote">Plan your time, shape your future</h3>
+      </div>
+
+      <section class="background">
+        <form class="form">
+          <div class="input-group">
+            <label for="email" class="labels">Email address</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="Enter your email"
+              class="whiteButton"
+            />
+          </div>
+
+          <div class="input-group">
+            <label for="password" class="labels">Password</label>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              placeholder="Enter your password"
+              class="whiteButton"
+            />
+          </div>
+
+          <div class="options-row">
+            <div class="remember-box">
+              <input type="checkbox" id="reminder" />
+              <label for="reminder" class="remember-text"
+                >Remember me for 30 days</label
+              >
+            </div>
+
+            <!-- <a href="#" class="forgot-password">Forgot password?</a> -->
+          </div>
+
+          <button type="button" class="button" onclick="goToPage()">
+            Sign In
+          </button>
+        </form>
+
+        <h5 class="account-text">
+          Don’t have an account?
+          <a href="register.html" target="_blank" class="sign-up">Sign Up</a>
+        </h5>
+      </section>
+    </article>
+
+    <script>
+      function goToPage() {
+        window.location.href = "dashboard.html";
+      }
+    </script>
+  </body>
+</html>

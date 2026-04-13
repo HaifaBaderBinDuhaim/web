@@ -1,0 +1,18 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+.body {
+  display: grid;
+  margin: 50px;
+}
+.register {
+  background-color: rgb(214, 231, 250);
+  padding: 20px;
+  margin-right: 40px;
+}
+.image {
+  align-items: stretch;
+  border-radius: 20px;
+}
