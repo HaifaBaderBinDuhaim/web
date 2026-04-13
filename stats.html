@@ -68,56 +68,7 @@
             <p>Track your study performance</p>
         </div>
     <br>
-      <!-- <div class="stats-section">
-            <p>Total Courses: <span id="totalCourses">0</span></p>
-            <p>Total Tasks: <span id="totalTasks">0</span></p>
-            <p>Assignments: <span id="assignmentsCount">0</span></p>
-            <p>Exams: <span id="examsCount">0</span></p>
-        </div>
-
-        <br> -->
-    
-
-
-             <!-- FR8: Statistics & Analytics 
-            <div class="stats-section">
-                <h2>Study Hours</h2>
-                <div class="chart-container">
-                    <canvas id="weeklyChart"></canvas>
-                </div>
-                <div class="stats-info">
-                    <p>Weekly Hours: <span id="weeklyHours">0</span></p>
-                </div>
-
-                <h2>Course Distribution</h2>
-                <div class="chart-container">
-                    <canvas id="distributionChart"></canvas>
-                </div>
-
-                <h2>Course Details</h2>
-                <table class="stats-table">
-                    <thead>
-                        <tr><th>Course</th><th>Hours</th><th>Complete %</th></tr>
-                    </thead>
-                    <tbody id="courseTable">
-                        <tr><td colspan="3">No data</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </div> -->
- <!-- Action Buttons (FR6.1: Mark sessions) 
-  <div class="sessions-section">
-            <h2>📅 Study Sessions</h2>
-            <div class="sessions-list" id="sessionsList">
-                Sessions will be dynamically added here
-            </div>
-        </div>
-
-        <div class="action-buttons">
-            <button class="btn-success" id="markCompleteBtn">✓ Complete</button>
-            <button class="btn-danger" id="markMissedBtn">✗ Missed</button>
-            <button class="btn-primary" id="refreshBtn">🔄 Refresh</button>
-        </div> -->
+      
     <h2>📅 Study Sessions</h2>
 <div class="sessions-list">
     
@@ -134,7 +85,7 @@
     
 </div>
 <br>
- <!-- Stats Cards (FR8.1: Weekly Study Hours) -->
+ <!-- Stats Cards -->
         <div class="stats-grid">
             <div class="stat-card">
                 <div class="stat-icon">⏱️</div>
@@ -174,7 +125,7 @@
 
         
 
-        <!-- Weekly Chart (FR8.1: Display weekly study hours) -->
+        <!-- Weekly Chart-->
         <div class="chart-card">
             <h2>📈 Weekly Study Hours</h2>
             <div class="chart-container">
@@ -182,7 +133,7 @@
             </div>
         </div>
 
-        <!-- Course Distribution (FR8.2: Show progress trends) -->
+        <!-- Course Distribution  -->
         <div class="chart-card">
             <h2>🎯 Study Time by Course</h2>
             <div class="chart-container small">
@@ -190,7 +141,7 @@
             </div>
         </div>
 
-        <!-- Course Details Table (FR8.2: Show progress trends) -->
+        <!-- Course Details Table  -->
         <div class="table-card">
             <h2>📋 Course Progress</h2>
             <table class="stats-table">
@@ -239,8 +190,7 @@
 </div>
 <br>
 <script>
-    // Dummy Data for Charts
-    // الرسم البياني الأسبوعي
+  
     const weeklyCtx = document.getElementById('weeklyChart').getContext('2d');
     new Chart(weeklyCtx, {
         type: 'bar',
@@ -271,7 +221,7 @@
         }
     });
 
-    // الرسم البياني الدائري (توزيع المواد)
+    
     const distCtx = document.getElementById('distributionChart').getContext('2d');
     new Chart(distCtx, {
         type: 'doughnut',

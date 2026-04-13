@@ -6,22 +6,20 @@
 
 body {
      gap: 24px;
-   /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  /* font type in page */
+  
      display: flex;
     background:#111111; /* !--background pagecolour */
     color: white;  /* لون النص الاساسي */
-    padding: 32px;  /* مسافة داخلية حول محتوى الصفحه */
+    padding: 32px;  
 }
 
 
 /*
-styling for sidebar
-======================================================================*/
+styling for sidebar*/
 .main-content {
 flex: 1; }
 
 
-/* Sidebar */
 .sidebar {
     width: 260px;
     min-height: 100vh;
@@ -89,84 +87,11 @@ flex: 1; }
     background-color: #2a2a2a;
 }
 
-/*
-}
-.body-sidebare {
-  background-color: #111111;
-  font-family: Arial, sans-serif;
-  min-height: 100vh;
-  padding: 30px;
-}
 
-.sidebar {
-  width: 260px;
-  min-height: 100vh;
-  background-color: #1e1e1e;
-  color: white;
-  padding: 25px 18px;
-  border-radius: 20px;
-   flex-shrink: 0;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 35px;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.logo svg {
-  width: 22px;
-  height: 22px;
-  color: #b197fc;
-}
-
-.menu {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 12px 14px;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: 0.3s;
-  color: #d1d1d1;
-}
-
-.item:hover {
-  background-color: #2a2a2a;
-  color: white;
-}
-
-.item svg {
-  width: 20px;
-  height: 20px;
-}
-.link {
-  text-decoration: none;
-  color: antiquewhite;
-}
-.link:hover {
-  text-decoration: underline;
-  font-size: 17px;
-}
-
-/*.container {
-    max-width: 1200px; 
-   /* margin: 0 auto;  /* لتوسيط في منتصف الصفحة }*/
-
-*/
 /* Header Styles */
-/* ============================================ */
+
 .header {
-    margin-bottom: 32px;  /* مسافة اسفل العنوان */
+    margin-bottom: 32px;  
 }
 
 .header h1 {
@@ -177,11 +102,11 @@ flex: 1; }
 .header p {
     color: white;
     margin-top: 4px;
-}  /* تنسيق النص الوصفي اسفل العنوان */
+}  /* تنسيق النص  اسفل العنوان */
 
 
 /* Stats Grid - 4 Cards */
-/* ============================================ */
+
 .stats-grid {
     display: grid;
     grid-template-columns:1fr 1fr 1fr 1fr;
@@ -248,7 +173,7 @@ flex: 1; }
 
 
 /* Progress Bar */
-/* ============================================ */
+
 .progress-bar {
     background: #e2e8f0;
     height: 6px;
@@ -264,53 +189,9 @@ flex: 1; }
     transition: width 0.3s;
 }
 
-
-/* Action Buttons */
-/* ============================================ 
-.action-buttons {
-    display: flex;
-    gap: 16px;
-    margin-bottom: 32px;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.btn-success, .btn-danger {
-    padding: 9px 19px;
-    border: none;
-    border-radius: 10px;
-    font-size: 13.5px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.2s;
-}
-
-.btn-success {
-    background: #10b981;
-    color: white;
-}
-
-.btn-success:hover {
-    background: #059669;
-}
-
-.btn-danger {
-    background: #ef4444;
-    color: white;
-}
-
-.btn-danger:hover {
-    background: #dc2626;
-}
-
-
-/*.btn:hover {
-    background: #434648;  /*  Darker shade on hover
-    transform: translateY(-2px); } */
-
     
 /* Chart Cards */
-/* ============================================ */
+
 .chart-card {
     background: #1e1e1e;
     border-radius: 20px;
@@ -335,7 +216,7 @@ flex: 1; }
 
 
 /* Table Card */
-/* ============================================ */
+
 .table-card {
     background: #1e1e1e;
     border-radius: 20px;
@@ -384,7 +265,7 @@ flex: 1; }
     color: #bdbfc1;
 }
 /* Sessions Section - Study Sessions List */
-/* ============================================ */
+
 .sessions-section {
     background: #1e1e1e;
     border-radius: 20px;
