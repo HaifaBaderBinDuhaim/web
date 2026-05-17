@@ -3,6 +3,7 @@ let editIndex = -1;
 
 const form = document.getElementById("taskForm");
 const table = document.getElementById("tasksTable");
+const submitBtn = document.querySelector("input[type='submit']");
 
 form.addEventListener("submit", function (e) {
     e.preventDefault();
@@ -17,9 +18,14 @@ form.addEventListener("submit", function (e) {
 
     if (editIndex === -1) {
         tasks.push(task);
+        alert("Task added successfully ✅");
     } else {
         tasks[editIndex] = task;
         editIndex = -1;
+
+        alert("Task updated successfully ✏️");
+
+        submitBtn.value = "Add Task";
     }
 
     displayTasks();
@@ -48,6 +54,7 @@ function displayTasks() {
         row.querySelector(".delete").addEventListener("click", function () {
             tasks.splice(index, 1);
             displayTasks();
+            alert("Task deleted 🗑️");
         });
 
         row.querySelector(".edit").addEventListener("click", function () {
@@ -58,6 +65,8 @@ function displayTasks() {
             document.getElementById("priority").value = task.priority;
 
             editIndex = index;
+
+            submitBtn.value = "Update Task";
         });
 
         table.appendChild(row);
