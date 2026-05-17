@@ -1,0 +1,257 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* =========================
+   BODY
+========================= */
+.body-layout {
+  background-color: #0b0b0b;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  overflow: hidden;
+  color: #f5f5f5;
+}
+
+/* =========================
+   LAYOUT
+========================= */
+.main-screen {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  padding: 30px;
+  gap: 28px;
+}
+
+/* =========================
+   SIDEBAR (موحد مع باقي الصفحات)
+========================= */
+.sidebar {
+  width: 260px;
+  min-height: 100%;
+  background: linear-gradient(180deg, #1f1f1f 0%, #1a1a1a 100%);
+  padding: 25px 18px;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #2b2b2b;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+  flex-shrink: 0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 35px;
+  color: white;
+  font-size: 24px;
+  font-weight: 700;
+  padding: 6px 8px;
+}
+
+.logo i,
+.logo svg {
+  color: #b197fc !important;
+  width: 22px;
+  height: 22px;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 100%;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 14px;
+  border-radius: 14px;
+  color: #d1d1d1;
+  transition: 0.25s ease;
+  cursor: pointer;
+}
+
+.item i,
+.item svg {
+  width: 19px;
+  height: 19px;
+  color: #f2f2f2;
+}
+
+.item:hover {
+  background-color: #2a2a2a;
+  transform: translateX(3px);
+}
+
+.item.active {
+  background-color: #2a2a2a;
+  border: 1px solid #3a3a3a;
+}
+
+.item.active a,
+.item.active i {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.item a {
+  text-decoration: none;
+  color: antiquewhite;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.item a:hover {
+  text-decoration: underline;
+}
+
+.logout-item {
+  margin-top: auto;
+}
+
+/* =========================
+   CONTENT AREA
+========================= */
+.content-area {
+  flex: 1;
+  background: linear-gradient(180deg, #1d1d1d 0%, #181818 100%);
+  border-radius: 24px;
+  padding: 32px;
+  overflow-y: auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  border: 1px solid #2a2a2a;
+}
+
+.container-inner {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* =========================
+   TEXT
+========================= */
+.title {
+  text-align: center;
+  color: #ec6f09;
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.subtitle {
+  margin: 20px 0;
+  font-size: 24px;
+  color: #e0e0e0;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+.controls-row,
+.bottom-controls {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.btn-primary,
+.btn-secondary {
+  background: linear-gradient(135deg, #ec6f09, #ff7d12);
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+  background: linear-gradient(135deg, #ff7d12, #ff8a1e);
+  transform: translateY(-2px);
+}
+
+/* =========================
+   TABLE
+========================= */
+.schedule-chart-container {
+  overflow-x: auto;
+  border-radius: 16px;
+  border: 1px solid #333;
+}
+
+.schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #252525;
+  min-width: 800px;
+}
+
+.schedule-table th {
+  background-color: #ec6f09;
+  color: white;
+  padding: 15px;
+  border: 1px solid #d45f07;
+}
+
+.schedule-table td {
+  border: 1px solid #333;
+  padding: 15px;
+  height: 70px;
+  color: #ccc;
+  text-align: center;
+}
+
+.time-col {
+  color: #ec6f09;
+  font-weight: bold;
+  background-color: #1e1e1e;
+}
+
+.slot.study-session {
+  background-color: rgba(236, 111, 9, 0.1);
+  border-left: 4px solid #ec6f09;
+  color: #ec6f09;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 900px) {
+  .main-screen {
+    flex-direction: column;
+    padding: 18px;
+  }
+
+  .sidebar {
+    width: 100%;
+    min-height: auto;
+  }
+
+  .content-area {
+    padding: 22px 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .title {
+    font-size: 24px;
+  }
+
+  .subtitle {
+    font-size: 18px;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+  }
+}

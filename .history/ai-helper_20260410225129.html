@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Study Helper - Smart Study Planner</title>
+    <link rel="stylesheet" href="styleLogin.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body class="ai-page body-sidebare">
+    <div class="dashboard-layout">
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <div class="logo">
+          <i data-lucide="flower-2"></i>
+          <span>Study Planner</span>
+        </div>
+
+        <div class="menu">
+          <div class="item">
+            <i data-lucide="home"></i>
+            <a
+              href="dashboard.html"
+              alt="home page"
+              target="_blank"
+              class="link"
+              >Home</a
+            >
+          </div>
+
+          <div class="item">
+            <i data-lucide="book-open"></i>
+            <a href="courses2.html" alt="courses" target="_blank" class="link"
+              >Courses</a
+            >
+          </div>
+
+          <div class="item">
+            <i data-lucide="calendar-check"></i>
+            <a
+              href="availability.html"
+              alt="availability times"
+              target="_blank"
+              class="link"
+              >Availability</a
+            >
+          </div>
+
+          <div class="item">
+            <i data-lucide="layers-3"></i>
+            <a href="planner.html" alt="study plan" target="_blank" class="link"
+              >Study Plan</a
+            >
+          </div>
+
+          <div class="item">
+            <i data-lucide="bar-chart-3"></i>
+            <a href="stats.html" alt="Statistics" target="_blank" class="link"
+              >Statistics</a
+            >
+          </div>
+
+          <div class="item">
+            <i data-lucide="bell"></i>
+            <a href="tasks.html" alt="Reminder" target="_blank" class="link"
+              >Deadlines</a
+            >
+          </div>
+
+          <div class="item">
+            <i data-lucide="bot"></i>
+            <a href="ai-helper.html" alt="AI" target="_blank" class="link"
+              >AI assistant</a
+            >
+          </div>
+          <div class="item">
+            <i data-lucide="log-out"></i>
+            <a href="logIn.html" alt="Logout" target="_blank" class="link"
+              >Logout</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <script>
+        lucide.createIcons();
+      </script>
+
+      <!-- Main Content -->
+      <div class="dashboard-wrapper">
+        <div class="page-top-card">
+          <h1>AI Assistant</h1>
+        </div>
+
+        <div class="page-content-card">
+          <p class="subtitle">
+            Get a simple smart study tip based on your question.
+          </p>
+
+          <label for="studentQuestion">Ask the helper anything:</label>
+          <textarea
+            id="studentQuestion"
+            rows="5"
+            placeholder="Example: I have an exam in 2 days and I feel lost"
+          ></textarea>
+
+          <button onclick="generateResponse()">Ask</button>
+
+          <div class="ai-box" id="aiResponse">
+            Your study tip will appear here.
+          </div>
+
+          <button class="btn back-btn" onclick="goBack()">
+            Back to Dashboard
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      lucide.createIcons();
+    </script>
+    <script src="ai-helper.js"></script>
+  </body>
+</html>
