@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: #111111;
+}
+
 .body-sidebare {
   background-color: #111111;
   font-family: Arial, sans-serif;
@@ -18,9 +22,6 @@
   align-items: flex-start;
 }
 
-/* =========================
-   SIDEBAR
-========================= */
 .sidebar {
   width: 260px;
   min-height: 100vh;
@@ -105,9 +106,6 @@
   font-weight: 700;
 }
 
-/* =========================
-   MAIN
-========================= */
 .page-container {
   flex: 1;
   min-width: 0;
@@ -129,9 +127,6 @@
   color: #ffffff;
 }
 
-/* =========================
-   FORM
-========================= */
 .form-section h2,
 .table-section h2 {
   color: #ec6f09;
@@ -170,9 +165,6 @@ select:focus {
   box-shadow: 0 0 0 3px rgba(236, 111, 9, 0.14);
 }
 
-/* =========================
-   BUTTONS
-========================= */
 .button-row {
   margin-top: 10px;
 }
@@ -194,9 +186,6 @@ input[type="submit"]:hover {
   transform: translateY(-1px);
 }
 
-/* =========================
-   TABLE
-========================= */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -238,9 +227,6 @@ td button:hover {
   background-color: #3a3a3a;
 }
 
-/* =========================
-   BACK BUTTON
-========================= */
 .back-btn {
   display: inline-block;
   margin-top: 18px;
@@ -256,9 +242,6 @@ td button:hover {
   background-color: #d46005;
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
 @media (max-width: 900px) {
   .layout {
     flex-direction: column;
