@@ -70,20 +70,7 @@
     <br>
       
     <h2>📅 Study Sessions</h2>
-<div class="sessions-list">
-    
-    <div class="session-item">
-        <div class="session-info">
-            <div class="session-course">SWE 381</div>
-            <div class="session-details">📅 2026-03-27 | ⏰ 10:00 - 12:00 AM</div>
-        </div>
-        <div class="session-actions">
-            <button class="btn-success mark-complete">✓ Complete</button>
-            <button class="btn-fail mark-missed">✗ Missed</button>
-        </div>
-    </div>
-    
-</div>
+<div class="sessions-list" id="sessionsList"></div>
 <br>
  <!-- Stats Cards -->
         <div class="stats-grid">
@@ -91,7 +78,7 @@
                 <div class="stat-icon">⏱️</div>
                 <div class="stat-info">
                     <h3>Total Study Hours</h3>
-                    <div class="stat-value" id="totalHours">24.9</div>
+                    <div class="stat-value" id="totalHours"></div>
                     <p class="trend up">↑ +5.2 this week</p>
                 </div>
             </div>
@@ -99,15 +86,15 @@
                 <div class="stat-icon">✅</div>
                 <div class="stat-info">
                     <h3>Completed Sessions</h3>
-                    <div class="stat-value" id="completedSessions">12</div>
-                    <p>out of 18 total</p>
+                    <div class="stat-value" id="completedSessions"></div>
+                    <p>out of <span id="totalSessionsCount">0</span> total</p>
                 </div>
             </div>
             <div class="stat-card">
                 <div class="stat-icon">❌</div>
                 <div class="stat-info">
                     <h3>Missed Sessions</h3>
-                    <div class="stat-value" id="missedSessions">6</div>
+                    <div class="stat-value" id="missedSessions"></div>
                     <p>2 from last week</p>
                 </div>
             </div>
@@ -115,9 +102,9 @@
                 <div class="stat-icon">📊</div>
                 <div class="stat-info">
                     <h3>Completion Rate</h3>
-                    <div class="stat-value" id="completionRate">67%</div>
+                    <div class="stat-value" id="completionRate"></div>
                     <div class="progress-bar">
-                        <div class="progress-fill" id="completionFill" style="width: 67%"></div>
+                        <div class="progress-fill" id="completionFill" style="width: 0%"></div>
                     </div>
                 </div>
             </div>
@@ -152,98 +139,14 @@
                         <th>Completion</th>
                     </tr>
                 </thead>
-                <tbody id="courseTable">
-                    <tr>
-                        <td>SWE 381</td>
-                        <td>12</td>
-                        <td>
-                            <div class="mini-progress">
-                                <div class="mini-fill" style="width: 80%"></div>
-                                <span>80%</span>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>SWE 382</td>
-                        <td>9</td>
-                        <td>
-                            <div class="mini-progress">
-                                <div class="mini-fill" style="width: 67%"></div>
-                                <span>67%</span>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>MATH 101</td>
-                        <td>7.5</td>
-                        <td>
-                            <div class="mini-progress">
-                                <div class="mini-fill" style="width: 83%"></div>
-                                <span>83%</span>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
+                <tbody id="courseTable"> </tbody>
             </table>
         </div>
     </div>  
 </div>
 <br>
-<script>
-  
-    const weeklyCtx = document.getElementById('weeklyChart').getContext('2d');
-    new Chart(weeklyCtx, {
-        type: 'bar',
-        data: {
-            labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-            datasets: [{
-                label: 'Study Hours',
-                data: [4, 5, 3, 6, 7, 4, 2],
-                backgroundColor: '#ec6f09',
-                borderRadius: 8
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: { legend: { display: false } },
-            scales: { 
-                y: { 
-                    beginAtZero: true, 
-                    ticks: { color: '#fff' },
-                    grid: { color: '#333' }
-                }, 
-                x: { 
-                    ticks: { color: '#fff' },
-                    grid: { display: false }
-                } 
-            }
-        }
-    });
 
-    
-    const distCtx = document.getElementById('distributionChart').getContext('2d');
-    new Chart(distCtx, {
-        type: 'doughnut',
-        data: {
-            labels: ['SWE 381', 'SWE 382', 'MATH 101', 'CS 201', 'PHYS 101'],
-            datasets: [{
-                data: [14, 10, 8, 5, 3],
-                backgroundColor: ['#ec6f09', '#10b981', '#f59e0b', '#8b5cf6', '#ef4444']
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: { 
-                legend: { 
-                    position: 'bottom', 
-                    labels: { color: '#fff' } 
-                } 
-            }
-        }
-    });
-</script>
+
   <script> lucide.createIcons(); </script>
  <script src="../js/stats.js"></script>
 </body>
