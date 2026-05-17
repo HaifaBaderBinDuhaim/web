@@ -6,6 +6,7 @@
     <title>Dashboard - Smart Study Planner</title>
     <link rel="stylesheet" href="style-shams.css" />
     <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="main.js"></script>
   </head>
 
   <body class="dashboard-page body-sidebare">
@@ -40,7 +41,7 @@
 
           <div class="item">
             <i data-lucide="bar-chart-3"></i>
-            <a href="stats.html" class="link">Statistics</a>
+            <a href="stats2.html" class="link">Statistics</a>
           </div>
 
           <div class="item">
@@ -97,37 +98,8 @@
           <!-- Sessions -->
           <h2>Today’s Study Sessions</h2>
 
-          <div class="session-box">
-            <div class="session-info">
-              <strong>Math Revision</strong>
-              <p>5:00 PM - 6:00 PM</p>
-            </div>
+          <div id="sessionsContainer"></div>
 
-            <div class="session-actions">
-              <button class="session-btn" onclick="markCompleted(this)">
-                Completed
-              </button>
-              <button class="missed-btn" onclick="markMissed(this)">
-                Missed
-              </button>
-            </div>
-          </div>
-
-          <div class="session-box">
-            <div class="session-info">
-              <strong>Physics Chapter 3</strong>
-              <p>6:30 PM - 7:30 PM</p>
-            </div>
-
-            <div class="session-actions">
-              <button class="session-btn" onclick="markCompleted(this)">
-                Completed
-              </button>
-              <button class="missed-btn" onclick="markMissed(this)">
-                Missed
-              </button>
-            </div>
-          </div>
           <h2>Reminders</h2>
           <div id="remindersContainer"></div>
         </div>
@@ -190,6 +162,15 @@
                 new Date(a.dueDate || a.date) - new Date(b.dueDate || b.date)
               );
             });
+          const upcomingDeadline = document.querySelector(
+            ".stats-card:nth-child(3) p",
+          );
+
+          if (tasks.length > 0) {
+            upcomingDeadline.textContent = tasks[0].title;
+          } else {
+            upcomingDeadline.textContent = "No deadlines";
+          }
 
           remindersContainer.innerHTML = "";
 
@@ -206,7 +187,7 @@
 
           <div class="reminder-info">
             <strong>${task.title}</strong>
-            <p>${task.dueDate || task.date}</p>
+            <p>${formatReminderDate(task.dueDate || task.date)}</p>
           </div>
         </div>
 
@@ -227,6 +208,135 @@
       }
 
       loadReminders();
+    </script>
+    <script>
+      let completedCount = 0;
+      let missedCount = 0;
+
+      async function loadDashboardData() {
+        try {
+          const [coursesRes, sessionsRes] = await Promise.all([
+            fetch("http://localhost:3000/courses"),
+            fetch("http://localhost:3000/studySchedule"),
+          ]);
+
+          const courses = await coursesRes.json();
+          const sessions = await sessionsRes.json();
+
+          document.querySelector(".stats-card:nth-child(1) p").textContent =
+            courses.length;
+          const todayName = new Date().toLocaleDateString("en-US", {
+            weekday: "short",
+          });
+
+          const todaySessions = sessions.filter(
+            (session) => session.day === todayName,
+          );
+
+          document.getElementById("sessionsCount").textContent =
+            todaySessions.length;
+
+          renderSessions(todaySessions);
+
+          updateCompletionRate(sessions);
+        } catch (error) {
+          console.log(error);
+        }
+      }
+
+      function renderSessions(sessions) {
+        const container = document.getElementById("sessionsContainer");
+
+        container.innerHTML = "";
+
+        if (sessions.length === 0) {
+          container.innerHTML = "<p>No study sessions found.</p>";
+          return;
+        }
+
+        sessions.forEach((session) => {
+          const div = document.createElement("div");
+
+          div.className = "session-box";
+
+          div.innerHTML = `
+      <div class="session-info">
+        <strong>${session.course || "No course"}</strong>
+        <p>
+          ${session.day || ""}
+          |
+          ${session.startTime || ""} - ${session.endTime || ""}
+        </p>
+      </div>
+
+      <div class="session-actions">
+        <button class="session-btn"
+          onclick="updateSessionStatus('${session._id}', 'completed')">
+          Completed
+        </button>
+
+        <button class="missed-btn"
+          onclick="updateSessionStatus('${session._id}', 'missed')">
+          Missed
+        </button>
+      </div>
+    `;
+
+          container.appendChild(div);
+        });
+      }
+
+      async function updateSessionStatus(sessionId, status) {
+        try {
+          await fetch(
+            `http://localhost:3000/studySchedule/${sessionId}/status`,
+            {
+              method: "PUT",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({ status }),
+            },
+          );
+
+          loadDashboardData();
+        } catch (error) {
+          console.log(error);
+        }
+      }
+
+      function updateCompletionRate(sessions) {
+        const completed = sessions.filter(
+          (s) => s.status === "completed",
+        ).length;
+
+        const rate =
+          sessions.length === 0
+            ? 0
+            : Math.round((completed / sessions.length) * 100);
+
+        document.getElementById("completionRate").textContent = rate + "%";
+      }
+
+      loadDashboardData();
+    </script>
+
+    <script>
+      function formatReminderDate(dateValue) {
+        const taskDate = new Date(dateValue);
+        taskDate.setHours(0, 0, 0, 0);
+
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+
+        const diffDays = Math.round((taskDate - today) / (1000 * 60 * 60 * 24));
+
+        if (diffDays === 0) return "Today";
+        if (diffDays === 1) return "Tomorrow";
+        if (diffDays === 2) return "After tomorrow";
+
+        return dateValue;
+      }
     </script>
   </body>
 </html>

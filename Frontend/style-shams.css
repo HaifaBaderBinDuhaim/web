@@ -469,3 +469,25 @@
     align-items: flex-start;
   }
 }
+.session-btn,
+.missed-btn {
+  transition:
+    transform 0.15s ease,
+    opacity 0.15s ease;
+}
+
+.session-btn:active,
+.missed-btn:active {
+  transform: scale(0.92);
+  opacity: 0.75;
+}
+/*Navigation focus styles*/
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid #ec6f09;
+  box-shadow: 0 0 10px #ec6f09;
+  transition: 0.2s;
+}

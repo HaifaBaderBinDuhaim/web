@@ -6,22 +6,41 @@ const table = document.getElementById("tasksTable");
 const courseSelect = document.getElementById("course");
 
 // Load static courses
-function loadCoursesIntoSelect() {
+async function loadCoursesIntoSelect() {
   courseSelect.innerHTML = "";
 
-  const courses = ["CS 381", "CS 382", "MATH 101", "CS 201", "PHYSICS 101"];
+  try {
+    const response = await fetch("http://localhost:3000/courses");
+    const courses = await response.json();
 
-  courses.forEach((course) => {
-    const option = document.createElement("option");
-    option.value = course;
-    option.text = course;
-    courseSelect.appendChild(option);
-  });
+    if (courses.length === 0) {
+      const option = document.createElement("option");
+      option.text = "No courses found";
+      option.value = "";
+      courseSelect.appendChild(option);
+    } else {
+      courses.forEach((course) => {
+        const option = document.createElement("option");
+
+        option.value = course.courseName;
+        option.text = course.courseName;
+
+        courseSelect.appendChild(option);
+      });
+    }
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 // Init
 window.onload = function () {
   loadCoursesIntoSelect();
+  loadTasks();
+
+  if (typeof lucide !== "undefined") {
+    lucide.createIcons();
+  }
 };
 
 // Handle submit
@@ -73,11 +92,10 @@ function displayTasks() {
             <td>${task.title}</td>
             <td>${task.course}</td>
             <td>${task.type}</td>
-            <td>${task.date}</td>
+            <td>${task.dueDate || ""}</td>
             <td>${task.priority}</td>
             <td>
-                <button class="edit-btn" onclick="editTask(${index})">Edit</button>
-                <button class="delete-btn" onclick="deleteTask(${index})">Delete</button>
+              <button class="delete-btn" onclick="deleteTask(${index})">Delete</button>
             </td>
         `;
 
@@ -93,6 +111,16 @@ function displayTasks() {
 
     table.appendChild(row);
   });
+}
+
+async function loadTasks() {
+  try {
+    const response = await fetch("http://localhost:3000/tasks");
+    tasks = await response.json();
+    displayTasks();
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 // Delete

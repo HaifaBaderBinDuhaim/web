@@ -23,6 +23,21 @@ function markCompleted(button) {
 
   updateRate();
 }
+function formatReminderDate(dateValue) {
+  const taskDate = new Date(dateValue);
+  taskDate.setHours(0, 0, 0, 0);
+
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  const diffDays = Math.round((taskDate - today) / (1000 * 60 * 60 * 24));
+
+  if (diffDays === 0) return "Today";
+  if (diffDays === 1) return "Tomorrow";
+  if (diffDays === 2) return "After tomorrow";
+
+  return dateValue;
+}
 
 function markMissed(button) {
   const actions = button.closest(".session-actions");
