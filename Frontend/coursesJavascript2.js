@@ -1,6 +1,9 @@
 // const storageKey = "coursesPageDataV3";
 
 let courses = [];
+
+let editingCourseId = null;
+let editingIndex = null;
 // Salma update: fetching courses from the database and displaying them in the table
 const form = document.querySelector("form");
 const courseTableBody = document.querySelector("tbody");
@@ -34,27 +37,56 @@ form.addEventListener("submit", async function (event) {
   };
 
   try {
-    const response = await fetch("http://localhost:3000/courses", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(course),
-    });
+    let response;
 
-    const result = await response.json();
+    if (editingCourseId) {
+      response = await fetch(
+        `http://localhost:3000/courses/${editingCourseId}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(course),
+        },
+      );
 
-    course._id = result.insertedId;
-    // Add the new course to the local array and update the display
-    courses.push(course);
+      await response.json();
+
+      courses[editingIndex] = {
+        ...course,
+        _id: editingCourseId,
+      };
+
+      editingCourseId = null;
+      editingIndex = null;
+
+      alert("Course updated successfully!");
+    } else {
+      response = await fetch("http://localhost:3000/courses", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(course),
+      });
+
+      const result = await response.json();
+
+      course._id = result.insertedId;
+      courses.push(course);
+
+      alert("Course added successfully!");
+    }
+
     syncCoursesForPlanner();
     displayCourses();
-    alert("Course added successfully!");
+
     form.reset();
     document.querySelector("#medium").checked = true;
   } catch (error) {
     console.log(error);
-    alert("Error adding course");
+    alert("Error saving course");
   }
 });
 //=================================================================
@@ -101,13 +133,27 @@ function displayCourses() {
     courseTableBody.appendChild(row);
   }
 }
-courseTableBody.addEventListener("click", function (event) {
+courseTableBody.addEventListener("click", async function (event) {
   if (event.target.classList.contains("delete-btn")) {
     const index = event.target.getAttribute("data-index");
 
-    courses.splice(index, 1);
-    // saveCourses();
-    displayCourses();
+    const courseId = courses[index]._id;
+
+    try {
+      await fetch(`http://localhost:3000/courses/${courseId}`, {
+        method: "DELETE",
+      });
+
+      courses.splice(index, 1);
+
+      displayCourses();
+
+      alert("Course deleted successfully");
+    } catch (error) {
+      console.log(error);
+
+      alert("Error deleting course");
+    }
   }
 
   if (event.target.classList.contains("edit-btn")) {
@@ -128,9 +174,8 @@ courseTableBody.addEventListener("click", function (event) {
       document.querySelector("#low").checked = true;
     }
 
-    courses.splice(index, 1);
-    // saveCourses();
-    displayCourses();
+    editingCourseId = course._id;
+    editingIndex = index;
   }
 });
 // This function is used to sync the courses data with the planner page haifa update
