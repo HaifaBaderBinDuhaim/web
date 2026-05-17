@@ -30,7 +30,7 @@ window.onload = function () {
     loadCoursesIntoSelect();
 };
 
-// Handle submit (add / update)
+// Handle submit
 form.addEventListener("submit", function (e) {
     e.preventDefault();
 
@@ -70,20 +70,18 @@ function displayTasks() {
             <td>${task.date}</td>
             <td>${task.priority}</td>
             <td>
-                <button onclick="editTask(${index})">Edit</button>
-                <button onclick="deleteTask(${index})">Delete</button>
+                <button class="edit-btn" onclick="editTask(${index})">Edit</button>
+                <button class="delete-btn" onclick="deleteTask(${index})">Delete</button>
             </td>
         `;
 
-        // Checkbox behavior (UI only)
+        // Checkbox behavior (green highlight)
         const checkbox = row.querySelector("input[type='checkbox']");
         checkbox.addEventListener("change", function () {
             if (this.checked) {
-                row.style.opacity = "0.5";
-                row.style.textDecoration = "line-through";
+                row.classList.add("completed-row");
             } else {
-                row.style.opacity = "1";
-                row.style.textDecoration = "none";
+                row.classList.remove("completed-row");
             }
         });
 
@@ -91,14 +89,14 @@ function displayTasks() {
     });
 }
 
-// Delete task
+// Delete
 function deleteTask(index) {
     tasks.splice(index, 1);
     displayTasks();
     showNotification("Task deleted 🗑️", "error");
 }
 
-// Edit task
+// Edit
 function editTask(index) {
     const task = tasks[index];
 
