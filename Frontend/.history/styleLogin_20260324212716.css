@@ -1,0 +1,60 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+.body {
+  display: grid;
+  margin: 50px;
+  grid-template-columns: 1fr 1fr;
+  background-color: #343230;
+}
+.register {
+  padding: 20px;
+  margin-right: 40px;
+  align-self: center;
+  grid-row: 1/2;
+}
+.image {
+  align-items: stretch;
+  border-radius: 20px;
+  grid-row: 1/-1;
+}
+.button {
+  margin: 15px 0px;
+  /* width: 300px; */
+  background-color: #ec6f09;
+  padding: 5px 120px;
+  border: none;
+  border-radius: 6px;
+  color: rgb(242, 239, 235);
+  text-decoration: double;
+}
+.whiteButton {
+  width: 300px;
+  border-radius: 6px;
+  border: none;
+}
+.background {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: rgb(11, 31, 53);
+  border-radius: 12px;
+  height: 250px;
+  width: 300px;
+}
+.sign-up {
+  font-size: 17px;
+  text-decoration: none;
+  color: antiquewhite;
+}
+.sign-up:hover {
+  color: rgb(10, 57, 21);
+  text-decoration: underline;
+  font-size: 20px;
+}
+
+.header1 {
+  margin-bottom: 20px;
+  color: rgb(24, 153, 6);
+}

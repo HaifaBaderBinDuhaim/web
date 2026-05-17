@@ -1,0 +1,35 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+.body {
+  display: grid;
+  margin: 50px;
+  grid-template-columns: 1fr 1fr;
+}
+.register {
+  padding: 20px;
+  margin-right: 40px;
+  align-self: center;
+  grid-row: 1/2;
+}
+.image {
+  align-items: stretch;
+  border-radius: 20px;
+  grid-row: 1/-1;
+}
+.button {
+  background-color: #ec6f09;
+  padding: 5px, 20px;
+  border: none;
+  border-radius: 6px;
+  margin: 20px, 0px;
+}
+.background {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: rgb(214, 231, 250);
+  border-radius: 12px;
+  height: 250px;
+}

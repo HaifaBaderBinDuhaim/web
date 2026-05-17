@@ -1,0 +1,20 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+.body {
+  display: flex;
+  /* grid-template-columns: 1fr, 1042px; */
+  margin: 300px;
+  align-items: center;
+}
+.register {
+  padding: 20px;
+  align-items: center;
+}
+.image {
+  align-items: stretch;
+  border-radius: 20px;
+  margin: 20px;
+}
