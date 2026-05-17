@@ -1,10 +1,12 @@
-// js/stats.js
 
-// ============================================
-// تحديث واجهة المستخدم (البطاقات والجدول)
+
+
+
+
+// Update User interface (cards, Tables)
 // ============================================
 function updateUI(data) {
-    // تحديث بطاقات الإحصائيات
+    // Update Cards
     document.getElementById('totalHours').textContent = data.totalStudyHours || 0;
     document.getElementById('completedSessions').textContent = data.completedSessions || 0;
     document.getElementById('totalSessionsCount').textContent = data.totalSessions || 0;
@@ -12,7 +14,7 @@ function updateUI(data) {
     document.getElementById('completionRate').textContent = (data.completionRate || 0) + '%';
     document.getElementById('completionFill').style.width = (data.completionRate || 0) + '%';
     
-    // تحديث جدول المواد
+    // Update Course table
     const courseTable = document.getElementById('courseTable');
     if (courseTable) {
         courseTable.innerHTML = '';
@@ -38,8 +40,8 @@ function updateUI(data) {
     }
 }
 
-// ============================================
-// عرض قائمة الجلسات
+
+// Showing Sessions list
 // ============================================
 function renderSessions(sessions) {
     const sessionsList = document.getElementById('sessionsList');
@@ -83,14 +85,13 @@ function renderSessions(sessions) {
     });
 }
 
-// ============================================
-// تحديث الرسوم البيانية
+// Updating Charts
 // ============================================
 function updateCharts(data) {
-    // تحديث الرسم البياني الأسبوعي (Bar Chart)
+    // Update Weekly chart(Bar Chart)
     const weeklyCtx = document.getElementById('weeklyChart')?.getContext('2d');
     if (weeklyCtx) {
-        // تدمير الرسم القديم إذا كان موجود
+        // 
         if (window.weeklyChart) window.weeklyChart.destroy();
         
         const weeklyHours = data.weeklyHours || [];
@@ -126,7 +127,7 @@ function updateCharts(data) {
         });
     }
     
-    // تحديث الرسم الدائري (Doughnut Chart)
+    //  Update(Doughnut Chart)
     const distCtx = document.getElementById('distributionChart')?.getContext('2d');
     if (distCtx) {
         if (window.distributionChart) window.distributionChart.destroy();
@@ -161,7 +162,7 @@ function updateCharts(data) {
 }
 
 // ============================================
-// جلب البيانات من الـ API
+// Fetch Data From API
 // ============================================
 async function fetchStatistics() {
     try {
@@ -169,7 +170,7 @@ async function fetchStatistics() {
         
         if (!token) {
             console.warn('No token found, user might not be logged in');
-            // عرض رسالة للمستخدم
+            // display message to user
             const sessionsList = document.getElementById('sessionsList');
             if (sessionsList) {
                 sessionsList.innerHTML = '<div class="session-item">Please login to view your study sessions</div>';
@@ -194,7 +195,7 @@ async function fetchStatistics() {
         if (result.success) {
             const data = result.data;
             
-            // تحديث جميع أجزاء الصفحة
+            // Update the whole page 
             updateUI(data);
             updateCharts(data);
             renderSessions(data.sessions || []);
@@ -205,7 +206,7 @@ async function fetchStatistics() {
     } catch (error) {
         console.error('Error fetching statistics:', error);
         
-        // عرض رسالة خطأ للمستخدم
+        // display message to user
         const sessionsList = document.getElementById('sessionsList');
         if (sessionsList) {
             sessionsList.innerHTML = '<div class="session-item">Error loading data. Please try again later.</div>';
@@ -214,7 +215,7 @@ async function fetchStatistics() {
 }
 
 // ============================================
-// تحديث حالة الجلسة (Complete / Missed)
+// Update state of session (Complete / Missed)
 // ============================================
 async function markSession(sessionId, status) {
     try {
@@ -237,7 +238,7 @@ async function markSession(sessionId, status) {
         const result = await response.json();
         
         if (result.success) {
-            // إعادة تحميل البيانات بعد التحديث
+            // Reload data after updating
             await fetchStatistics();
             showNotification(`Session marked as ${status}! 🎉`);
         } else {
@@ -278,7 +279,7 @@ function showNotification(message, type = 'success') {
 }
 
 // ============================================
-// تحميل البيانات عند فتح الصفحة
+// load content when opening page
 // ============================================
 document.addEventListener('DOMContentLoaded', () => {
     fetchStatistics();

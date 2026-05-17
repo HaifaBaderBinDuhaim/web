@@ -1,7 +1,7 @@
 // controllers/statisticsController.js
 const StudySession = require('../models/StudySession');
 
-// تحديث حالة الجلسة
+//Update session state
 exports.updateSessionStatus = async (req, res) => {
     try {
         const { sessionId, status } = req.body;
@@ -21,15 +21,15 @@ exports.updateSessionStatus = async (req, res) => {
     }
 };
 
-// جلب الإحصائيات مع بيانات المواد
+//Get statistics with data course
 exports.getStatistics = async (req, res) => {
     try {
         const userId = req.user.id;
         
-        // جلب الجلسات مع بيانات المواد كاملة
+        // Get Sessions with whole data Course
         const sessions = await StudySession.find({ userId }).populate('courseId');
         
-        // حساب الإحصائيات
+        // 
         const totalSessions = sessions.length;
         const completedSessions = sessions.filter(s => s.status === 'completed').length;
         const missedSessions = sessions.filter(s => s.status === 'missed').length;
@@ -42,7 +42,7 @@ exports.getStatistics = async (req, res) => {
             ? Math.round((completedSessions / totalSessions) * 100) 
             : 0;
         
-        // توزيع المواد (باستخدام populate)
+        //  course Distribution (باستخدام populate)
         const courseDistribution = {};
         sessions.forEach(session => {
             if (session.status === 'completed' && session.courseId) {
@@ -51,7 +51,7 @@ exports.getStatistics = async (req, res) => {
             }
         });
         
-        // تقدم كل مادة (باستخدام populate)
+        // Course Progress (باستخدام populate)
         const courseProgress = {};
         sessions.forEach(session => {
             if (!session.courseId) return;
