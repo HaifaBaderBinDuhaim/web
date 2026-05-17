@@ -117,5 +117,15 @@ courseTableBody.addEventListener("click", function (event) {
     displayCourses();
   }
 });
+// This function is used to sync the courses data with the planner page haifa update
+function syncCoursesForPlanner() {
+  const simpleList = courses.map(c => ({
+    id: Date.now() + Math.random(),
+    name: c.name
+  }));
+
+  localStorage.setItem("courses", JSON.stringify(simpleList));
+}
+//end of haifa update
 
 lucide.createIcons();
