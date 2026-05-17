@@ -7,62 +7,68 @@ const courseSelect = document.getElementById("course");
 
 // Load static courses
 function loadCoursesIntoSelect() {
-    courseSelect.innerHTML = "";
+  courseSelect.innerHTML = "";
 
-    const courses = [
-        "CS 381",
-        "CS 382",
-        "MATH 101",
-        "CS 201",
-        "PHYSICS 101"
-    ];
+  const courses = ["CS 381", "CS 382", "MATH 101", "CS 201", "PHYSICS 101"];
 
-    courses.forEach(course => {
-        const option = document.createElement("option");
-        option.value = course;
-        option.text = course;
-        courseSelect.appendChild(option);
-    });
+  courses.forEach((course) => {
+    const option = document.createElement("option");
+    option.value = course;
+    option.text = course;
+    courseSelect.appendChild(option);
+  });
 }
 
 // Init
 window.onload = function () {
-    loadCoursesIntoSelect();
+  loadCoursesIntoSelect();
 };
 
 // Handle submit
-form.addEventListener("submit", function (e) {
-    e.preventDefault();
+form.addEventListener("submit", async function (e) {
+  e.preventDefault();
 
-    const task = {
-        title: document.getElementById("title").value,
-        course: document.getElementById("course").value,
-        type: document.getElementById("type").value,
-        date: document.getElementById("date").value,
-        priority: document.getElementById("priority").value
-    };
+  const task = {
+    title: document.getElementById("title").value,
+    course: document.getElementById("course").value,
+    type: document.getElementById("type").value,
+    dueDate: document.getElementById("date").value,
+    priority: document.getElementById("priority").value,
+    status: "pending",
+  };
 
-    if (editIndex === null) {
-        tasks.push(task);
-        showNotification("Task added successfully ✅");
-    } else {
-        tasks[editIndex] = task;
-        showNotification("Task updated successfully ✏️");
-        editIndex = null;
-    }
+  try {
+    const response = await fetch("http://localhost:3000/tasks", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(task),
+    });
+
+    const result = await response.json();
+
+    task._id = result.insertedId;
+    tasks.push(task);
 
     displayTasks();
     form.reset();
+
+    showNotification("Task added successfully ✅");
+  } catch (error) {
+    console.log(error);
+    showNotification("Error adding task", "error");
+  }
 });
 
 // Render table
 function displayTasks() {
-    table.innerHTML = "";
+  table.innerHTML = "";
 
-    tasks.forEach((task, index) => {
-        const row = document.createElement("tr");
+  tasks.forEach((task, index) => {
+    const row = document.createElement("tr");
 
-        row.innerHTML = `
+    row.innerHTML = `
             <td><input type="checkbox"></td>
             <td>${task.title}</td>
             <td>${task.course}</td>
@@ -75,46 +81,46 @@ function displayTasks() {
             </td>
         `;
 
-        // Checkbox behavior (green highlight)
-        const checkbox = row.querySelector("input[type='checkbox']");
-        checkbox.addEventListener("change", function () {
-            if (this.checked) {
-                row.classList.add("completed-row");
-            } else {
-                row.classList.remove("completed-row");
-            }
-        });
-
-        table.appendChild(row);
+    // Checkbox behavior (green highlight)
+    const checkbox = row.querySelector("input[type='checkbox']");
+    checkbox.addEventListener("change", function () {
+      if (this.checked) {
+        row.classList.add("completed-row");
+      } else {
+        row.classList.remove("completed-row");
+      }
     });
+
+    table.appendChild(row);
+  });
 }
 
 // Delete
 function deleteTask(index) {
-    tasks.splice(index, 1);
-    displayTasks();
-    showNotification("Task deleted 🗑️", "error");
+  tasks.splice(index, 1);
+  displayTasks();
+  showNotification("Task deleted 🗑️", "error");
 }
 
 // Edit
 function editTask(index) {
-    const task = tasks[index];
+  const task = tasks[index];
 
-    document.getElementById("title").value = task.title;
-    document.getElementById("course").value = task.course;
-    document.getElementById("type").value = task.type;
-    document.getElementById("date").value = task.date;
-    document.getElementById("priority").value = task.priority;
+  document.getElementById("title").value = task.title;
+  document.getElementById("course").value = task.course;
+  document.getElementById("type").value = task.type;
+  document.getElementById("date").value = task.date;
+  document.getElementById("priority").value = task.priority;
 
-    editIndex = index;
+  editIndex = index;
 }
 
 // Notification
 function showNotification(message, type = "success") {
-    const notification = document.createElement("div");
-    notification.textContent = message;
+  const notification = document.createElement("div");
+  notification.textContent = message;
 
-    notification.style.cssText = `
+  notification.style.cssText = `
         position: fixed;
         bottom: 20px;
         right: 20px;
@@ -126,9 +132,9 @@ function showNotification(message, type = "success") {
         font-weight: bold;
     `;
 
-    document.body.appendChild(notification);
+  document.body.appendChild(notification);
 
-    setTimeout(() => {
-        notification.remove();
-    }, 2500);
+  setTimeout(() => {
+    notification.remove();
+  }, 2500);
 }

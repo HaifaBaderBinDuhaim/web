@@ -28,10 +28,10 @@
             <a href="courses2.html" class="link">Courses</a>
           </div>
 
-          <div class="item">
+          <!-- <div class="item">
             <i data-lucide="calendar-check"></i>
             <a href="availability.html" class="link">Availability</a>
-          </div>
+          </div> -->
 
           <div class="item">
             <i data-lucide="layers-3"></i>
@@ -128,42 +128,8 @@
               </button>
             </div>
           </div>
-
-          <!-- 🔥 Reminders Section -->
           <h2>Reminders</h2>
-
-          <div class="reminder-box">
-            <div class="reminder-left">
-              <span class="reminder-tag quiz">Quiz</span>
-              <div class="reminder-info">
-                <strong>Physics Quiz</strong>
-                <p>Tomorrow - 10:00 AM</p>
-              </div>
-            </div>
-            <span class="reminder-priority high">High</span>
-          </div>
-
-          <div class="reminder-box">
-            <div class="reminder-left">
-              <span class="reminder-tag task">Task</span>
-              <div class="reminder-info">
-                <strong>Math Homework</strong>
-                <p>Today - 7:00 PM</p>
-              </div>
-            </div>
-            <span class="reminder-priority medium">Medium</span>
-          </div>
-
-          <div class="reminder-box">
-            <div class="reminder-left">
-              <span class="reminder-tag deadline">Deadline</span>
-              <div class="reminder-info">
-                <strong>Programming Assignment</strong>
-                <p>Due in 3 days</p>
-              </div>
-            </div>
-            <span class="reminder-priority high">High</span>
-          </div>
+          <div id="remindersContainer"></div>
         </div>
       </div>
     </div>
@@ -183,5 +149,84 @@
       }
     </script>
     <!--End of JavaScript for authentication check-->
+    <!-- JavaScript for make reminders visible in dashboard-->
+
+    <script>
+      async function loadReminders() {
+        const remindersContainer =
+          document.getElementById("remindersContainer");
+
+        try {
+          const response = await fetch("http://localhost:3000/tasks");
+          let tasks = await response.json();
+
+          const today = new Date();
+          today.setHours(0, 0, 0, 0);
+
+          const priorityRank = {
+            High: 1,
+            Medium: 2,
+            Low: 3,
+          };
+
+          tasks = tasks
+            .filter((task) => {
+              const taskDate = new Date(task.dueDate || task.date);
+              taskDate.setHours(0, 0, 0, 0);
+
+              const diffDays = (taskDate - today) / (1000 * 60 * 60 * 24);
+
+              return diffDays >= 0 && diffDays <= 2;
+            })
+            .sort((a, b) => {
+              const priorityDifference =
+                priorityRank[a.priority] - priorityRank[b.priority];
+
+              if (priorityDifference !== 0) {
+                return priorityDifference;
+              }
+
+              return (
+                new Date(a.dueDate || a.date) - new Date(b.dueDate || b.date)
+              );
+            });
+
+          remindersContainer.innerHTML = "";
+
+          tasks.forEach((task) => {
+            const reminder = document.createElement("div");
+
+            reminder.className = "reminder-box";
+
+            reminder.innerHTML = `
+        <div class="reminder-left">
+          <span class="reminder-tag task">
+            ${task.type}
+          </span>
+
+          <div class="reminder-info">
+            <strong>${task.title}</strong>
+            <p>${task.dueDate || task.date}</p>
+          </div>
+        </div>
+
+        <span class="reminder-priority ${task.priority.toLowerCase()}">
+          ${task.priority}
+        </span>
+      `;
+
+            remindersContainer.appendChild(reminder);
+          });
+
+          if (tasks.length === 0) {
+            remindersContainer.innerHTML = "<p>No upcoming reminders.</p>";
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      }
+
+      loadReminders();
+    </script>
   </body>
 </html>
