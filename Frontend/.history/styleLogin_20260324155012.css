@@ -1,0 +1,23 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+.body {
+  display: grid;
+  /* grid-auto-flow: column; */
+  grid-template-columns: 2000px, 1042px;
+  margin: 50px;
+  align-items: center;
+}
+.register {
+  background-color: rgb(214, 231, 250);
+  padding: 20px;
+  align-items: center;
+  margin-right: 40px;
+  height: 500px;
+}
+.image {
+  align-items: stretch;
+  border-radius: 20px;
+}
