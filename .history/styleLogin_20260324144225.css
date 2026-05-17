@@ -1,6 +1,0 @@
-.body {
-  display: grid;
-}
-.register {
-  grid-template-columns: 1fr, 1fr;
-}
