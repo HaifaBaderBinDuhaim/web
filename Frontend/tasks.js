@@ -18,12 +18,12 @@ form.addEventListener("submit", function (e) {
 
     if (editIndex === -1) {
         tasks.push(task);
-        alert("Task added successfully ✅");
+        showNotification("Task added successfully ✅");
     } else {
         tasks[editIndex] = task;
         editIndex = -1;
 
-        alert("Task updated successfully ✏️");
+        showNotification("Task updated ✏️");
 
         submitBtn.value = "Add Task";
     }
@@ -54,7 +54,7 @@ function displayTasks() {
         row.querySelector(".delete").addEventListener("click", function () {
             tasks.splice(index, 1);
             displayTasks();
-            alert("Task deleted 🗑️");
+            showNotification("Task deleted 🗑️");
         });
 
         row.querySelector(".edit").addEventListener("click", function () {
@@ -71,4 +71,27 @@ function displayTasks() {
 
         table.appendChild(row);
     });
+}
+
+function showNotification(message) {
+    const note = document.createElement("div");
+
+    note.textContent = message;
+
+    note.style.position = "fixed";
+    note.style.bottom = "20px";
+    note.style.right = "20px";
+    note.style.background = "#ec6f09";
+    note.style.color = "white";
+    note.style.padding = "12px 18px";
+    note.style.borderRadius = "10px";
+    note.style.boxShadow = "0 5px 15px rgba(0,0,0,0.3)";
+    note.style.zIndex = "999";
+    note.style.fontSize = "14px";
+
+    document.body.appendChild(note);
+
+    setTimeout(() => {
+        note.remove();
+    }, 2000);
 }
