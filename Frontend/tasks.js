@@ -1,10 +1,36 @@
 let tasks = [];
-let editIndex = -1;
+let editIndex = null;
 
 const form = document.getElementById("taskForm");
 const table = document.getElementById("tasksTable");
-const submitBtn = document.querySelector("input[type='submit']");
+const courseSelect = document.getElementById("course");
 
+// Load static courses
+function loadCoursesIntoSelect() {
+    courseSelect.innerHTML = "";
+
+    const courses = [
+        "CS 381",
+        "CS 382",
+        "MATH 101",
+        "CS 201",
+        "PHYSICS 101"
+    ];
+
+    courses.forEach(course => {
+        const option = document.createElement("option");
+        option.value = course;
+        option.text = course;
+        courseSelect.appendChild(option);
+    });
+}
+
+// Init
+window.onload = function () {
+    loadCoursesIntoSelect();
+};
+
+// Handle submit (add / update)
 form.addEventListener("submit", function (e) {
     e.preventDefault();
 
@@ -16,22 +42,20 @@ form.addEventListener("submit", function (e) {
         priority: document.getElementById("priority").value
     };
 
-    if (editIndex === -1) {
+    if (editIndex === null) {
         tasks.push(task);
         showNotification("Task added successfully ✅");
     } else {
         tasks[editIndex] = task;
-        editIndex = -1;
-
-        showNotification("Task updated ✏️");
-
-        submitBtn.value = "Add Task";
+        showNotification("Task updated successfully ✏️");
+        editIndex = null;
     }
 
     displayTasks();
     form.reset();
 });
 
+// Render table
 function displayTasks() {
     table.innerHTML = "";
 
@@ -46,52 +70,55 @@ function displayTasks() {
             <td>${task.date}</td>
             <td>${task.priority}</td>
             <td>
-                <button class="edit">Edit</button>
-                <button class="delete">Delete</button>
+                <button onclick="editTask(${index})">Edit</button>
+                <button onclick="deleteTask(${index})">Delete</button>
             </td>
         `;
-
-        row.querySelector(".delete").addEventListener("click", function () {
-            tasks.splice(index, 1);
-            displayTasks();
-            showNotification("Task deleted 🗑️");
-        });
-
-        row.querySelector(".edit").addEventListener("click", function () {
-            document.getElementById("title").value = task.title;
-            document.getElementById("course").value = task.course;
-            document.getElementById("type").value = task.type;
-            document.getElementById("date").value = task.date;
-            document.getElementById("priority").value = task.priority;
-
-            editIndex = index;
-
-            submitBtn.value = "Update Task";
-        });
 
         table.appendChild(row);
     });
 }
 
-function showNotification(message) {
-    const note = document.createElement("div");
+// Delete task
+function deleteTask(index) {
+    tasks.splice(index, 1);
+    displayTasks();
+    showNotification("Task deleted 🗑️", "error");
+}
 
-    note.textContent = message;
+// Edit task
+function editTask(index) {
+    const task = tasks[index];
 
-    note.style.position = "fixed";
-    note.style.bottom = "20px";
-    note.style.right = "20px";
-    note.style.background = "#ec6f09";
-    note.style.color = "white";
-    note.style.padding = "12px 18px";
-    note.style.borderRadius = "10px";
-    note.style.boxShadow = "0 5px 15px rgba(0,0,0,0.3)";
-    note.style.zIndex = "999";
-    note.style.fontSize = "14px";
+    document.getElementById("title").value = task.title;
+    document.getElementById("course").value = task.course;
+    document.getElementById("type").value = task.type;
+    document.getElementById("date").value = task.date;
+    document.getElementById("priority").value = task.priority;
 
-    document.body.appendChild(note);
+    editIndex = index;
+}
+
+// Notification
+function showNotification(message, type = "success") {
+    const notification = document.createElement("div");
+    notification.textContent = message;
+
+    notification.style.cssText = `
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: ${type === "success" ? "#10b981" : "#ef4444"};
+        color: white;
+        padding: 12px 20px;
+        border-radius: 10px;
+        z-index: 1000;
+        font-weight: bold;
+    `;
+
+    document.body.appendChild(notification);
 
     setTimeout(() => {
-        note.remove();
-    }, 2000);
+        notification.remove();
+    }, 2500);
 }
