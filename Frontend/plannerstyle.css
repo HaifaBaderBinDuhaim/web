@@ -237,9 +237,12 @@
     border-radius: 20px;
     width: 90%;
     max-width: 460px;
+    max-height: 80vh;   
+    overflow-y: auto;  
     box-shadow: 0 12px 40px rgba(0,0,0,0.6);
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
+
 
 .close-btn {
     color: #9b9b9b;
