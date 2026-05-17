@@ -57,10 +57,14 @@ function getPriority() {
     return "Low";
   }
 }
-
 function saveCourses() {
   localStorage.setItem(storageKey, JSON.stringify(courses));
+  syncCoursesForPlanner(); //haifa updated the save course function to be able to save courses in planner
 }
+//here is the old one --
+/*function saveCourses() {
+  localStorage.setItem(storageKey, JSON.stringify(courses));
+}*/
 
 function displayCourses() {
   courseTableBody.innerHTML = "";
