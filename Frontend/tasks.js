@@ -75,6 +75,18 @@ function displayTasks() {
             </td>
         `;
 
+        // Checkbox behavior (UI only)
+        const checkbox = row.querySelector("input[type='checkbox']");
+        checkbox.addEventListener("change", function () {
+            if (this.checked) {
+                row.style.opacity = "0.5";
+                row.style.textDecoration = "line-through";
+            } else {
+                row.style.opacity = "1";
+                row.style.textDecoration = "none";
+            }
+        });
+
         table.appendChild(row);
     });
 }
