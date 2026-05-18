@@ -37,11 +37,13 @@ const timeSlots = [
 
 // مصفوفة الجلسات المرفقة
 let sessions = [];
-
 async function loadSessions() {
   try {
-    const response = await fetch("http://localhost:3000/studySchedule");
+    const response = await fetch("https://web-v942.onrender.com/studySchedule");
     sessions = await response.json();
+
+    console.log("Loaded sessions:", sessions);
+
     displayTable();
   } catch (error) {
     console.log(error);
@@ -49,6 +51,32 @@ async function loadSessions() {
 }
 
 loadSessions();
+
+async function updateSessionStatus(sessionId, status) {
+  try {
+    const response = await fetch(
+      `https://web-v942.onrender.com/studySchedule/${sessionId}/status`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ status }),
+      },
+    );
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      alert(data.message || "Error updating session");
+      return;
+    }
+
+    await loadSessions();
+  } catch (error) {
+    console.log(error);
+  }
+}
 
 // 1) جلب مواد الداشبورد تلقائياً
 function loadDashboardCourses() {
@@ -90,6 +118,42 @@ window.onclick = function (event) {
   }
 };
 
+function renderSessions(sessions) {
+  const sessionsList = document.getElementById("sessionsList");
+  sessionsList.innerHTML = "";
+
+  if (sessions.length === 0) {
+    sessionsList.innerHTML =
+      "<div class='session-item'>No study sessions available</div>";
+    return;
+  }
+
+  sessions.forEach((session) => {
+    const div = document.createElement("div");
+    div.className = "session-item";
+
+    div.innerHTML = `
+      <div class="session-info">
+        <div class="session-course">${session.course || "No course"}</div>
+        <div class="session-details">
+          📅 ${session.day || ""} | ⏰ ${session.startTime || ""} - ${session.endTime || ""}
+        </div>
+      </div>
+
+      <div class="session-actions">
+        <button class="btn-success" onclick="markSession('${session._id}', 'completed')">
+          ✓ Complete
+        </button>
+        <button class="btn-fail" onclick="markSession('${session._id}', 'missed')">
+          ✗ Missed
+        </button>
+      </div>
+    `;
+
+    sessionsList.appendChild(div);
+  });
+}
+
 // 3) حفظ الجلسات والتكرار
 sessionForm.onsubmit = async function (e) {
   e.preventDefault();
@@ -112,22 +176,28 @@ sessionForm.onsubmit = async function (e) {
       s._id === id ? { ...sessionData, _id: id } : s,
     );
   } else {
-    const response = await fetch("http://localhost:3000/studySchedule", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
+    const response = await fetch(
+      "https://web-v942.onrender.com/studySchedule",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(sessionData),
       },
-      body: JSON.stringify(sessionData),
-    });
+    );
 
     const result = await response.json();
 
+    console.log("Add session result:", result);
+
     sessionData._id = result.insertedId;
-    sessions.push(sessionData);
+
+    await loadSessions();
   }
 
   modal.style.display = "none";
-  displayTable();
+  await loadSessions();
 };
 
 // 4) وضع التعديل (عند الضغط على الجلسة داخل الجدول)
@@ -156,7 +226,7 @@ deleteBtn.onclick = async function () {
   const id = document.getElementById("sessionId").value;
 
   try {
-    await fetch(`http://localhost:3000/studySchedule/${id}`, {
+    await fetch(`https://web-v942.onrender.com/studySchedule/${id}`, {
       method: "DELETE",
     });
 
@@ -231,9 +301,33 @@ function displayTable() {
   });
 }
 
+// 7) إعادة جدولة الجلسات الفائتة تلقائيًا
+async function markAsMissed(sessionId) {
+  try {
+    await updateSessionStatus(sessionId, "missed");
+
+    alert("Session marked as missed");
+  } catch (error) {
+    console.log(error);
+    alert("Error updating session");
+  }
+}
+
+async function markAsCompleted(sessionId) {
+  try {
+    await updateSessionStatus(sessionId, "completed");
+
+    alert("Session marked as completed");
+  } catch (error) {
+    console.log(error);
+    alert("Error updating session");
+  }
+}
+
 // تشغيل الواجهة فور تحميل ملف الـ Window وتنشيط أيقونات Lucide للـ Sidebar
-window.onload = function () {
-  displayTable();
+window.onload = async function () {
+  await loadSessions();
+
   if (typeof lucide !== "undefined") {
     lucide.createIcons();
   }

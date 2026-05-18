@@ -2,14 +2,15 @@ let allSessions = [];
 
 async function loadStatistics() {
   const [coursesRes, tasksRes, sessionsRes] = await Promise.all([
-    fetch("http://localhost:3000/courses"),
-    fetch("http://localhost:3000/tasks"),
-    fetch("http://localhost:3000/studySchedule"),
+    fetch("https://web-v942.onrender.com/courses"),
+    fetch("https://web-v942.onrender.com/tasks"),
+    fetch("https://web-v942.onrender.com/studySchedule"),
   ]);
 
   const courses = await coursesRes.json();
   const tasks = await tasksRes.json();
   allSessions = await sessionsRes.json();
+  allSessions.reverse();
 
   const completed = allSessions.filter((s) => s.status === "completed");
   const missed = allSessions.filter((s) => s.status === "missed");
@@ -60,7 +61,7 @@ function renderSessions(sessions) {
     return;
   }
 
-  sessions.slice(0, 5).forEach((session) => {
+  sessions.forEach((session) => {
     const div = document.createElement("div");
     div.className = "session-item";
 
@@ -92,7 +93,7 @@ async function markSession(sessionId, status) {
     console.log("status:", status);
 
     const response = await fetch(
-      `http://localhost:3000/studySchedule/${sessionId}/status`,
+      `https://web-v942.onrender.com/studySchedule/${sessionId}/status`,
       {
         method: "PUT",
         headers: {
@@ -231,3 +232,4 @@ function renderCharts(courses, sessions) {
 }
 
 document.addEventListener("DOMContentLoaded", loadStatistics);
+window.addEventListener("focus", loadStatistics);

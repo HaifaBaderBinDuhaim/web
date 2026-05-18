@@ -138,14 +138,40 @@ app.put("/studySchedule/:id/status", async (req, res) => {
   try {
     const { status } = req.body;
 
-    const result = await db
+    const session = await db.collection("studySchedule").findOne({
+      _id: new ObjectId(req.params.id),
+    });
+
+    if (!session) {
+      return res.status(404).json({ message: "Session not found" });
+    }
+
+    await db
       .collection("studySchedule")
       .updateOne(
         { _id: new ObjectId(req.params.id) },
         { $set: { status: status } },
       );
 
-    res.json(result);
+    if (status === "missed") {
+      const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+      const currentIndex = days.indexOf(session.day);
+      const newDay = days[(currentIndex + 2) % 7];
+
+      const newSession = {
+        ...session,
+        _id: undefined,
+        day: newDay,
+        status: "pending",
+        title: session.title + " (Rescheduled)",
+      };
+
+      delete newSession._id;
+
+      await db.collection("studySchedule").insertOne(newSession);
+    }
+
+    res.json({ message: "Session updated successfully" });
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: "Error updating session status" });

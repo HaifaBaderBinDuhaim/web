@@ -41,15 +41,65 @@ function formatReminderDate(dateValue) {
 
 function markMissed(button) {
   const actions = button.closest(".session-actions");
+  const sessionBox = button.closest(".session-box");
+
   const completedBtn = actions.querySelector(".session-btn");
   const undoBtn = actions.querySelector(".undo-btn");
 
+  // current session title
+  const title = sessionBox.querySelector(".session-info strong").textContent;
+
+  const time = sessionBox.querySelector(".session-info p").textContent;
+
+  // current date
+  const today = new Date();
+
+  // add 2 days
+  today.setDate(today.getDate() + 2);
+
+  const futureDate = today.toLocaleDateString();
+
+  // mark current as missed
   button.dataset.selected = "true";
   button.textContent = "Missed";
 
   button.disabled = true;
   completedBtn.disabled = true;
   undoBtn.disabled = false;
+
+  // create new session automatically
+  const sessionsContainer = document.getElementById("sessionsContainer");
+
+  const newSession = document.createElement("div");
+
+  newSession.className = "session-box";
+
+  newSession.innerHTML = `
+    <div class="session-info">
+      <strong>${title} (Rescheduled)</strong>
+      <p>${futureDate} | ${time}</p>
+    </div>
+
+    <div class="session-actions">
+      <button class="session-btn"
+        onclick="markCompleted(this)">
+        Completed
+      </button>
+
+      <button class="missed-btn"
+       onclick="markMissed(${session.id})">
+        Missed
+      </button>
+
+      <button class="undo-btn"
+        onclick="undoSession(this)"
+        disabled>
+        Undo
+      </button>
+    </div>
+  `;
+
+  sessionsContainer.appendChild(newSession);
 
   updateRate();
 }
