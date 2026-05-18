@@ -1,4 +1,3 @@
-// ربط عناصر واجهة المستخدم بالبلانر
 const modal = document.getElementById("sessionModal");
 const generatePlanBtn = document.getElementById("generatePlanBtn");
 const closeBtn = document.querySelector(".close-btn");
@@ -6,7 +5,6 @@ const sessionForm = document.getElementById("sessionForm");
 const deleteBtn = document.getElementById("deleteBtn");
 const eventCourseSelect = document.getElementById("eventCourse");
 const timetableBody = document.getElementById("timetableBody");
-// تعريف الفترات الزمنية (يمكن تعديلها حسب الحاجة)
 const daysOrder = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 const timeSlots = [
   "08:00 AM",
@@ -34,8 +32,7 @@ const timeSlots = [
   "06:00 AM",
   "07:00 AM",
 ];
-
-// مصفوفة الجلسات المرفقة
+//load sessions to the table
 let sessions = [];
 async function loadSessions() {
   try {
@@ -51,7 +48,7 @@ async function loadSessions() {
 }
 
 loadSessions();
-
+//update session
 async function updateSessionStatus(sessionId, status) {
   try {
     const response = await fetch(
@@ -77,8 +74,7 @@ async function updateSessionStatus(sessionId, status) {
     console.log(error);
   }
 }
-
-// 1) جلب مواد الداشبورد تلقائياً
+//add course 
 function loadDashboardCourses() {
   eventCourseSelect.innerHTML = "";
   let dashboardCourses = JSON.parse(localStorage.getItem("courses")) || [];
@@ -98,8 +94,7 @@ function loadDashboardCourses() {
     });
   }
 }
-
-// 2) فتح المودال لإضافة جلسة
+//add session modal
 generatePlanBtn.onclick = function () {
   sessionForm.reset();
   document.getElementById("sessionId").value = "";
@@ -117,7 +112,7 @@ window.onclick = function (event) {
     modal.style.display = "none";
   }
 };
-
+//display 
 function renderSessions(sessions) {
   const sessionsList = document.getElementById("sessionsList");
   sessionsList.innerHTML = "";
@@ -154,7 +149,7 @@ function renderSessions(sessions) {
   });
 }
 
-// 3) حفظ الجلسات والتكرار
+//save sessions
 sessionForm.onsubmit = async function (e) {
   e.preventDefault();
   const id = document.getElementById("sessionId").value;
@@ -171,7 +166,7 @@ sessionForm.onsubmit = async function (e) {
   };
 
   if (id) {
-    // سنربط التعديل مع MongoDB لاحقًا
+//connect sessions with mongodb
     sessions = sessions.map((s) =>
       s._id === id ? { ...sessionData, _id: id } : s,
     );
@@ -200,7 +195,7 @@ sessionForm.onsubmit = async function (e) {
   await loadSessions();
 };
 
-// 4) وضع التعديل (عند الضغط على الجلسة داخل الجدول)
+//edit session
 function openEditModal(sessionId) {
   const session = sessions.find((s) => s._id === sessionId);
 
