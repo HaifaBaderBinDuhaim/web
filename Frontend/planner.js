@@ -216,7 +216,7 @@ function openEditModal(sessionId) {
   deleteBtn.style.display = "inline-block";
   modal.style.display = "block";
 }
-// 5) حذف الموعد
+//delete session
 deleteBtn.onclick = async function () {
   const id = document.getElementById("sessionId").value;
 
@@ -236,7 +236,7 @@ deleteBtn.onclick = async function () {
     alert("Error deleting session");
   }
 };
-// تحويل الوقت من 12 ساعة إلى 24 ساعة للمقارنة الصحيحة
+//convert time 
 function convertTo24(time12) {
   let [time, modifier] = time12.split(" ");
   let [hours, minutes] = time.split(":");
@@ -249,11 +249,11 @@ function convertTo24(time12) {
 function getClosestHour(time) {
   let [h, m] = time.split(":").map(Number);
 
-  // نرجع الساعة فقط بدون الدقائق
+//only hours no minutes
   return h.toString().padStart(2, "0") + ":00";
 }
 
-// 6) عرض الجدول وبنائه بالساعات والأيام
+//display table
 function displayTable() {
   timetableBody.innerHTML = "";
 
@@ -296,7 +296,7 @@ function displayTable() {
   });
 }
 
-// 7) إعادة جدولة الجلسات الفائتة تلقائيًا
+//reschedule
 async function markAsMissed(sessionId) {
   try {
     await updateSessionStatus(sessionId, "missed");
@@ -319,7 +319,7 @@ async function markAsCompleted(sessionId) {
   }
 }
 
-// تشغيل الواجهة فور تحميل ملف الـ Window وتنشيط أيقونات Lucide للـ Sidebar
+//load and activate lucide
 window.onload = async function () {
   await loadSessions();
 
